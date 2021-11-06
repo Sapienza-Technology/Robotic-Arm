@@ -21,22 +21,11 @@ robot = DHRobot([RevoluteMDH(d[0], a[0], alpha[0]),
 
 time = np.array(range(1,100, 5))
 
-#T1 = robot.fkine([pi/2, pi/3, -pi/2, 0, 0, 0])
-T2 = robot.fkine([-pi/2, pi/6, -pi/3, pi/4, 3, 3])
-
-'''
-transl(x, y, z)
-'''
 P1 = SE3(transl(0.5, 0.1, 0.3) * trotx(pi))
 P2 = SE3(transl(0.1, -0.5, -0.3))
-print(SE3(P2))
-print(T2)
 
-#[q_des_1, qd_des_1, qdd_des_1] = robot.jtraj(T1=T1, T2=T2, t=time)
 trajectory = robot.jtraj(T1=P1, T2=P2, t=time)
 print(robot.jtraj(T1=P1, T2=P2, t=time))
-
-#figure("Name", "animation")
 
 # trajectory.qd returns velocity
 # trajectory.qdd returns acceleration
