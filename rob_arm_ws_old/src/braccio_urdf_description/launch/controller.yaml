@@ -1,0 +1,32 @@
+# braccio_urdf_controller
+braccio_urdf:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  giunto1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: giunto1
+    pid: {p: 5.0, i: 0.01, d: 0.0}
+  giunto2_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: giunto2
+    pid: {p: 5.0, i: 0.01, d: 0.0}
+  giunto3_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: giunto3
+    pid: {p: 5.0, i: 0.01, d: 0.0}
+  giunto4_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: giunto4
+    pid: {p: 5.0, i: 0.01, d: 0.0}
+  giunto5_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: giunto5
+    pid: {p: 5.0, i: 0.01, d: 0.0}
+  giunto0_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: giunto0
+    pid: {p: 5.0, i: 0.01, d: 0.0}

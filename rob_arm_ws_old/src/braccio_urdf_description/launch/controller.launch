@@ -1,0 +1,9 @@
+<launch>
+
+<rosparam file="$(find braccio_urdf_description)/launch/controller.yaml" command="load"/>
+<node args="giunto1_position_controller giunto2_position_controller giunto3_position_controller giunto4_position_controller giunto5_position_controller giunto0_position_controller joint_state_controller " name="controller_spawner" ns="braccio_urdf" output="screen" pkg="controller_manager" respawn="false" type="spawner"/>
+<node name="robot_state_publisher" output="screen" pkg="robot_state_publisher" respawn="false" type="robot_state_publisher">
+  <remap from="/joint_states" to="/braccio_urdf/joint_states"/>
+</node>
+
+</launch>

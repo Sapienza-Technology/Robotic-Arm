@@ -1,0 +1,12 @@
+Symlinking /home/alessio/ROS/rob_arm_ws_old/devel/./setup.sh
+Symlinking /home/alessio/ROS/rob_arm_ws_old/devel/./setup.bash
+Symlinking /home/alessio/ROS/rob_arm_ws_old/devel/./cmake.lock
+Symlinking /home/alessio/ROS/rob_arm_ws_old/devel/./_setup_util.py
+Symlinking /home/alessio/ROS/rob_arm_ws_old/devel/./local_setup.zsh
+Symlinking /home/alessio/ROS/rob_arm_ws_old/devel/./setup.zsh
+Symlinking /home/alessio/ROS/rob_arm_ws_old/devel/./local_setup.bash
+Symlinking /home/alessio/ROS/rob_arm_ws_old/devel/./local_setup.sh
+Symlinking /home/alessio/ROS/rob_arm_ws_old/devel/./env.sh
+Symlinking /home/alessio/ROS/rob_arm_ws_old/devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig-version.cmake
+Symlinking /home/alessio/ROS/rob_arm_ws_old/devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig.cmake
+Symlinking /home/alessio/ROS/rob_arm_ws_old/devel/lib/pkgconfig/catkin_tools_prebuild.pc
