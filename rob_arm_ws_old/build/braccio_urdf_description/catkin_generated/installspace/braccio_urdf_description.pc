@@ -1,4 +1,4 @@
-prefix=/home/alessio/ROS/rob_arm_ws_old/install
+prefix=/home/alessio/ROS/Robotic-Arm/rob_arm_ws_old/install
 
 Name: braccio_urdf_description
 Description: Description of braccio_urdf_description

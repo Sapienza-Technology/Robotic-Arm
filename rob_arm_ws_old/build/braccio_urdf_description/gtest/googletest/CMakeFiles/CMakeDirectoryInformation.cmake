@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 set(CMAKE_RELATIVE_PATH_TOP_SOURCE "/usr/src/googletest")
-set(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/alessio/ROS/rob_arm_ws_old/build/braccio_urdf_description")
+set(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/alessio/ROS/Robotic-Arm/rob_arm_ws_old/build/braccio_urdf_description")
 
 # Force unix paths in dependencies.
 set(CMAKE_FORCE_UNIX_PATHS 1)
