@@ -1,5 +1,0 @@
-braccio_urdf_description
-/home/alessio/ROS/Robotic-Arm/rob_arm_ws_old/devel/.private/braccio_urdf_description/cmake.lock /home/alessio/ROS/Robotic-Arm/rob_arm_ws_old/devel/./cmake.lock
-/home/alessio/ROS/Robotic-Arm/rob_arm_ws_old/devel/.private/braccio_urdf_description/share/braccio_urdf_description/cmake/braccio_urdf_descriptionConfig-version.cmake /home/alessio/ROS/Robotic-Arm/rob_arm_ws_old/devel/share/braccio_urdf_description/cmake/braccio_urdf_descriptionConfig-version.cmake
-/home/alessio/ROS/Robotic-Arm/rob_arm_ws_old/devel/.private/braccio_urdf_description/share/braccio_urdf_description/cmake/braccio_urdf_descriptionConfig.cmake /home/alessio/ROS/Robotic-Arm/rob_arm_ws_old/devel/share/braccio_urdf_description/cmake/braccio_urdf_descriptionConfig.cmake
-/home/alessio/ROS/Robotic-Arm/rob_arm_ws_old/devel/.private/braccio_urdf_description/lib/pkgconfig/braccio_urdf_description.pc /home/alessio/ROS/Robotic-Arm/rob_arm_ws_old/devel/lib/pkgconfig/braccio_urdf_description.pc

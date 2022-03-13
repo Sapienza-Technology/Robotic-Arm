@@ -1,6 +1,0 @@
-devel_space: /home/alessio/ROS/Robotic-Arm/rob_arm_ws_old/devel
-install: false
-install_space: /home/alessio/ROS/Robotic-Arm/rob_arm_ws_old/install
-profile: default
-source_space: /home/alessio/ROS/Robotic-Arm/rob_arm_ws_old/src
-workspace: /home/alessio/ROS/Robotic-Arm/rob_arm_ws_old
