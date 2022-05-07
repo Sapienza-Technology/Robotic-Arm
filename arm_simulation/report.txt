@@ -1,0 +1,30 @@
+- tentativo ti autotunare il parametri pid senza successo, risolto mettendo numeri casuali
+- aggiornamento del programmino per comandare il braccio da tastiera
+
+26/03
+- definito la catena di nodi e topic che definisce come il joystick comunica con il braccio
+- ci siamo accorti che il controllore pid che usavamo restituisce un effort, mentre a noi serve una posizione, e che non capiamo come usarlo senza gazebo
+- tentato di implementare un controllore pid senza successo
+- iniziato a definire il nostro controllore pid
+
+02/04
+- confronto con team elettronica su scelta di comandi ai motori
+- calcolo di valori ottimi del pid con IMC design
+- inizio implementazione di pid con package simple-pid in file PID.py
+
+23/04
+- trovati valori per PID con Simulink e il modello del braccio
+- cercato di cambiare i controllori da effortController a JointTrajectoryController, ci sono ancora degli errori
+File modificati:
+- braccio_urdf.trans
+- controller.launch
+- controller_edit.yaml
+
+30/04
+- cambiato definitivamente i controllori in JointTrajectory controller, ora si può inviare una traiettoria ai controllori
+- testati i valori PID e confermiamo che sono corretti
+- trovato un file (mmc.py) di Peter Corke che dovrebbe calcolare la traiettoria con limiti
+
+07/05
+- cercato di implementare la hardware interface
+- inizio programma per calcolo di traiettoria con vincoli con algoritmo iterativo

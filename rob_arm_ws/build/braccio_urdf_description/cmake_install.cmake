@@ -129,7 +129,43 @@ file(INSTALL DESTINATION "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/install" TYPE
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/braccio_urdf_description/msg" TYPE FILE FILES "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/msg/Float6Array.msg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/braccio_urdf_description/cmake" TYPE FILE FILES "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/build/braccio_urdf_description/catkin_generated/installspace/braccio_urdf_description-msg-paths.cmake")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/braccio_urdf_description/include/braccio_urdf_description")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/braccio_urdf_description/share/roseus/ros/braccio_urdf_description")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/braccio_urdf_description/share/common-lisp/ros/braccio_urdf_description")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/braccio_urdf_description/share/gennodejs/ros/braccio_urdf_description")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/braccio_urdf_description/lib/python3/dist-packages/braccio_urdf_description")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/braccio_urdf_description/lib/python3/dist-packages/braccio_urdf_description")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/build/braccio_urdf_description/catkin_generated/installspace/braccio_urdf_description.pc")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/braccio_urdf_description/cmake" TYPE FILE FILES "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/build/braccio_urdf_description/catkin_generated/installspace/braccio_urdf_description-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -144,7 +180,11 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/braccio_urdf_description" TYPE PROGRAM FILES "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/robot_arm_script.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/braccio_urdf_description" TYPE PROGRAM FILES
+    "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/robot_arm_script.py"
+    "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/PID.py"
+    "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/target_sender.py"
+    )
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)

@@ -29,7 +29,7 @@ def talker():
         pub0.publish(0)      
         rospy.loginfo(position)
         pub1.publish(position)
-        pub2.publish(0)
+        #pub2.publish(0)
                 
         position += delta
 

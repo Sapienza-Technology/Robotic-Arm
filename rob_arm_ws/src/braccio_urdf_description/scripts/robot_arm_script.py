@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # license removed for brevity
+from copy import copy
 import rospy
 import roboticstoolbox as rbt
 from std_msgs.msg import String, Float64
@@ -15,56 +16,51 @@ def talker():
     pub3 = rospy.Publisher('/braccio_urdf/giunto3_position_controller/command', Float64, queue_size=10)
     pub4 = rospy.Publisher('/braccio_urdf/giunto4_position_controller/command', Float64, queue_size=10)
     pub5 = rospy.Publisher('/braccio_urdf/giunto5_position_controller/command', Float64, queue_size=10)
+    pubs = [pub0, pub1, pub2, pub3, pub4, pub5]
     rospy.init_node('robot_arm_script', anonymous=True)
-    rate = rospy.Rate(1)
-    position = 0.0
-    
-    
-    # valori DH calcolati a mano
-    
-    a = [0.0547, 0.4009, 0, 0, 0, 0]
-    d = [0.051, 0, 0, 0.3419, 0, 0.1775]
-    alpha = [-pi/2, 0, -pi/2, -pi/2, pi/2, -pi/2]
-
-    robot = DHRobot([RevoluteMDH(d[0], a[0], alpha[0]),
-        RevoluteMDH(d[1], a[1], alpha[1]),
-        RevoluteMDH(d[2], a[2], alpha[2]),
-        RevoluteMDH(d[3], a[3], alpha[3]),
-        RevoluteMDH(d[4], a[4], alpha[4]),
-        RevoluteMDH(d[5], a[5], alpha[5])],
-    name='6R')
-    
-    
-    #robot = ERobot.URDF("/home/alessio/ROS/rob_arm_ws_old/src/braccio_urdf_description/urdf/braccio_urdf_edit.xacro")
-    #P = SE3([0.8555, -0.005, 0.04886])
+    hz = 100
+    rate = rospy.Rate(hz)
+        
+    robot = ERobot.URDF("/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/urdf/braccio_urdf_edit.xacro")
     
     # posizione non raggiungibile senza errore
-    P = SE3([0.5, 0.5, 0.5])
+    P = SE3([0.2, 0, 0.8])
     
-    sol = robot.ikine_LM(P)
+    sol = robot.ikine_min(P)
     print(sol)
     arr = sol.q
-    
-    # plottare il robot per vedere che DH table è sbagliata 
-    
-    DHRobot.plot(robot, [0, 0, -pi/2, pi/2, pi/2, 0], block=True)
+    coeff = 0
+    duration = 5
+
+    for i in range(len(pubs)):
+        rospy.loginfo(arr[i])
+        pubs[i].publish(arr[i])
+
     '''
-    while not rospy.is_shutdown():
-        rospy.loginfo(arr[0])
-        pub0.publish(arr[0])
-        rospy.loginfo(arr[1])
-        pub1.publish(arr[1])
-        rospy.loginfo(arr[2])
-        pub2.publish(arr[2])
-        rospy.loginfo(arr[3])
-        pub3.publish(arr[3])
-        rospy.loginfo(arr[4])
-        pub4.publish(arr[4])
-        rospy.loginfo(arr[5])
-        pub5.publish(arr[5])
+    while not rospy.is_shutdown() and coeff < 1:
+        for i in range(6):
+            rospy.loginfo(arr[i]*coeff)
+            pubs[i].publish(arr[i]*coeff)
+            print(coeff)
+        '''
+    '''
+        #rospy.loginfo(position[0])
+        pub0.publish(position[0]*coeff)
+        #rospy.loginfo(position[1])
+        pub1.publish(position[1]*coeff)
+        #rospy.loginfo(position[2])
+        pub2.publish(position[2]*coeff)
+        #rospy.loginfo(position[3])
+        pub3.publish(position[3]*coeff)
+        #rospy.loginfo(position[4])
+        pub4.publish(position[4]*coeff)
+        #rospy.loginfo(position[5])
+        pub5.publish(position[5]*coeff)
+    '''
+
+        #coeff += duration/hz
         
-        rate.sleep()
-    '''
+    rate.sleep()
 
 if __name__ == '__main__':
     try:
