@@ -8,9 +8,13 @@ project(braccio_urdf_description)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  roscpp
   rospy
   std_msgs
   message_generation
+  hardware_interface
+  controller_manager
+  tf
 )
 
 ## System dependencies are found with CMake's conventions
@@ -104,7 +108,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES fusion2urdf
-  CATKIN_DEPENDS rospy message_runtime
+  CATKIN_DEPENDS roscpp rospy message_runtime
 #  DEPENDS system_lib
 )
 
@@ -115,7 +119,8 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  #include
+  hardware_interface/src
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -162,6 +167,21 @@ install(PROGRAMS
 	scripts/robot_arm_script.py
   scripts/PID.py
   scripts/target_sender.py
+  scripts/arm_functions.py
+  scripts/getch.py
+  scripts/ikine.py
+  scripts/interactive_send_goal.py
+  scripts/pid_test.py
+  scripts/ramp.py
+  scripts/robot_arm_script.py
+  scripts/send_goal.py
+  scripts/image_sender.py
+  scripts/send_trajectory_final.py
+  scripts/sasa_functions.py
+  scripts/traj_genv6.py
+  scripts/trajectory.py
+  scripts/stupid_trajectory.py
+  scripts/interactive_stupid_trajectory.py
 	DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
@@ -198,3 +218,35 @@ install(PROGRAMS
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+
+
+# *************** APPUNTI **************
+
+# Fare questo per compilare file cpp
+#add_executable(braccio_urdf_description
+#  scripts/test.cpp
+#)
+#target_link_libraries(braccio_urdf_description ${catkin_LIBRARIES})
+
+# La seguente istruzione crea un unico file eseguibile chiamato braccio_urdf_description
+#find_package(PkgConfig REQUIRED)
+#pkg_check_modules( mylib REQUIRED mylib )
+
+#add_library(mylib hardware_interface/src/new_hardware_interface.cpp)
+
+add_executable(${PROJECT_NAME}_exe
+  hardware_interface/new_hardware_interface_node.cpp
+)
+
+add_executable(publisher_test_exe 
+  hardware_interface/publisher_test.cpp
+)
+
+add_executable(subscriber_test_exe 
+  hardware_interface/subscriber_test.cpp
+)
+
+target_link_libraries(publisher_test_exe ${catkin_LIBRARIES})
+target_link_libraries(subscriber_test_exe ${catkin_LIBRARIES})
+target_link_libraries(${PROJECT_NAME}_exe ${catkin_LIBRARIES})

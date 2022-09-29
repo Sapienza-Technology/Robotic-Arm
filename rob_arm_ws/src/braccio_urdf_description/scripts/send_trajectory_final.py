@@ -8,10 +8,11 @@ from roboticstoolbox import ERobot
 from spatialmath import SE3
 from spatialmath.base import transl
 
+from traj_genv6 import *
+
 def trajectory_action_test():
 
     print('test with inverse kinematics')
-    xacro = ERobot.URDF("/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/urdf/braccio_urdf_edit.xacro")
 
     '''
     P0 = SE3(transl(0.3, 0, 0.2))
@@ -37,10 +38,16 @@ def trajectory_action_test():
          SE3(transl(0.42, 0.04, 0.33)), SE3(transl(0.45, 0.04, 0.33)), SE3(transl(0.42, 0.04, 0.33)),   #third point
          SE3(transl(0.3, 0, 0.2))]  #final position = start
 
-    for pos in p:
+    """     for pos in p:
         arm_goal_arr.append(xacro.ikine_min(pos).q)
+    """
+    T = premade_traj("prova", 100, np.zeros(6))
 
+    print(T)
+    print(T[0].q)
     print(arm_goal_arr)
+
+    arm_goal_arr = T[0].q
 
 
     arm_joint_names = ['giunto0', 'giunto1', 'giunto2', 'giunto3', 'giunto4', 'giunto5']

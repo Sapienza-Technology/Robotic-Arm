@@ -1,0 +1,10 @@
+braccio_urdf:
+	hardware_interface:
+		loop_hz: 10 #hz
+		joints:
+			- giunto0
+			- giunto1
+			- giunto2
+			- giunto3
+			- giunto4
+			- giunto5
