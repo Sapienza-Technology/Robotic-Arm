@@ -184,6 +184,21 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/robot_arm_script.py"
     "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/PID.py"
     "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/target_sender.py"
+    "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/arm_functions.py"
+    "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/getch.py"
+    "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/ikine.py"
+    "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/interactive_send_goal.py"
+    "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/pid_test.py"
+    "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/ramp.py"
+    "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/robot_arm_script.py"
+    "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/send_goal.py"
+    "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/image_sender.py"
+    "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/send_trajectory_final.py"
+    "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/sasa_functions.py"
+    "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/traj_genv6.py"
+    "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/trajectory.py"
+    "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/stupid_trajectory.py"
+    "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/interactive_stupid_trajectory.py"
     )
 endif()
 

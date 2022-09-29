@@ -1,0 +1,27 @@
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface.cpp:[m[K In member function ‘[01m[Kvoid ERA::MyRobot::update(const ros::TimerEvent&)[m[K’:
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface.cpp:48:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kcontroller_manager[m[K’ was not declared in this scope
+   48 |                 [01;31m[Kcontroller_manager[m[K.update(this.get_time(), this.get_period());
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface.cpp:48:48:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kget_time[m[K’ in ‘[01m[K(ERA::MyRobot*)this[m[K’, which is of pointer type ‘[01m[KERA::MyRobot*[m[K’ (maybe you meant to use ‘[01m[K->[m[K’ ?)
+   48 |                 controller_manager.update(this.[01;31m[Kget_time[m[K(), this.get_period());
+      |                                                [01;31m[K^~~~~~~~[m[K
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface.cpp:48:65:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kget_period[m[K’ in ‘[01m[K(ERA::MyRobot*)this[m[K’, which is of pointer type ‘[01m[KERA::MyRobot*[m[K’ (maybe you meant to use ‘[01m[K->[m[K’ ?)
+   48 |                 controller_manager.update(this.get_time(), this.[01;31m[Kget_period[m[K());
+      |                                                                 [01;31m[K^~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/launch_hardware_interface.dir/build.make:63: CMakeFiles/launch_hardware_interface.dir/hardware_interface/src/new_hardware_interface.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+In file included from [01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:6[m[K:
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/../include/new_hardware_interface.h:7:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K{[m[K’ before ‘[01m[Kclass[m[K’
+    7 | [01;31m[Kclass[m[K MyRobot : public hardware_interface::RobotHW {
+      | [01;31m[K^~~~~[m[K
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/../include/new_hardware_interface.h:22:2:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ after class definition
+   22 | }
+      |  [01;31m[K^[m[K
+      |  [32m[K;[m[K
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:20:5:[m[K [01;31m[Kerror: [m[K‘[01m[Knon_realtime_loop_[m[K’ was not declared in this scope
+   20 |     [01;31m[Knon_realtime_loop_[m[K = nh.createTimer(update_freq, &MyRobot::update, &robot);
+      |     [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/launch_hardware_interface.dir/build.make:76: CMakeFiles/launch_hardware_interface.dir/hardware_interface/src/new_hardware_interface_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:439: CMakeFiles/launch_hardware_interface.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

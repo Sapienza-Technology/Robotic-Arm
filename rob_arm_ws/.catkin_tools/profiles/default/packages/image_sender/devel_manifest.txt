@@ -1,0 +1,7 @@
+image_sender
+/home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/image_sender/cmake.lock /home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/./cmake.lock
+/home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/image_sender/share/image_sender/cmake/image_senderConfig.cmake /home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/share/image_sender/cmake/image_senderConfig.cmake
+/home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/image_sender/share/image_sender/cmake/image_senderConfig-version.cmake /home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/share/image_sender/cmake/image_senderConfig-version.cmake
+/home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/image_sender/lib/pkgconfig/image_sender.pc /home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/lib/pkgconfig/image_sender.pc
+/home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/image_sender/lib/image_sender/image_publisher_2_exe /home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/lib/image_sender/image_publisher_2_exe
+/home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/image_sender/lib/image_sender/image_publisher_exe /home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/lib/image_sender/image_publisher_exe

@@ -1,0 +1,23 @@
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface.cpp:8:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K{[m[K’ before ‘[01m[Kclass[m[K’
+    8 | [01;31m[Kclass[m[K MyRobot : public hardware_interface::RobotHW {
+      | [01;31m[K^~~~~[m[K
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface.cpp:[m[K In constructor ‘[01m[KMyRobot::MyRobot()[m[K’:
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface.cpp:16:67:[m[K [01;31m[Kerror: [m[K‘[01m[Kjoints[m[K’ was not declared in this scope
+   16 |                 hardware_interface::JointStateHandle state_handle([01;31m[Kjoints[m[K[i], &pos[i], &vel[i], &eff[i]);
+      |                                                                   [01;31m[K^~~~~~[m[K
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface.cpp:[m[K In member function ‘[01m[Kvoid MyRobot::update(const ros::TimerEvent&)[m[K’:
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface.cpp:40:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kelapsed_time_[m[K’ was not declared in this scope
+   40 |             [01;31m[Kelapsed_time_[m[K = ros::Duration(e.current_real - e.last_real);
+      |             [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface.cpp:43:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kcontroller_manager[m[K’ was not declared in this scope
+   43 |             [01;31m[Kcontroller_manager[m[K.update(ros::Time::now(), elapsed_time_);
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:6:10:[m[K [01;31m[Kfatal error: [m[Knew_hardware_interface/new_hardware_interface.h: No such file or directory
+    6 | #include [01;31m[K<new_hardware_interface/new_hardware_interface.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/braccio_urdf_description.dir/build.make:76: CMakeFiles/braccio_urdf_description.dir/hardware_interface/src/new_hardware_interface_node.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/braccio_urdf_description.dir/build.make:63: CMakeFiles/braccio_urdf_description.dir/hardware_interface/src/new_hardware_interface.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:659: CMakeFiles/braccio_urdf_description.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

@@ -1,0 +1,11 @@
+/usr/bin/ld: CMakeFiles/launch_hardware_interface.dir/hardware_interface/src/new_hardware_interface_node.cpp.o: in function `main':
+new_hardware_interface_node.cpp:(.text+0x17b): undefined reference to `ERA::MyRobot::MyRobot()'
+/usr/bin/ld: new_hardware_interface_node.cpp:(.text+0x19b): undefined reference to `controller_manager::ControllerManager::ControllerManager(hardware_interface::RobotHW*, ros::NodeHandle const&)'
+/usr/bin/ld: new_hardware_interface_node.cpp:(.text+0x1b4): undefined reference to `ERA::MyRobot::setControlManager(controller_manager::ControllerManager*)'
+/usr/bin/ld: new_hardware_interface_node.cpp:(.text+0x1d6): undefined reference to `ERA::MyRobot::update(ros::TimerEvent const&)'
+/usr/bin/ld: CMakeFiles/launch_hardware_interface.dir/hardware_interface/src/new_hardware_interface_node.cpp.o: in function `controller_manager::ControllerManager::~ControllerManager()':
+new_hardware_interface_node.cpp:(.text._ZN18controller_manager17ControllerManagerD2Ev[_ZN18controller_manager17ControllerManagerD5Ev]+0x14): undefined reference to `vtable for controller_manager::ControllerManager'
+collect2: error: ld returned 1 exit status
+make[2]: *** [CMakeFiles/launch_hardware_interface.dir/build.make:116: /home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/braccio_urdf_description/lib/braccio_urdf_description/launch_hardware_interface] Error 1
+make[1]: *** [CMakeFiles/Makefile2:439: CMakeFiles/launch_hardware_interface.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

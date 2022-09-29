@@ -1,0 +1,15 @@
+[ 15%] Built target subscriber_test_exe
+[ 30%] Built target publisher_test_exe
+[ 46%] Built target braccio_urdf_description_exe
+[ 46%] Built target std_msgs_generate_messages_cpp
+[ 46%] Built target _braccio_urdf_description_generate_messages_check_deps_Float6Array
+[ 46%] Built target std_msgs_generate_messages_py
+[ 46%] Built target std_msgs_generate_messages_nodejs
+[ 46%] Built target std_msgs_generate_messages_lisp
+[ 53%] Built target braccio_urdf_description_generate_messages_cpp
+[ 53%] Built target std_msgs_generate_messages_eus
+[ 69%] Built target braccio_urdf_description_generate_messages_py
+[ 76%] Built target braccio_urdf_description_generate_messages_nodejs
+[ 84%] Built target braccio_urdf_description_generate_messages_lisp
+[100%] Built target braccio_urdf_description_generate_messages_eus
+[100%] Built target braccio_urdf_description_generate_messages

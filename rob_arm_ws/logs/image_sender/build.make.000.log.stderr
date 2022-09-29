@@ -1,0 +1,6 @@
+/usr/bin/ld: /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o: in function `_start':
+(.text+0x24): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+make[2]: *** [CMakeFiles/image_publisher_exe.dir/build.make:160: /home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/image_sender/lib/image_sender/image_publisher_exe] Error 1
+make[1]: *** [CMakeFiles/Makefile2:786: CMakeFiles/image_publisher_exe.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

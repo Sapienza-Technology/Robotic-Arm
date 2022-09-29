@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/braccio3_urdf_description/setup.sh

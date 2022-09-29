@@ -1,0 +1,760 @@
+2022-06-25 12:23:54 Using browser-only version of superagent in non-browser environment
+2022-06-25 12:23:54 Configuring to accept webviews on '^.+\.webview\..+$' hostname.
+2022-06-25 12:23:54 root INFO Configuration directory URI: 'file:///home/alessio/.theia'
+2022-06-25 12:23:54 root INFO Theia app listening on http://localhost:45311.
+2022-06-25 12:23:54 root WARN The local plugin referenced by local-dir:/home/alessio/.arduinoIDE/plugins does not exist.
+2022-06-25 12:23:54 root WARN The local plugin referenced by local-dir:/home/alessio/.arduinoIDE/extensions does not exist.
+2022-06-25 12:23:54 root WARN The local plugin referenced by local-dir:/home/alessio/.arduinoProIDE/plugins does not exist.
+2022-06-25 12:23:54 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:23:54 root INFO Resolved "cortex-debug" to a VS Code extension "cortex-debug@0.3.10" with engines:
+2022-06-25 12:23:54 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:23:54 root INFO Resolved "vscode-arduino-tools" to a VS Code extension "vscode-arduino-tools@0.0.2-beta.2" with engines:
+2022-06-25 12:23:54 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:23:54 root INFO Resolved "vscode-builtin-cpp" to a VS Code extension "cpp@1.52.1" with engines:
+2022-06-25 12:23:54 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:23:54 root INFO Resolved "vscode-builtin-json" to a VS Code extension "json@1.46.1" with engines:
+2022-06-25 12:23:54 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:23:54 root INFO Resolved "vscode-builtin-json-language-features" to a VS Code extension "json-language-features@1.46.1" with engines:
+2022-06-25 12:23:54 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:23:54 root INFO Resolved "vscode-language-pack-de" to a VS Code extension "vscode-language-pack-de@1.53.2" with engines:
+2022-06-25 12:23:54 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:23:54 root INFO Resolved "vscode-language-pack-fr" to a VS Code extension "vscode-language-pack-fr@1.53.2" with engines:
+2022-06-25 12:23:54 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:23:54 root INFO Resolved "vscode-language-pack-ja" to a VS Code extension "vscode-language-pack-ja@1.53.2" with engines:
+2022-06-25 12:23:54 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:23:54 root INFO Resolved "vscode-language-pack-nl" to a VS Code extension "vscode-language-pack-nl@1.48.3" with engines:
+2022-06-25 12:23:54 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:23:54 root INFO Resolved "vscode-language-pack-tr" to a VS Code extension "vscode-language-pack-tr@1.53.2" with engines:
+2022-06-25 12:23:54 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:23:54 root INFO Resolved "vscode-language-pack-zh-hans" to a VS Code extension "vscode-language-pack-zh-hans@1.53.2" with engines:
+2022-06-25 12:23:54 root INFO Deploying backend plugin "cortex-debug@0.3.10" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/cortex-debug/extension/dist/extension"
+2022-06-25 12:23:54 root INFO Deploying backend plugin "vscode-arduino-tools@0.0.2-beta.2" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-arduino-tools/extension/dist/bundle"
+2022-06-25 12:23:54 root INFO Deploying backend plugin "cpp@1.52.1" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-builtin-cpp/extension"
+2022-06-25 12:23:54 root INFO Deploying backend plugin "json@1.46.1" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-builtin-json/extension"
+2022-06-25 12:23:54 root INFO Deploying backend plugin "json-language-features@1.46.1" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-builtin-json-language-features/extension/client/dist/jsonMain"
+2022-06-25 12:23:54 root INFO Deploying backend plugin "vscode-language-pack-de@1.53.2" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-language-pack-de/extension"
+2022-06-25 12:23:54 root INFO Deploying backend plugin "vscode-language-pack-fr@1.53.2" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-language-pack-fr/extension"
+2022-06-25 12:23:54 daemon INFO Starting daemon from /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/arduino-ide-extension/build/arduino-cli...
+2022-06-25 12:23:54 root WARN Backend ConfigServiceImpl.onStart is slow, took: 158.5 ms
+2022-06-25 12:23:54 root INFO Deploying backend plugin "vscode-language-pack-ja@1.53.2" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-language-pack-ja/extension"
+2022-06-25 12:23:54 daemon INFO Using config file: /home/alessio/.arduinoIDE/arduino-cli.yaml
+2022-06-25 12:23:54 daemon INFO arduino-cli version 0.21.0
+2022-06-25 12:23:54 daemon INFO Executing `arduino-cli daemon`
+2022-06-25 12:23:54 daemon INFO Setting up Prometheus metrics on :9090/metrics
+2022-06-25 12:23:54 daemon INFO {"IP":"127.0.0.1","Port":"33545"}
+2022-06-25 12:23:54 daemon ERROR listen tcp :9090: bind: address already in use
+2022-06-25 12:23:54 daemon INFO Daemon is running.
+2022-06-25 12:23:54 root WARN Backend AuthenticationServiceImpl.onStart is slow, took: 92.9 ms
+2022-06-25 12:23:54 root INFO Deploying backend plugin "vscode-language-pack-nl@1.48.3" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-language-pack-nl/extension"
+2022-06-25 12:23:54 root INFO Deploying backend plugin "vscode-language-pack-tr@1.53.2" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-language-pack-tr/extension"
+2022-06-25 12:23:54 root INFO Deploying backend plugin "vscode-language-pack-zh-hans@1.53.2" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-language-pack-zh-hans/extension"
+2022-06-25 12:23:54 root INFO Deploy plugins list took: 493.6 ms
+2022-06-25 12:23:56 daemon INFO Checking if CLI is Bundled into the IDE
+2022-06-25 12:23:56 daemon INFO Adding libraries dir [dir: /home/alessio/Arduino/libraries, location: user]
+2022-06-25 12:23:56 daemon INFO URL: https://downloads.arduino.cc/packages/package_index.json
+2022-06-25 12:23:56 daemon INFO Updating index [url: https://downloads.arduino.cc/packages/package_index.json]
+2022-06-25 12:23:56 root INFO Git askpass helper is listening on http://127.0.0.1:42787.
+2022-06-25 12:23:56 root INFO Using Git [2.25.1] from the PATH. (/usr/bin/git)
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/body-parser
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/cookie
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/dompurify
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/express
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/fs-extra
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/lodash.debounce
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/lodash.throttle
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/markdown-it
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/react
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/react-dom
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/react-virtualized
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/route-parser
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/safer-buffer
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/ws
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/yargs
+2022-06-25 12:23:56 root WARN Failed to resolve module: @theia/monaco
+2022-06-25 12:23:56 root WARN Failed to resolve module: @theia/editor
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/multer
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/rimraf
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/tar-fs
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/uuid
+2022-06-25 12:23:56 root WARN Failed to resolve module: @theia/navigator
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/p-queue
+2022-06-25 12:23:56 root WARN Failed to resolve module: @theia/preferences
+2022-06-25 12:23:56 root WARN Failed to resolve module: @theia/editor-preview
+2022-06-25 12:23:56 root WARN Failed to resolve module: @theia/keymaps
+2022-06-25 12:23:56 root WARN Failed to resolve module: @theia/messages
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/diff
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/mime
+2022-06-25 12:23:56 root WARN Failed to resolve module: filenamify
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/request
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/atob
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/auth0-js
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/btoa
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/dateformat
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/deepmerge
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/glob
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/google-protobuf
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/js-yaml
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/keytar
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/ncp
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/node-fetch
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/ps-tree
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/react-select
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/react-tabs
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/temp
+2022-06-25 12:23:56 root WARN Failed to resolve module: @types/which
+2022-06-25 12:23:56 root WARN Frontend s.configure is slow, took: 237.4 ms
+2022-06-25 12:23:56 root INFO Updating index: package_index.json completed.
+2022-06-25 12:23:56 root WARN Frontend keybindings.onStart is slow, took: 186.1 ms
+2022-06-25 12:23:56 root INFO Updating index: package_index.json.sig completed.
+2022-06-25 12:23:56 daemon INFO Checking signature [error: opening signature file: open /tmp/671306778.sig: no such file or directory, index: /tmp/671306778, signaturefile: /tmp/671306778.sig]
+2022-06-25 12:23:56 daemon INFO Updating libraries index
+2022-06-25 12:23:57 root INFO Updating index: library_index.json.gz completed.
+2022-06-25 12:23:57 root INFO Updating index: library_index.json.sig completed.
+2022-06-25 12:23:58 root ERROR d.registerSchemas is taking more than 500.0 ms, new schemas are ignored.
+2022-06-25 12:23:58 daemon INFO Checking signature [index: /home/alessio/.arduino15/package_index.json, signaturefile: /home/alessio/.arduino15/package_index.json.sig, trusted: true]
+2022-06-25 12:23:58 daemon INFO Loading hardware from: /home/alessio/.arduino15/packages
+2022-06-25 12:23:58 daemon INFO Loading package arduino from: /home/alessio/.arduino15/packages/arduino/hardware
+2022-06-25 12:23:58 daemon INFO Checking signature [error: opening signature file: open /home/alessio/.arduino15/packages/arduino/hardware/avr/1.8.5/installed.json.sig: no such file or directory, index: /home/alessio/.arduino15/packages/arduino/hardware/avr/1.8.5/installed.json, signaturefile: /home/alessio/.arduino15/packages/arduino/hardware/avr/1.8.5/installed.json.sig]
+2022-06-25 12:23:58 daemon INFO Adding monitor tool [protocol: serial, tool: builtin:serial-monitor]
+2022-06-25 12:23:58 daemon INFO Loaded platform [platform: {ID:"arduino:avr",Installed:"1.8.5",Latest:"1.8.5",Name:"Arduino AVR Boards"}]
+2022-06-25 12:23:58 daemon INFO Checking existence of 'tools' path: /home/alessio/.arduino15/packages/arduino/tools
+2022-06-25 12:23:58 daemon INFO Loading tools from dir: /home/alessio/.arduino15/packages/arduino/tools
+2022-06-25 12:23:58 daemon INFO Loaded tool [tool: Version: 1.3.0 Systems: [OS: i686-linux-gnu, OS: x86_64-linux-gnu, OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: i386-apple-darwin11, OS: i686-mingw32]]
+2022-06-25 12:23:58 daemon INFO Loaded tool [tool: Version: 7.3.0-atmel3.6.1-arduino7 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: x86_64-apple-darwin14, OS: i686-mingw32, OS: i686-linux-gnu, OS: x86_64-linux-gnu]]
+2022-06-25 12:23:58 daemon INFO Loaded tool [tool: Version: 6.3.0-arduino17 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: x86_64-apple-darwin12, OS: x86_64-linux-gnu, OS: i686-linux-gnu, OS: i686-mingw32]]
+2022-06-25 12:23:58 daemon INFO Loading package builtin from: /home/alessio/.arduino15/packages/builtin
+2022-06-25 12:23:58 daemon INFO Checking existence of 'tools' path: /home/alessio/.arduino15/packages/builtin/tools
+2022-06-25 12:23:58 daemon INFO Loading tools from dir: /home/alessio/.arduino15/packages/builtin/tools
+2022-06-25 12:23:58 daemon INFO Loaded tool [tool: Version: 5.8-arduino11 Systems: [OS: i686-pc-linux-gnu, OS: x86_64-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu]]
+2022-06-25 12:23:58 daemon INFO Loaded tool [tool: Version: 1.0.5 Systems: [OS: i686-pc-linux-gnu, OS: x86_64-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-mingw32, OS: x86_64-apple-darwin, OS: arm-linux-gnueabihf, OS: arm64-linux-gnueabihf]]
+2022-06-25 12:23:58 daemon INFO Loaded tool [tool: Version: 1.3.2 Systems: [OS: i686-pc-linux-gnu, OS: x86_64-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-mingw32, OS: x86_64-apple-darwin, OS: arm-linux-gnueabihf, OS: arm64-linux-gnueabihf]]
+2022-06-25 12:23:58 daemon INFO Loaded tool [tool: Version: 0.9.1 Systems: [OS: i686-pc-linux-gnu, OS: x86_64-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-mingw32, OS: x86_64-apple-darwin, OS: arm-linux-gnueabihf, OS: arm64-linux-gnueabihf]]
+2022-06-25 12:23:58 daemon INFO Adding libraries dir [dir: /home/alessio/.arduino15/packages/arduino/hardware/avr/1.8.5/libraries, location: platform]
+2022-06-25 12:23:58 daemon INFO starting discovery builtin:serial-discovery process
+2022-06-25 12:23:58 daemon INFO starting discovery builtin:mdns-discovery process
+2022-06-25 12:23:58 daemon INFO started discovery builtin:serial-discovery process
+2022-06-25 12:23:58 daemon INFO sending command HELLO 1 "arduino-cli 0.21.0" to discovery builtin:serial-discovery
+2022-06-25 12:23:58 daemon INFO started discovery builtin:mdns-discovery process
+2022-06-25 12:23:58 daemon INFO sending command HELLO 1 "arduino-cli 0.21.0" to discovery builtin:mdns-discovery
+2022-06-25 12:23:58 daemon INFO from discovery builtin:serial-discovery received message type: hello, message: OK, protocol version: 1
+2022-06-25 12:23:58 daemon INFO from discovery builtin:mdns-discovery received message type: hello, message: OK, protocol version: 1
+2022-06-25 12:23:58 daemon INFO sending command START_SYNC to discovery builtin:mdns-discovery
+2022-06-25 12:23:58 daemon INFO sending command START_SYNC to discovery builtin:serial-discovery
+2022-06-25 12:23:58 daemon INFO from discovery builtin:mdns-discovery received message type: start_sync, message: OK
+2022-06-25 12:23:58 daemon INFO from discovery builtin:serial-discovery received message type: start_sync, message: OK
+2022-06-25 12:23:58 daemon INFO from discovery builtin:serial-discovery received message type: add, port: /dev/ttyACM0
+2022-06-25 12:23:59 root WARN Frontend i.onStart is slow, took: 2219.5 ms
+2022-06-25 12:23:59 root WARN Frontend w.onStart is slow, took: 340.8 ms
+2022-06-25 12:23:59 root INFO Board config changed: 
+2022-06-25 12:23:59 root INFO Board config changed: 
+2022-06-25 12:23:59 root INFO Changed application state from 'init' to 'started_contributions'.
+2022-06-25 12:23:59 root INFO Changed application state from 'started_contributions' to 'attached_shell'.
+2022-06-25 12:23:59 root INFO >>> Restoring the layout state...
+2022-06-25 12:23:59 root INFO [hosted-plugin: 56638] PLUGIN_HOST(56638) starting instance
+2022-06-25 12:23:59 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7] Waiting for backend deployment took: 418.8 ms [Finished 5.195 s after frontend start]
+2022-06-25 12:23:59 root INFO Board config changed: 
+2022-06-25 12:23:59 serial-service INFO >>> Disposing serial connection...
+2022-06-25 12:23:59 serial-service WARN <<< Not connected. Nothing to dispose.
+2022-06-25 12:23:59 serial-service INFO >>> Disposing serial connection...
+2022-06-25 12:23:59 serial-service WARN <<< Not connected. Nothing to dispose.
+2022-06-25 12:24:01 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7] Sync of 11 plugins took: 812.8 ms [Finished 6.008 s after frontend start]
+2022-06-25 12:24:01 root INFO <<< The layout has been successfully restored.
+2022-06-25 12:24:01 root INFO Changed application state from 'attached_shell' to 'initialized_layout'.
+2022-06-25 12:24:01 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][marus25.cortex-debug]: Loaded contributions.
+2022-06-25 12:24:01 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][arduino.vscode-arduino-tools]: Loaded contributions.
+2022-06-25 12:24:01 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][vscode.cpp]: Loaded contributions.
+2022-06-25 12:24:01 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][vscode.json]: Loaded contributions.
+2022-06-25 12:24:01 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][vscode.json-language-features]: Loaded contributions.
+2022-06-25 12:24:01 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][ms-ceintl.vscode-language-pack-de]: Loaded contributions.
+2022-06-25 12:24:01 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][ms-ceintl.vscode-language-pack-fr]: Loaded contributions.
+2022-06-25 12:24:01 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][ms-ceintl.vscode-language-pack-ja]: Loaded contributions.
+2022-06-25 12:24:01 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][ms-ceintl.vscode-language-pack-nl]: Loaded contributions.
+2022-06-25 12:24:01 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][ms-ceintl.vscode-language-pack-tr]: Loaded contributions.
+2022-06-25 12:24:01 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][ms-ceintl.vscode-language-pack-zh-hans]: Loaded contributions.
+2022-06-25 12:24:01 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7] Load contributions of 11 plugins took: 123.6 ms [Finished 7.119 s after frontend start]
+2022-06-25 12:24:01 root WARN Frontend u.onDidInitializeLayout is slow, took: 125.3 ms
+2022-06-25 12:24:01 root INFO Finished loading frontend application after 7.207 seconds
+2022-06-25 12:24:01 root WARN 'cpp' language is remapped from 'source.cpp.embedded.macro' to 'source.cpp' scope
+2022-06-25 12:24:01 root WARN a registered grammar configuration for 'cpp' language is overridden
+2022-06-25 12:24:02 root INFO [hosted-plugin: 56638] PLUGIN_HOST(56638): PluginManagerExtImpl/init()
+2022-06-25 12:24:02 root INFO [hosted-plugin: 56638] PLUGIN_HOST(56638): initializing(cortex-debug@0.3.10 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:24:02 root INFO [hosted-plugin: 56638] Debugger contribution has been registered: cortex-debug
+2022-06-25 12:24:02 root INFO [hosted-plugin: 56638] PLUGIN_HOST(56638): initializing(vscode-arduino-tools@0.0.2-beta.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:24:02 root INFO [hosted-plugin: 56638] PLUGIN_HOST(56638): initializing(cpp@1.52.1 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:24:02 root INFO [hosted-plugin: 56638] PLUGIN_HOST(56638): initializing(json@1.46.1 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:24:02 root INFO [hosted-plugin: 56638] PLUGIN_HOST(56638): initializing(json-language-features@1.46.1 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:24:02 root INFO [hosted-plugin: 56638] PLUGIN_HOST(56638): initializing(vscode-language-pack-de@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:24:02 root INFO [hosted-plugin: 56638] PLUGIN_HOST(56638): initializing(vscode-language-pack-fr@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:24:02 root INFO [hosted-plugin: 56638] PLUGIN_HOST(56638): initializing(vscode-language-pack-ja@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:24:02 root INFO [hosted-plugin: 56638] PLUGIN_HOST(56638): initializing(vscode-language-pack-nl@1.48.3 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:24:02 root INFO [hosted-plugin: 56638] PLUGIN_HOST(56638): initializing(vscode-language-pack-tr@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:24:02 root INFO [hosted-plugin: 56638] PLUGIN_HOST(56638): initializing(vscode-language-pack-zh-hans@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:24:02 root INFO [hosted-plugin: 56638] PLUGIN_HOST(56638): PluginManagerExtImpl/loadPlugin(/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-builtin-json-language-features/extension/client/dist/jsonMain)
+2022-06-25 12:24:02 root INFO Changed application state from 'initialized_layout' to 'ready'.
+2022-06-25 12:24:02 root INFO [hosted-plugin: 56638] PLUGIN_HOST(56638): PluginManagerExtImpl/loadPlugin(/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-arduino-tools/extension/dist/bundle)
+2022-06-25 12:24:02 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][marus25.cortex-debug]: Started plugin.
+2022-06-25 12:24:02 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][arduino.vscode-arduino-tools]: Started plugin.
+2022-06-25 12:24:02 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][vscode.cpp]: Started plugin.
+2022-06-25 12:24:02 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][vscode.json]: Started plugin.
+2022-06-25 12:24:02 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][vscode.json-language-features]: Started plugin.
+2022-06-25 12:24:02 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][ms-ceintl.vscode-language-pack-de]: Started plugin.
+2022-06-25 12:24:02 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][ms-ceintl.vscode-language-pack-fr]: Started plugin.
+2022-06-25 12:24:02 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][ms-ceintl.vscode-language-pack-ja]: Started plugin.
+2022-06-25 12:24:02 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][ms-ceintl.vscode-language-pack-nl]: Started plugin.
+2022-06-25 12:24:02 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][ms-ceintl.vscode-language-pack-tr]: Started plugin.
+2022-06-25 12:24:02 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7][ms-ceintl.vscode-language-pack-zh-hans]: Started plugin.
+2022-06-25 12:24:02 root INFO [6d553b4d-5300-45eb-9c70-8250b0dbecf7] Start of 11 plugins took: 986.8 ms [Finished 8.114 s after frontend start]
+2022-06-25 12:24:02 root INFO Starting language server: arduino:avr:mega
+2022-06-25 12:24:02 daemon INFO inventory.Store.ConfigFileUsed() /home/alessio/.arduino15/inventory.yaml
+2022-06-25 12:24:02 daemon INFO inventory.Store.ConfigFileUsed() /home/alessio/.arduino15/inventory.yaml
+2022-06-25 12:24:02 daemon INFO Searching tools required for board arduino:avr:mega
+2022-06-25 12:24:02 daemon INFO Required tool [tool: {ToolName:"arduinoOTA",ToolVersion:"1.3.0",ToolPackager:"arduino"}]
+2022-06-25 12:24:02 daemon INFO Required tool [tool: {ToolName:"avr-gcc",ToolVersion:"7.3.0-atmel3.6.1-arduino7",ToolPackager:"arduino"}]
+2022-06-25 12:24:02 daemon INFO Required tool [tool: {ToolName:"avrdude",ToolVersion:"6.3.0-arduino17",ToolPackager:"arduino"}]
+2022-06-25 12:24:02 daemon INFO Adding libraries dir [dir: /home/alessio/.arduino15/packages/arduino/hardware/avr/1.8.5/libraries, location: platform]
+2022-06-25 12:24:02 daemon INFO Adding libraries dir [dir: /home/alessio/Arduino/libraries, location: user]
+2022-06-25 12:24:02 daemon INFO Resolving include Servo.h for arch avr
+2022-06-25 12:24:02 daemon INFO   found better lib [lib: Servo, prio: 64D]
+2022-06-25 12:27:54 root INFO Board config changed: 
+2022-06-25 12:27:54 serial-service INFO >>> Disposing serial connection...
+2022-06-25 12:27:54 serial-service WARN <<< Not connected. Nothing to dispose.
+2022-06-25 12:27:54 serial-service INFO >>> Disposing serial connection...
+2022-06-25 12:27:54 serial-service WARN <<< Not connected. Nothing to dispose.
+2022-06-25 12:35:56 root WARN Frontend s.configure is slow, took: 169.4 ms
+2022-06-25 12:35:57 root WARN Frontend keybindings.onStart is slow, took: 347.8 ms
+2022-06-25 12:35:57 root WARN Frontend i.onStart is slow, took: 146.5 ms
+2022-06-25 12:35:57 root INFO Board config changed: 
+2022-06-25 12:35:57 root INFO Board config changed: 
+2022-06-25 12:35:57 root INFO Changed application state from 'init' to 'started_contributions'.
+2022-06-25 12:35:57 root INFO Changed application state from 'started_contributions' to 'attached_shell'.
+2022-06-25 12:35:57 root INFO >>> Restoring the layout state...
+2022-06-25 12:35:57 root INFO <<< Nothing to restore.
+2022-06-25 12:35:57 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77] Waiting for backend deployment took: 383.2 ms [Finished 2.496 s after frontend start]
+2022-06-25 12:35:57 root INFO [hosted-plugin: 61048] PLUGIN_HOST(61048) starting instance
+2022-06-25 12:35:58 root INFO Board config changed: 
+2022-06-25 12:35:58 serial-service INFO >>> Disposing serial connection...
+2022-06-25 12:35:58 serial-service WARN <<< Not connected. Nothing to dispose.
+2022-06-25 12:35:58 serial-service INFO >>> Disposing serial connection...
+2022-06-25 12:35:58 serial-service WARN <<< Not connected. Nothing to dispose.
+2022-06-25 12:35:58 root INFO Changed application state from 'attached_shell' to 'initialized_layout'.
+2022-06-25 12:35:58 root INFO Finished loading frontend application after 2.876 seconds
+2022-06-25 12:35:59 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77] Sync of 11 plugins took: 941.3 ms [Finished 3.437 s after frontend start]
+2022-06-25 12:35:59 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][marus25.cortex-debug]: Loaded contributions.
+2022-06-25 12:35:59 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][arduino.vscode-arduino-tools]: Loaded contributions.
+2022-06-25 12:35:59 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][vscode.cpp]: Loaded contributions.
+2022-06-25 12:35:59 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][vscode.json]: Loaded contributions.
+2022-06-25 12:35:59 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][vscode.json-language-features]: Loaded contributions.
+2022-06-25 12:35:59 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][ms-ceintl.vscode-language-pack-de]: Loaded contributions.
+2022-06-25 12:35:59 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][ms-ceintl.vscode-language-pack-fr]: Loaded contributions.
+2022-06-25 12:35:59 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][ms-ceintl.vscode-language-pack-ja]: Loaded contributions.
+2022-06-25 12:35:59 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][ms-ceintl.vscode-language-pack-nl]: Loaded contributions.
+2022-06-25 12:35:59 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][ms-ceintl.vscode-language-pack-tr]: Loaded contributions.
+2022-06-25 12:35:59 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][ms-ceintl.vscode-language-pack-zh-hans]: Loaded contributions.
+2022-06-25 12:35:59 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77] Load contributions of 11 plugins took: 52.0 ms [Finished 3.489 s after frontend start]
+2022-06-25 12:35:59 root ERROR d.registerSchemas is taking more than 500.0 ms, new schemas are ignored.
+2022-06-25 12:35:59 root WARN 'cpp' language is remapped from 'source.cpp.embedded.macro' to 'source.cpp' scope
+2022-06-25 12:35:59 root WARN a registered grammar configuration for 'cpp' language is overridden
+2022-06-25 12:35:59 root INFO Changed application state from 'initialized_layout' to 'ready'.
+2022-06-25 12:36:00 root INFO [hosted-plugin: 61048] PLUGIN_HOST(61048): PluginManagerExtImpl/init()
+2022-06-25 12:36:00 root INFO [hosted-plugin: 61048] PLUGIN_HOST(61048): initializing(cortex-debug@0.3.10 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:36:00 root INFO [hosted-plugin: 61048] Debugger contribution has been registered: cortex-debug
+PLUGIN_HOST(61048): initializing(vscode-arduino-tools@0.0.2-beta.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+PLUGIN_HOST(61048): initializing(cpp@1.52.1 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+PLUGIN_HOST(61048): initializing(json@1.46.1 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+PLUGIN_HOST(61048): initializing(json-language-features@1.46.1 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+PLUGIN_HOST(61048): initializing(vscode-language-pack-de@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:36:00 root INFO [hosted-plugin: 61048] PLUGIN_HOST(61048): initializing(vscode-language-pack-fr@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:36:00 root INFO [hosted-plugin: 61048] PLUGIN_HOST(61048): initializing(vscode-language-pack-ja@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+PLUGIN_HOST(61048): initializing(vscode-language-pack-nl@1.48.3 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:36:00 root INFO [hosted-plugin: 61048] PLUGIN_HOST(61048): initializing(vscode-language-pack-tr@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:36:00 root INFO [hosted-plugin: 61048] PLUGIN_HOST(61048): initializing(vscode-language-pack-zh-hans@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:36:00 root INFO [hosted-plugin: 61048] PLUGIN_HOST(61048): PluginManagerExtImpl/loadPlugin(/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-builtin-json-language-features/extension/client/dist/jsonMain)
+2022-06-25 12:36:00 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][marus25.cortex-debug]: Started plugin.
+2022-06-25 12:36:00 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][arduino.vscode-arduino-tools]: Started plugin.
+2022-06-25 12:36:00 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][vscode.cpp]: Started plugin.
+2022-06-25 12:36:00 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][vscode.json]: Started plugin.
+2022-06-25 12:36:00 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][vscode.json-language-features]: Started plugin.
+2022-06-25 12:36:00 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][ms-ceintl.vscode-language-pack-de]: Started plugin.
+2022-06-25 12:36:00 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][ms-ceintl.vscode-language-pack-fr]: Started plugin.
+2022-06-25 12:36:00 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][ms-ceintl.vscode-language-pack-ja]: Started plugin.
+2022-06-25 12:36:00 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][ms-ceintl.vscode-language-pack-nl]: Started plugin.
+2022-06-25 12:36:00 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][ms-ceintl.vscode-language-pack-tr]: Started plugin.
+2022-06-25 12:36:00 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77][ms-ceintl.vscode-language-pack-zh-hans]: Started plugin.
+2022-06-25 12:36:00 root INFO [46d7bb55-d6bf-4e80-a0fb-ac88ee9eab77] Start of 11 plugins took: 1475.9 ms [Finished 4.981 s after frontend start]
+2022-06-25 12:36:00 root INFO Starting language server: arduino:avr:mega
+2022-06-25 12:36:00 root INFO [hosted-plugin: 61048] PLUGIN_HOST(61048): PluginManagerExtImpl/loadPlugin(/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-arduino-tools/extension/dist/bundle)
+2022-06-25 12:36:00 daemon INFO inventory.Store.ConfigFileUsed() /home/alessio/.arduino15/inventory.yaml
+2022-06-25 12:36:00 daemon INFO inventory.Store.ConfigFileUsed() /home/alessio/.arduino15/inventory.yaml
+2022-06-25 12:36:00 daemon INFO Searching tools required for board arduino:avr:mega
+2022-06-25 12:36:00 daemon INFO Required tool [tool: {ToolName:"arduinoOTA",ToolVersion:"1.3.0",ToolPackager:"arduino"}]
+2022-06-25 12:36:00 daemon INFO Required tool [tool: {ToolName:"avr-gcc",ToolVersion:"7.3.0-atmel3.6.1-arduino7",ToolPackager:"arduino"}]
+2022-06-25 12:36:00 daemon INFO Required tool [tool: {ToolName:"avrdude",ToolVersion:"6.3.0-arduino17",ToolPackager:"arduino"}]
+2022-06-25 12:36:00 daemon INFO Adding libraries dir [dir: /home/alessio/.arduino15/packages/arduino/hardware/avr/1.8.5/libraries, location: platform]
+2022-06-25 12:36:00 daemon INFO Adding libraries dir [dir: /home/alessio/Arduino/libraries, location: user]
+2022-06-25 12:36:01 serial-service INFO >>> Disposing serial service...
+2022-06-25 12:36:01 serial-service INFO <<< Disposed serial service.
+2022-06-25 12:46:06 daemon INFO from discovery builtin:serial-discovery received message type: remove, port: /dev/ttyACM0
+2022-06-25 12:46:06 root INFO Attached boards and available ports changed:
+2022-06-25 12:46:06 root INFO  - Detached board: Arduino Mega or Mega 2560 [arduino:avr:mega] from /dev/ttyACM0 Serial Port (USB)
+2022-06-25 12:46:06 root INFO ------------------------------------------
+2022-06-25 12:46:06 root INFO Board config changed: 
+2022-06-25 12:46:10 daemon INFO from discovery builtin:serial-discovery received message type: add, port: /dev/ttyACM0
+2022-06-25 12:46:10 root INFO Attached boards and available ports changed:
+2022-06-25 12:46:10 root INFO  - Attached board: Arduino Mega or Mega 2560 [arduino:avr:mega] on /dev/ttyACM0 Serial Port (USB)
+2022-06-25 12:46:10 root INFO ------------------------------------------
+2022-06-25 12:46:10 root INFO Board config changed: 
+2022-06-25 12:46:10 daemon INFO from discovery builtin:serial-discovery received message type: remove, port: /dev/ttyACM0
+2022-06-25 12:46:10 serial-service INFO >>> Disposing serial connection...
+2022-06-25 12:46:10 serial-service WARN <<< Not connected. Nothing to dispose.
+2022-06-25 12:46:10 serial-service INFO >>> Disposing serial connection...
+2022-06-25 12:46:10 serial-service WARN <<< Not connected. Nothing to dispose.
+2022-06-25 12:46:10 root INFO Attached boards and available ports changed:
+2022-06-25 12:46:10 root INFO  - Detached board: Arduino Mega or Mega 2560 [arduino:avr:mega] from /dev/ttyACM0 Serial Port (USB)
+2022-06-25 12:46:10 root INFO ------------------------------------------
+2022-06-25 12:46:10 root INFO Board config changed: 
+2022-06-25 12:46:36 root INFO Board config changed: 
+2022-06-25 12:46:45 serial-service INFO >>> Disposing serial service...
+2022-06-25 12:46:45 serial-service INFO <<< Disposed serial service.
+2022-06-25 12:47:27 Using browser-only version of superagent in non-browser environment
+2022-06-25 12:47:27 Configuring to accept webviews on '^.+\.webview\..+$' hostname.
+2022-06-25 12:47:27 root INFO Configuration directory URI: 'file:///home/alessio/.theia'
+2022-06-25 12:47:27 root INFO Theia app listening on http://localhost:44527.
+2022-06-25 12:47:27 root WARN The local plugin referenced by local-dir:/home/alessio/.arduinoIDE/plugins does not exist.
+2022-06-25 12:47:27 root WARN The local plugin referenced by local-dir:/home/alessio/.arduinoIDE/extensions does not exist.
+2022-06-25 12:47:27 root WARN The local plugin referenced by local-dir:/home/alessio/.arduinoProIDE/plugins does not exist.
+2022-06-25 12:47:27 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:47:27 root INFO Resolved "cortex-debug" to a VS Code extension "cortex-debug@0.3.10" with engines:
+2022-06-25 12:47:27 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:47:27 root INFO Resolved "vscode-arduino-tools" to a VS Code extension "vscode-arduino-tools@0.0.2-beta.2" with engines:
+2022-06-25 12:47:27 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:47:27 root INFO Resolved "vscode-builtin-cpp" to a VS Code extension "cpp@1.52.1" with engines:
+2022-06-25 12:47:27 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:47:27 root INFO Resolved "vscode-builtin-json" to a VS Code extension "json@1.46.1" with engines:
+2022-06-25 12:47:27 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:47:27 root INFO Resolved "vscode-builtin-json-language-features" to a VS Code extension "json-language-features@1.46.1" with engines:
+2022-06-25 12:47:27 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:47:27 root INFO Resolved "vscode-language-pack-de" to a VS Code extension "vscode-language-pack-de@1.53.2" with engines:
+2022-06-25 12:47:27 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:47:27 root INFO Resolved "vscode-language-pack-fr" to a VS Code extension "vscode-language-pack-fr@1.53.2" with engines:
+2022-06-25 12:47:27 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:47:27 root INFO Resolved "vscode-language-pack-ja" to a VS Code extension "vscode-language-pack-ja@1.53.2" with engines:
+2022-06-25 12:47:27 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:47:27 root INFO Resolved "vscode-language-pack-nl" to a VS Code extension "vscode-language-pack-nl@1.48.3" with engines:
+2022-06-25 12:47:27 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:47:27 root INFO Resolved "vscode-language-pack-tr" to a VS Code extension "vscode-language-pack-tr@1.53.2" with engines:
+2022-06-25 12:47:27 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-06-25 12:47:27 root INFO Resolved "vscode-language-pack-zh-hans" to a VS Code extension "vscode-language-pack-zh-hans@1.53.2" with engines:
+2022-06-25 12:47:27 root INFO Deploying backend plugin "cortex-debug@0.3.10" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/cortex-debug/extension/dist/extension"
+2022-06-25 12:47:27 root INFO Deploying backend plugin "vscode-arduino-tools@0.0.2-beta.2" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-arduino-tools/extension/dist/bundle"
+2022-06-25 12:47:27 root INFO Deploying backend plugin "cpp@1.52.1" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-builtin-cpp/extension"
+2022-06-25 12:47:27 root INFO Deploying backend plugin "json@1.46.1" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-builtin-json/extension"
+2022-06-25 12:47:27 root INFO Deploying backend plugin "json-language-features@1.46.1" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-builtin-json-language-features/extension/client/dist/jsonMain"
+2022-06-25 12:47:27 root INFO Deploying backend plugin "vscode-language-pack-de@1.53.2" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-language-pack-de/extension"
+2022-06-25 12:47:27 root INFO Deploying backend plugin "vscode-language-pack-fr@1.53.2" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-language-pack-fr/extension"
+2022-06-25 12:47:27 daemon INFO Starting daemon from /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/arduino-ide-extension/build/arduino-cli...
+2022-06-25 12:47:27 root WARN Backend ConfigServiceImpl.onStart is slow, took: 157.2 ms
+2022-06-25 12:47:27 root INFO Deploying backend plugin "vscode-language-pack-ja@1.53.2" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-language-pack-ja/extension"
+2022-06-25 12:47:27 daemon INFO Using config file: /home/alessio/.arduinoIDE/arduino-cli.yaml
+2022-06-25 12:47:27 daemon INFO arduino-cli version 0.21.0
+2022-06-25 12:47:27 daemon INFO Executing `arduino-cli daemon`
+2022-06-25 12:47:27 daemon INFO Setting up Prometheus metrics on :9090/metrics
+2022-06-25 12:47:27 daemon INFO {"IP":"127.0.0.1","Port":"41639"}
+2022-06-25 12:47:27 daemon ERROR listen tcp :9090: bind: address already in use
+2022-06-25 12:47:27 daemon INFO Daemon is running.
+2022-06-25 12:47:27 root WARN Backend AuthenticationServiceImpl.onStart is slow, took: 86.3 ms
+2022-06-25 12:47:27 root INFO Deploying backend plugin "vscode-language-pack-nl@1.48.3" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-language-pack-nl/extension"
+2022-06-25 12:47:27 root INFO Deploying backend plugin "vscode-language-pack-tr@1.53.2" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-language-pack-tr/extension"
+2022-06-25 12:47:27 root INFO Deploying backend plugin "vscode-language-pack-zh-hans@1.53.2" from "/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-language-pack-zh-hans/extension"
+2022-06-25 12:47:27 root INFO Deploy plugins list took: 527.2 ms
+2022-06-25 12:47:29 daemon INFO Checking if CLI is Bundled into the IDE
+2022-06-25 12:47:29 daemon INFO Adding libraries dir [dir: /home/alessio/Arduino/libraries, location: user]
+2022-06-25 12:47:29 daemon INFO URL: https://downloads.arduino.cc/packages/package_index.json
+2022-06-25 12:47:29 daemon INFO Updating index [url: https://downloads.arduino.cc/packages/package_index.json]
+2022-06-25 12:47:29 root INFO Git askpass helper is listening on http://127.0.0.1:44345.
+2022-06-25 12:47:29 root INFO Using Git [2.25.1] from the PATH. (/usr/bin/git)
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/body-parser
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/cookie
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/dompurify
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/express
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/fs-extra
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/lodash.debounce
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/lodash.throttle
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/markdown-it
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/react
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/react-dom
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/react-virtualized
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/route-parser
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/safer-buffer
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/ws
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/yargs
+2022-06-25 12:47:29 root WARN Failed to resolve module: @theia/monaco
+2022-06-25 12:47:29 root WARN Failed to resolve module: @theia/editor
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/multer
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/rimraf
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/tar-fs
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/uuid
+2022-06-25 12:47:29 root WARN Failed to resolve module: @theia/navigator
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/p-queue
+2022-06-25 12:47:29 root WARN Failed to resolve module: @theia/preferences
+2022-06-25 12:47:29 root WARN Failed to resolve module: @theia/editor-preview
+2022-06-25 12:47:29 root WARN Failed to resolve module: @theia/keymaps
+2022-06-25 12:47:29 root WARN Failed to resolve module: @theia/messages
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/diff
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/mime
+2022-06-25 12:47:29 root WARN Failed to resolve module: filenamify
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/request
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/atob
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/auth0-js
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/btoa
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/dateformat
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/deepmerge
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/glob
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/google-protobuf
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/js-yaml
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/keytar
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/ncp
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/node-fetch
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/ps-tree
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/react-select
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/react-tabs
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/temp
+2022-06-25 12:47:29 root WARN Failed to resolve module: @types/which
+2022-06-25 12:47:29 root INFO Updating index: package_index.json completed.
+2022-06-25 12:47:29 root INFO Updating index: package_index.json.sig completed.
+2022-06-25 12:47:29 daemon INFO Checking signature [error: opening signature file: open /tmp/147953437.sig: no such file or directory, index: /tmp/147953437, signaturefile: /tmp/147953437.sig]
+2022-06-25 12:47:30 root WARN Frontend s.configure is slow, took: 194.2 ms
+2022-06-25 12:47:30 root WARN Frontend keybindings.onStart is slow, took: 409.3 ms
+2022-06-25 12:47:30 daemon INFO Updating libraries index
+2022-06-25 12:47:30 root INFO Updating index: library_index.json.gz completed.
+2022-06-25 12:47:30 root INFO Updating index: library_index.json.sig completed.
+2022-06-25 12:47:31 root ERROR d.registerSchemas is taking more than 500.0 ms, new schemas are ignored.
+2022-06-25 12:47:31 daemon INFO Checking signature [index: /home/alessio/.arduino15/package_index.json, signaturefile: /home/alessio/.arduino15/package_index.json.sig, trusted: true]
+2022-06-25 12:47:31 daemon INFO Loading hardware from: /home/alessio/.arduino15/packages
+2022-06-25 12:47:31 daemon INFO Loading package arduino from: /home/alessio/.arduino15/packages/arduino/hardware
+2022-06-25 12:47:31 daemon INFO Checking signature [error: opening signature file: open /home/alessio/.arduino15/packages/arduino/hardware/avr/1.8.5/installed.json.sig: no such file or directory, index: /home/alessio/.arduino15/packages/arduino/hardware/avr/1.8.5/installed.json, signaturefile: /home/alessio/.arduino15/packages/arduino/hardware/avr/1.8.5/installed.json.sig]
+2022-06-25 12:47:31 daemon INFO Adding monitor tool [protocol: serial, tool: builtin:serial-monitor]
+2022-06-25 12:47:31 daemon INFO Loaded platform [platform: {ID:"arduino:avr",Installed:"1.8.5",Latest:"1.8.5",Name:"Arduino AVR Boards"}]
+2022-06-25 12:47:31 daemon INFO Checking existence of 'tools' path: /home/alessio/.arduino15/packages/arduino/tools
+2022-06-25 12:47:31 daemon INFO Loading tools from dir: /home/alessio/.arduino15/packages/arduino/tools
+2022-06-25 12:47:31 daemon INFO Loaded tool [tool: Version: 1.3.0 Systems: [OS: i686-linux-gnu, OS: x86_64-linux-gnu, OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: i386-apple-darwin11, OS: i686-mingw32]]
+2022-06-25 12:47:31 daemon INFO Loaded tool [tool: Version: 7.3.0-atmel3.6.1-arduino7 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: x86_64-apple-darwin14, OS: i686-mingw32, OS: i686-linux-gnu, OS: x86_64-linux-gnu]]
+2022-06-25 12:47:31 daemon INFO Loaded tool [tool: Version: 6.3.0-arduino17 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: x86_64-apple-darwin12, OS: x86_64-linux-gnu, OS: i686-linux-gnu, OS: i686-mingw32]]
+2022-06-25 12:47:31 daemon INFO Loading package builtin from: /home/alessio/.arduino15/packages/builtin
+2022-06-25 12:47:31 daemon INFO Checking existence of 'tools' path: /home/alessio/.arduino15/packages/builtin/tools
+2022-06-25 12:47:31 daemon INFO Loading tools from dir: /home/alessio/.arduino15/packages/builtin/tools
+2022-06-25 12:47:31 daemon INFO Loaded tool [tool: Version: 5.8-arduino11 Systems: [OS: i686-pc-linux-gnu, OS: x86_64-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu]]
+2022-06-25 12:47:31 daemon INFO Loaded tool [tool: Version: 1.0.5 Systems: [OS: i686-pc-linux-gnu, OS: x86_64-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-mingw32, OS: x86_64-apple-darwin, OS: arm-linux-gnueabihf, OS: arm64-linux-gnueabihf]]
+2022-06-25 12:47:31 daemon INFO Loaded tool [tool: Version: 1.3.2 Systems: [OS: i686-pc-linux-gnu, OS: x86_64-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-mingw32, OS: x86_64-apple-darwin, OS: arm-linux-gnueabihf, OS: arm64-linux-gnueabihf]]
+2022-06-25 12:47:31 daemon INFO Loaded tool [tool: Version: 0.9.1 Systems: [OS: i686-pc-linux-gnu, OS: x86_64-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-mingw32, OS: x86_64-apple-darwin, OS: arm-linux-gnueabihf, OS: arm64-linux-gnueabihf]]
+2022-06-25 12:47:31 daemon INFO Adding libraries dir [dir: /home/alessio/.arduino15/packages/arduino/hardware/avr/1.8.5/libraries, location: platform]
+2022-06-25 12:47:32 daemon INFO starting discovery builtin:serial-discovery process
+2022-06-25 12:47:32 daemon INFO starting discovery builtin:mdns-discovery process
+2022-06-25 12:47:32 daemon INFO started discovery builtin:serial-discovery process
+2022-06-25 12:47:32 daemon INFO sending command HELLO 1 "arduino-cli 0.21.0" to discovery builtin:serial-discovery
+2022-06-25 12:47:32 daemon INFO started discovery builtin:mdns-discovery process
+2022-06-25 12:47:32 daemon INFO sending command HELLO 1 "arduino-cli 0.21.0" to discovery builtin:mdns-discovery
+2022-06-25 12:47:32 daemon INFO from discovery builtin:serial-discovery received message type: hello, message: OK, protocol version: 1
+2022-06-25 12:47:32 daemon INFO from discovery builtin:mdns-discovery received message type: hello, message: OK, protocol version: 1
+2022-06-25 12:47:32 daemon INFO sending command START_SYNC to discovery builtin:serial-discovery
+2022-06-25 12:47:32 daemon INFO sending command START_SYNC to discovery builtin:mdns-discovery
+2022-06-25 12:47:32 daemon INFO from discovery builtin:mdns-discovery received message type: start_sync, message: OK
+2022-06-25 12:47:32 daemon INFO from discovery builtin:serial-discovery received message type: start_sync, message: OK
+2022-06-25 12:47:32 root WARN Frontend i.onStart is slow, took: 2255.2 ms
+2022-06-25 12:47:32 root INFO Board config changed: 
+2022-06-25 12:47:32 root INFO Board config changed: 
+2022-06-25 12:47:32 root INFO Changed application state from 'init' to 'started_contributions'.
+2022-06-25 12:47:32 root INFO Changed application state from 'started_contributions' to 'attached_shell'.
+2022-06-25 12:47:32 root INFO >>> Restoring the layout state...
+2022-06-25 12:47:32 root INFO [hosted-plugin: 66675] PLUGIN_HOST(66675) starting instance
+2022-06-25 12:47:32 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100] Waiting for backend deployment took: 402.7 ms [Finished 4.833 s after frontend start]
+2022-06-25 12:47:33 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100] Sync of 11 plugins took: 650.2 ms [Finished 5.483 s after frontend start]
+2022-06-25 12:47:34 root INFO <<< The layout has been successfully restored.
+2022-06-25 12:47:34 root INFO Changed application state from 'attached_shell' to 'initialized_layout'.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][marus25.cortex-debug]: Loaded contributions.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][arduino.vscode-arduino-tools]: Loaded contributions.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][vscode.cpp]: Loaded contributions.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][vscode.json]: Loaded contributions.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][vscode.json-language-features]: Loaded contributions.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][ms-ceintl.vscode-language-pack-de]: Loaded contributions.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][ms-ceintl.vscode-language-pack-fr]: Loaded contributions.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][ms-ceintl.vscode-language-pack-ja]: Loaded contributions.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][ms-ceintl.vscode-language-pack-nl]: Loaded contributions.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][ms-ceintl.vscode-language-pack-tr]: Loaded contributions.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][ms-ceintl.vscode-language-pack-zh-hans]: Loaded contributions.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100] Load contributions of 11 plugins took: 105.5 ms [Finished 6.459 s after frontend start]
+2022-06-25 12:47:34 root WARN Frontend u.onDidInitializeLayout is slow, took: 106.2 ms
+2022-06-25 12:47:34 root INFO Finished loading frontend application after 6.493 seconds
+2022-06-25 12:47:34 root WARN 'cpp' language is remapped from 'source.cpp.embedded.macro' to 'source.cpp' scope
+2022-06-25 12:47:34 root WARN a registered grammar configuration for 'cpp' language is overridden
+2022-06-25 12:47:34 root INFO [hosted-plugin: 66675] PLUGIN_HOST(66675): PluginManagerExtImpl/init()
+2022-06-25 12:47:34 root INFO [hosted-plugin: 66675] PLUGIN_HOST(66675): initializing(cortex-debug@0.3.10 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:47:34 root INFO [hosted-plugin: 66675] Debugger contribution has been registered: cortex-debug
+2022-06-25 12:47:34 root INFO [hosted-plugin: 66675] PLUGIN_HOST(66675): initializing(vscode-arduino-tools@0.0.2-beta.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:47:34 root INFO [hosted-plugin: 66675] PLUGIN_HOST(66675): initializing(cpp@1.52.1 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:47:34 root INFO [hosted-plugin: 66675] PLUGIN_HOST(66675): initializing(json@1.46.1 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:47:34 root INFO [hosted-plugin: 66675] PLUGIN_HOST(66675): initializing(json-language-features@1.46.1 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:47:34 root INFO [hosted-plugin: 66675] PLUGIN_HOST(66675): initializing(vscode-language-pack-de@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+PLUGIN_HOST(66675): initializing(vscode-language-pack-fr@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:47:34 root INFO [hosted-plugin: 66675] PLUGIN_HOST(66675): initializing(vscode-language-pack-ja@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:47:34 root INFO [hosted-plugin: 66675] PLUGIN_HOST(66675): initializing(vscode-language-pack-nl@1.48.3 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:47:34 root INFO [hosted-plugin: 66675] PLUGIN_HOST(66675): initializing(vscode-language-pack-tr@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:47:34 root INFO [hosted-plugin: 66675] PLUGIN_HOST(66675): initializing(vscode-language-pack-zh-hans@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:47:34 root INFO [hosted-plugin: 66675] PLUGIN_HOST(66675): PluginManagerExtImpl/loadPlugin(/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-builtin-json-language-features/extension/client/dist/jsonMain)
+2022-06-25 12:47:34 root INFO [hosted-plugin: 66675] PLUGIN_HOST(66675): PluginManagerExtImpl/loadPlugin(/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-arduino-tools/extension/dist/bundle)
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][marus25.cortex-debug]: Started plugin.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][arduino.vscode-arduino-tools]: Started plugin.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][vscode.cpp]: Started plugin.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][vscode.json]: Started plugin.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][vscode.json-language-features]: Started plugin.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][ms-ceintl.vscode-language-pack-de]: Started plugin.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][ms-ceintl.vscode-language-pack-fr]: Started plugin.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][ms-ceintl.vscode-language-pack-ja]: Started plugin.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][ms-ceintl.vscode-language-pack-nl]: Started plugin.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][ms-ceintl.vscode-language-pack-tr]: Started plugin.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100][ms-ceintl.vscode-language-pack-zh-hans]: Started plugin.
+2022-06-25 12:47:34 root INFO [9ddb49fe-af3f-4998-8057-85a5e69fe100] Start of 11 plugins took: 656.2 ms [Finished 7.123 s after frontend start]
+2022-06-25 12:47:34 root INFO Starting language server: arduino:avr:mega
+2022-06-25 12:47:35 daemon INFO inventory.Store.ConfigFileUsed() /home/alessio/.arduino15/inventory.yaml
+2022-06-25 12:47:35 daemon INFO inventory.Store.ConfigFileUsed() /home/alessio/.arduino15/inventory.yaml
+2022-06-25 12:47:35 daemon INFO Searching tools required for board arduino:avr:mega
+2022-06-25 12:47:35 daemon INFO Required tool [tool: {ToolName:"arduinoOTA",ToolVersion:"1.3.0",ToolPackager:"arduino"}]
+2022-06-25 12:47:35 daemon INFO Required tool [tool: {ToolName:"avr-gcc",ToolVersion:"7.3.0-atmel3.6.1-arduino7",ToolPackager:"arduino"}]
+2022-06-25 12:47:35 daemon INFO Required tool [tool: {ToolName:"avrdude",ToolVersion:"6.3.0-arduino17",ToolPackager:"arduino"}]
+2022-06-25 12:47:35 daemon INFO Adding libraries dir [dir: /home/alessio/.arduino15/packages/arduino/hardware/avr/1.8.5/libraries, location: platform]
+2022-06-25 12:47:35 daemon INFO Adding libraries dir [dir: /home/alessio/Arduino/libraries, location: user]
+2022-06-25 12:47:35 daemon INFO Resolving include Servo.h for arch avr
+2022-06-25 12:47:35 daemon INFO   found better lib [lib: Servo, prio: 64D]
+2022-06-25 12:47:35 root INFO Changed application state from 'initialized_layout' to 'ready'.
+2022-06-25 12:47:48 daemon INFO from discovery builtin:serial-discovery received message type: add, port: /dev/ttyACM0
+2022-06-25 12:47:49 root INFO Attached boards and available ports changed:
+2022-06-25 12:47:49 root INFO  - Attached board: Arduino Mega or Mega 2560 [arduino:avr:mega] on /dev/ttyACM0 Serial Port (USB)
+2022-06-25 12:47:49 root INFO ------------------------------------------
+2022-06-25 12:47:49 root INFO Board config changed: 
+2022-06-25 12:47:49 serial-service INFO >>> Disposing serial connection...
+2022-06-25 12:47:49 serial-service WARN <<< Not connected. Nothing to dispose.
+2022-06-25 12:47:49 serial-service INFO >>> Disposing serial connection...
+2022-06-25 12:47:49 serial-service WARN <<< Not connected. Nothing to dispose.
+2022-06-25 12:47:52 daemon INFO from discovery builtin:serial-discovery received message type: remove, port: /dev/ttyACM0
+2022-06-25 12:47:53 root INFO Attached boards and available ports changed:
+2022-06-25 12:47:53 root INFO  - Detached board: Arduino Mega or Mega 2560 [arduino:avr:mega] from /dev/ttyACM0 Serial Port (USB)
+2022-06-25 12:47:53 root INFO ------------------------------------------
+2022-06-25 12:47:53 root INFO Board config changed: 
+2022-06-25 12:48:11 daemon INFO from discovery builtin:serial-discovery received message type: add, port: /dev/ttyACM0
+2022-06-25 12:48:11 root INFO Attached boards and available ports changed:
+2022-06-25 12:48:11 root INFO  - Attached board: Arduino Mega or Mega 2560 [arduino:avr:mega] on /dev/ttyACM0 Serial Port (USB)
+2022-06-25 12:48:11 root INFO ------------------------------------------
+2022-06-25 12:48:11 root INFO Board config changed: 
+2022-06-25 12:48:11 serial-service INFO >>> Disposing serial connection...
+2022-06-25 12:48:11 serial-service WARN <<< Not connected. Nothing to dispose.
+2022-06-25 12:48:11 serial-service INFO >>> Disposing serial connection...
+2022-06-25 12:48:11 serial-service WARN <<< Not connected. Nothing to dispose.
+2022-06-25 12:50:38 root WARN Frontend s.configure is slow, took: 185.4 ms
+2022-06-25 12:50:39 root WARN Frontend keybindings.onStart is slow, took: 356.1 ms
+2022-06-25 12:50:39 root WARN Frontend i.onStart is slow, took: 145.0 ms
+2022-06-25 12:50:39 root INFO Board config changed: 
+2022-06-25 12:50:39 root INFO Board config changed: 
+2022-06-25 12:50:39 root INFO Changed application state from 'init' to 'started_contributions'.
+2022-06-25 12:50:39 root INFO Changed application state from 'started_contributions' to 'attached_shell'.
+2022-06-25 12:50:39 root INFO >>> Restoring the layout state...
+2022-06-25 12:50:39 root INFO <<< Nothing to restore.
+2022-06-25 12:50:39 root INFO [hosted-plugin: 67959] PLUGIN_HOST(67959) starting instance
+2022-06-25 12:50:40 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c] Waiting for backend deployment took: 536.4 ms [Finished 2.754 s after frontend start]
+2022-06-25 12:50:40 root INFO Board config changed: 
+2022-06-25 12:50:40 serial-service INFO >>> Disposing serial connection...
+2022-06-25 12:50:40 serial-service WARN <<< Not connected. Nothing to dispose.
+2022-06-25 12:50:40 serial-service INFO >>> Disposing serial connection...
+2022-06-25 12:50:40 serial-service WARN <<< Not connected. Nothing to dispose.
+2022-06-25 12:50:40 root INFO Changed application state from 'attached_shell' to 'initialized_layout'.
+2022-06-25 12:50:40 root INFO Finished loading frontend application after 3.183 seconds
+2022-06-25 12:50:40 root ERROR d.registerSchemas is taking more than 500.0 ms, new schemas are ignored.
+2022-06-25 12:50:41 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c] Sync of 11 plugins took: 1004.6 ms [Finished 3.759 s after frontend start]
+2022-06-25 12:50:41 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][marus25.cortex-debug]: Loaded contributions.
+2022-06-25 12:50:41 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][arduino.vscode-arduino-tools]: Loaded contributions.
+2022-06-25 12:50:41 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][vscode.cpp]: Loaded contributions.
+2022-06-25 12:50:41 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][vscode.json]: Loaded contributions.
+2022-06-25 12:50:41 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][vscode.json-language-features]: Loaded contributions.
+2022-06-25 12:50:41 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][ms-ceintl.vscode-language-pack-de]: Loaded contributions.
+2022-06-25 12:50:41 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][ms-ceintl.vscode-language-pack-fr]: Loaded contributions.
+2022-06-25 12:50:41 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][ms-ceintl.vscode-language-pack-ja]: Loaded contributions.
+2022-06-25 12:50:41 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][ms-ceintl.vscode-language-pack-nl]: Loaded contributions.
+2022-06-25 12:50:41 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][ms-ceintl.vscode-language-pack-tr]: Loaded contributions.
+2022-06-25 12:50:41 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][ms-ceintl.vscode-language-pack-zh-hans]: Loaded contributions.
+2022-06-25 12:50:41 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c] Load contributions of 11 plugins took: 52.3 ms [Finished 3.812 s after frontend start]
+2022-06-25 12:50:41 root WARN 'cpp' language is remapped from 'source.cpp.embedded.macro' to 'source.cpp' scope
+2022-06-25 12:50:41 root WARN a registered grammar configuration for 'cpp' language is overridden
+2022-06-25 12:50:41 root INFO Changed application state from 'initialized_layout' to 'ready'.
+2022-06-25 12:50:42 root INFO [hosted-plugin: 67959] PLUGIN_HOST(67959): PluginManagerExtImpl/init()
+2022-06-25 12:50:42 root INFO [hosted-plugin: 67959] PLUGIN_HOST(67959): initializing(cortex-debug@0.3.10 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:50:42 root INFO [hosted-plugin: 67959] Debugger contribution has been registered: cortex-debug
+2022-06-25 12:50:42 root INFO [hosted-plugin: 67959] PLUGIN_HOST(67959): initializing(vscode-arduino-tools@0.0.2-beta.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:50:42 root INFO [hosted-plugin: 67959] PLUGIN_HOST(67959): initializing(cpp@1.52.1 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:50:42 root INFO [hosted-plugin: 67959] PLUGIN_HOST(67959): initializing(json@1.46.1 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:50:42 root INFO [hosted-plugin: 67959] PLUGIN_HOST(67959): initializing(json-language-features@1.46.1 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:50:42 root INFO [hosted-plugin: 67959] PLUGIN_HOST(67959): initializing(vscode-language-pack-de@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:50:42 root INFO [hosted-plugin: 67959] PLUGIN_HOST(67959): initializing(vscode-language-pack-fr@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:50:42 root INFO [hosted-plugin: 67959] PLUGIN_HOST(67959): initializing(vscode-language-pack-ja@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:50:42 root INFO [hosted-plugin: 67959] PLUGIN_HOST(67959): initializing(vscode-language-pack-nl@1.48.3 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:50:42 root INFO [hosted-plugin: 67959] PLUGIN_HOST(67959): initializing(vscode-language-pack-tr@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:50:42 root INFO [hosted-plugin: 67959] PLUGIN_HOST(67959): initializing(vscode-language-pack-zh-hans@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 12:50:42 root INFO [hosted-plugin: 67959] PLUGIN_HOST(67959): PluginManagerExtImpl/loadPlugin(/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-builtin-json-language-features/extension/client/dist/jsonMain)
+2022-06-25 12:50:42 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][marus25.cortex-debug]: Started plugin.
+2022-06-25 12:50:42 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][arduino.vscode-arduino-tools]: Started plugin.
+2022-06-25 12:50:42 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][vscode.cpp]: Started plugin.
+2022-06-25 12:50:42 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][vscode.json]: Started plugin.
+2022-06-25 12:50:42 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][vscode.json-language-features]: Started plugin.
+2022-06-25 12:50:42 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][ms-ceintl.vscode-language-pack-de]: Started plugin.
+2022-06-25 12:50:42 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][ms-ceintl.vscode-language-pack-fr]: Started plugin.
+2022-06-25 12:50:42 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][ms-ceintl.vscode-language-pack-ja]: Started plugin.
+2022-06-25 12:50:42 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][ms-ceintl.vscode-language-pack-nl]: Started plugin.
+2022-06-25 12:50:42 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][ms-ceintl.vscode-language-pack-tr]: Started plugin.
+2022-06-25 12:50:42 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c][ms-ceintl.vscode-language-pack-zh-hans]: Started plugin.
+2022-06-25 12:50:42 root INFO [03c478b1-5b2c-4d7e-b634-bccc852e4c3c] Start of 11 plugins took: 1515.6 ms [Finished 5.343 s after frontend start]
+2022-06-25 12:50:42 root INFO Starting language server: arduino:avr:mega
+2022-06-25 12:50:42 root INFO [hosted-plugin: 67959] PLUGIN_HOST(67959): PluginManagerExtImpl/loadPlugin(/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-arduino-tools/extension/dist/bundle)
+2022-06-25 12:50:42 daemon INFO inventory.Store.ConfigFileUsed() /home/alessio/.arduino15/inventory.yaml
+2022-06-25 12:50:42 daemon INFO inventory.Store.ConfigFileUsed() /home/alessio/.arduino15/inventory.yaml
+2022-06-25 12:50:42 daemon INFO Searching tools required for board arduino:avr:mega
+2022-06-25 12:50:42 daemon INFO Required tool [tool: {ToolName:"arduinoOTA",ToolVersion:"1.3.0",ToolPackager:"arduino"}]
+2022-06-25 12:50:42 daemon INFO Required tool [tool: {ToolName:"avr-gcc",ToolVersion:"7.3.0-atmel3.6.1-arduino7",ToolPackager:"arduino"}]
+2022-06-25 12:50:42 daemon INFO Required tool [tool: {ToolName:"avrdude",ToolVersion:"6.3.0-arduino17",ToolPackager:"arduino"}]
+2022-06-25 12:50:42 daemon INFO Adding libraries dir [dir: /home/alessio/.arduino15/packages/arduino/hardware/avr/1.8.5/libraries, location: platform]
+2022-06-25 12:50:42 daemon INFO Adding libraries dir [dir: /home/alessio/Arduino/libraries, location: user]
+2022-06-25 12:52:13 root ERROR [hosted-plugin: 67959] ConnectionError: Connection is closed.
+    at throwIfClosedOrDisposed (/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-arduino-tools/extension/dist/bundle.js:5779:19)
+    at Object.sendNotification (/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-arduino-tools/extension/dist/bundle.js:5829:13)
+    at /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-arduino-tools/extension/dist/bundle.js:5956:32
+    at CallbackList.invoke (/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/vscode-jsonrpc/lib/events.js:62:39)
+    at Emitter.fire (/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/vscode-jsonrpc/lib/events.js:121:36)
+    at MutableToken.cancel (/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/vscode-jsonrpc/lib/cancellation.js:39:31)
+    at CancellationTokenSource.cancel (/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/vscode-jsonrpc/lib/cancellation.js:80:25)
+    at RPCProtocolImpl.receiveCancel (/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext/lib/common/rpc-protocol.js:167:37)
+    at RPCProtocolImpl.receiveOneMessage (/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext/lib/common/rpc-protocol.js:154:26)
+    at /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext/lib/common/rpc-protocol.js:69:48 {
+  code: 1
+}
+2022-06-25 12:59:24 root ERROR [nsfw-watcher: 66604] NSFW service error on "/tmp/.arduinoIDE-unsaved2022525-66475-17ko0es.57dfi/sketch_jun25a": [Error: Service shutdown unexpectedly]
+2022-06-25 12:59:24 root INFO New sketch 'Node4Servo' was crated in sketchbook 'file:///home/alessio/Arduino'.
+2022-06-25 12:59:24 root INFO New sketch 'Node4Servo' was crated in sketchbook 'file:///home/alessio/Arduino'.
+2022-06-25 12:59:25 root ERROR Request repositories failed with error: Unable to find path to repository on disk.
+2022-06-25 12:59:42 root ERROR Request repositories failed with error: Unable to find path to repository on disk.
+2022-06-25 12:59:59 root ERROR [nsfw-watcher: 66604] tried to de-allocate a disposed watcher: watcherId=19
+2022-06-25 12:59:59 serial-service INFO >>> Disposing serial service...
+2022-06-25 12:59:59 serial-service INFO <<< Disposed serial service.
+2022-06-25 13:00:44 root WARN Frontend s.configure is slow, took: 153.9 ms
+2022-06-25 13:00:45 root WARN Frontend keybindings.onStart is slow, took: 346.9 ms
+2022-06-25 13:00:45 root WARN Frontend i.onStart is slow, took: 138.6 ms
+2022-06-25 13:00:45 root INFO Board config changed: 
+2022-06-25 13:00:45 root INFO Board config changed: 
+2022-06-25 13:00:45 root INFO Changed application state from 'init' to 'started_contributions'.
+2022-06-25 13:00:45 root INFO Changed application state from 'started_contributions' to 'attached_shell'.
+2022-06-25 13:00:45 root INFO >>> Restoring the layout state...
+2022-06-25 13:00:45 root INFO <<< Nothing to restore.
+2022-06-25 13:00:45 root INFO [hosted-plugin: 72100] PLUGIN_HOST(72100) starting instance
+2022-06-25 13:00:45 root INFO [0282c399-d855-430a-8442-7723dbaca842] Waiting for backend deployment took: 427.9 ms [Finished 2.588 s after frontend start]
+2022-06-25 13:00:46 root INFO Board config changed: 
+2022-06-25 13:00:46 serial-service INFO >>> Disposing serial connection...
+2022-06-25 13:00:46 serial-service WARN <<< Not connected. Nothing to dispose.
+2022-06-25 13:00:46 serial-service INFO >>> Disposing serial connection...
+2022-06-25 13:00:46 serial-service WARN <<< Not connected. Nothing to dispose.
+2022-06-25 13:00:46 root INFO Changed application state from 'attached_shell' to 'initialized_layout'.
+2022-06-25 13:00:46 root INFO Finished loading frontend application after 3.023 seconds
+2022-06-25 13:00:47 root INFO [0282c399-d855-430a-8442-7723dbaca842] Sync of 11 plugins took: 997.3 ms [Finished 3.585 s after frontend start]
+2022-06-25 13:00:47 root INFO [0282c399-d855-430a-8442-7723dbaca842][marus25.cortex-debug]: Loaded contributions.
+2022-06-25 13:00:47 root INFO [0282c399-d855-430a-8442-7723dbaca842][arduino.vscode-arduino-tools]: Loaded contributions.
+2022-06-25 13:00:47 root INFO [0282c399-d855-430a-8442-7723dbaca842][vscode.cpp]: Loaded contributions.
+2022-06-25 13:00:47 root INFO [0282c399-d855-430a-8442-7723dbaca842][vscode.json]: Loaded contributions.
+2022-06-25 13:00:47 root INFO [0282c399-d855-430a-8442-7723dbaca842][vscode.json-language-features]: Loaded contributions.
+2022-06-25 13:00:47 root INFO [0282c399-d855-430a-8442-7723dbaca842][ms-ceintl.vscode-language-pack-de]: Loaded contributions.
+2022-06-25 13:00:47 root INFO [0282c399-d855-430a-8442-7723dbaca842][ms-ceintl.vscode-language-pack-fr]: Loaded contributions.
+2022-06-25 13:00:47 root INFO [0282c399-d855-430a-8442-7723dbaca842][ms-ceintl.vscode-language-pack-ja]: Loaded contributions.
+2022-06-25 13:00:47 root INFO [0282c399-d855-430a-8442-7723dbaca842][ms-ceintl.vscode-language-pack-nl]: Loaded contributions.
+2022-06-25 13:00:47 root INFO [0282c399-d855-430a-8442-7723dbaca842][ms-ceintl.vscode-language-pack-tr]: Loaded contributions.
+2022-06-25 13:00:47 root INFO [0282c399-d855-430a-8442-7723dbaca842][ms-ceintl.vscode-language-pack-zh-hans]: Loaded contributions.
+2022-06-25 13:00:47 root INFO [0282c399-d855-430a-8442-7723dbaca842] Load contributions of 11 plugins took: 59.2 ms [Finished 3.645 s after frontend start]
+2022-06-25 13:00:47 root ERROR d.registerSchemas is taking more than 500.0 ms, new schemas are ignored.
+2022-06-25 13:00:47 root WARN 'cpp' language is remapped from 'source.cpp.embedded.macro' to 'source.cpp' scope
+2022-06-25 13:00:47 root WARN a registered grammar configuration for 'cpp' language is overridden
+2022-06-25 13:00:47 root INFO Changed application state from 'initialized_layout' to 'ready'.
+2022-06-25 13:00:48 root INFO [hosted-plugin: 72100] PLUGIN_HOST(72100): PluginManagerExtImpl/init()
+2022-06-25 13:00:48 root INFO [hosted-plugin: 72100] PLUGIN_HOST(72100): initializing(cortex-debug@0.3.10 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 13:00:48 root INFO [hosted-plugin: 72100] Debugger contribution has been registered: cortex-debug
+2022-06-25 13:00:48 root INFO [hosted-plugin: 72100] PLUGIN_HOST(72100): initializing(vscode-arduino-tools@0.0.2-beta.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 13:00:48 root INFO [hosted-plugin: 72100] PLUGIN_HOST(72100): initializing(cpp@1.52.1 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 13:00:48 root INFO [hosted-plugin: 72100] PLUGIN_HOST(72100): initializing(json@1.46.1 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 13:00:48 root INFO [hosted-plugin: 72100] PLUGIN_HOST(72100): initializing(json-language-features@1.46.1 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 13:00:48 root INFO [hosted-plugin: 72100] PLUGIN_HOST(72100): initializing(vscode-language-pack-de@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 13:00:48 root INFO [hosted-plugin: 72100] PLUGIN_HOST(72100): initializing(vscode-language-pack-fr@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 13:00:48 root INFO [hosted-plugin: 72100] PLUGIN_HOST(72100): initializing(vscode-language-pack-ja@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 13:00:48 root INFO [hosted-plugin: 72100] PLUGIN_HOST(72100): initializing(vscode-language-pack-nl@1.48.3 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 13:00:48 root INFO [hosted-plugin: 72100] PLUGIN_HOST(72100): initializing(vscode-language-pack-tr@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 13:00:48 root INFO [hosted-plugin: 72100] PLUGIN_HOST(72100): initializing(vscode-language-pack-zh-hans@1.53.2 with /home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init)
+2022-06-25 13:00:48 root INFO [hosted-plugin: 72100] PLUGIN_HOST(72100): PluginManagerExtImpl/loadPlugin(/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-builtin-json-language-features/extension/client/dist/jsonMain)
+2022-06-25 13:00:48 root INFO [0282c399-d855-430a-8442-7723dbaca842][marus25.cortex-debug]: Started plugin.
+2022-06-25 13:00:48 root INFO [0282c399-d855-430a-8442-7723dbaca842][arduino.vscode-arduino-tools]: Started plugin.
+2022-06-25 13:00:48 root INFO [0282c399-d855-430a-8442-7723dbaca842][vscode.cpp]: Started plugin.
+2022-06-25 13:00:48 root INFO [0282c399-d855-430a-8442-7723dbaca842][vscode.json]: Started plugin.
+2022-06-25 13:00:48 root INFO [0282c399-d855-430a-8442-7723dbaca842][vscode.json-language-features]: Started plugin.
+2022-06-25 13:00:48 root INFO [0282c399-d855-430a-8442-7723dbaca842][ms-ceintl.vscode-language-pack-de]: Started plugin.
+2022-06-25 13:00:48 root INFO [0282c399-d855-430a-8442-7723dbaca842][ms-ceintl.vscode-language-pack-fr]: Started plugin.
+2022-06-25 13:00:48 root INFO [0282c399-d855-430a-8442-7723dbaca842][ms-ceintl.vscode-language-pack-ja]: Started plugin.
+2022-06-25 13:00:48 root INFO [0282c399-d855-430a-8442-7723dbaca842][ms-ceintl.vscode-language-pack-nl]: Started plugin.
+2022-06-25 13:00:48 root INFO [0282c399-d855-430a-8442-7723dbaca842][ms-ceintl.vscode-language-pack-tr]: Started plugin.
+2022-06-25 13:00:48 root INFO [0282c399-d855-430a-8442-7723dbaca842][ms-ceintl.vscode-language-pack-zh-hans]: Started plugin.
+2022-06-25 13:00:48 root INFO [0282c399-d855-430a-8442-7723dbaca842] Start of 11 plugins took: 1508.7 ms [Finished 5.168 s after frontend start]
+2022-06-25 13:00:48 root INFO Starting language server: arduino:avr:mega
+2022-06-25 13:00:48 root INFO [hosted-plugin: 72100] PLUGIN_HOST(72100): PluginManagerExtImpl/loadPlugin(/home/alessio/Programming/Arduino/arduino-ide_2.0.0-rc6_Linux_64bit/resources/app/plugins/vscode-arduino-tools/extension/dist/bundle)
+2022-06-25 13:00:48 daemon INFO inventory.Store.ConfigFileUsed() /home/alessio/.arduino15/inventory.yaml
+2022-06-25 13:00:48 daemon INFO inventory.Store.ConfigFileUsed() /home/alessio/.arduino15/inventory.yaml
+2022-06-25 13:00:48 daemon INFO Searching tools required for board arduino:avr:mega
+2022-06-25 13:00:48 daemon INFO Required tool [tool: {ToolName:"arduinoOTA",ToolVersion:"1.3.0",ToolPackager:"arduino"}]
+2022-06-25 13:00:48 daemon INFO Required tool [tool: {ToolName:"avr-gcc",ToolVersion:"7.3.0-atmel3.6.1-arduino7",ToolPackager:"arduino"}]
+2022-06-25 13:00:48 daemon INFO Required tool [tool: {ToolName:"avrdude",ToolVersion:"6.3.0-arduino17",ToolPackager:"arduino"}]
+2022-06-25 13:00:48 daemon INFO Adding libraries dir [dir: /home/alessio/.arduino15/packages/arduino/hardware/avr/1.8.5/libraries, location: platform]
+2022-06-25 13:00:48 daemon INFO Adding libraries dir [dir: /home/alessio/Arduino/libraries, location: user]
+2022-06-25 13:00:48 daemon INFO Resolving include Servo.h for arch avr
+2022-06-25 13:00:48 daemon INFO   found better lib [lib: Servo, prio: 64D]
+2022-06-25 13:01:20 daemon INFO inventory.Store.ConfigFileUsed() /home/alessio/.arduino15/inventory.yaml
+2022-06-25 13:01:20 daemon INFO inventory.Store.ConfigFileUsed() /home/alessio/.arduino15/inventory.yaml
+2022-06-25 13:01:20 daemon INFO Searching tools required for board arduino:avr:mega
+2022-06-25 13:01:20 daemon INFO Required tool [tool: {ToolName:"arduinoOTA",ToolVersion:"1.3.0",ToolPackager:"arduino"}]
+2022-06-25 13:01:20 daemon INFO Required tool [tool: {ToolName:"avr-gcc",ToolVersion:"7.3.0-atmel3.6.1-arduino7",ToolPackager:"arduino"}]
+2022-06-25 13:01:20 daemon INFO Required tool [tool: {ToolName:"avrdude",ToolVersion:"6.3.0-arduino17",ToolPackager:"arduino"}]
+2022-06-25 13:01:20 daemon INFO Adding libraries dir [dir: /home/alessio/.arduino15/packages/arduino/hardware/avr/1.8.5/libraries, location: platform]
+2022-06-25 13:01:20 daemon INFO Adding libraries dir [dir: /home/alessio/Arduino/libraries, location: user]
+2022-06-25 13:01:20 daemon INFO Resolving include Servo.h for arch avr
+2022-06-25 13:01:20 daemon INFO   found better lib [lib: Servo, prio: 64D]
+2022-06-25 13:01:27 daemon INFO inventory.Store.ConfigFileUsed() /home/alessio/.arduino15/inventory.yaml
+2022-06-25 13:01:27 daemon INFO inventory.Store.ConfigFileUsed() /home/alessio/.arduino15/inventory.yaml
+2022-06-25 13:01:27 daemon INFO Searching tools required for board arduino:avr:mega
+2022-06-25 13:01:27 daemon INFO Required tool [tool: {ToolName:"arduinoOTA",ToolVersion:"1.3.0",ToolPackager:"arduino"}]
+2022-06-25 13:01:27 daemon INFO Required tool [tool: {ToolName:"avr-gcc",ToolVersion:"7.3.0-atmel3.6.1-arduino7",ToolPackager:"arduino"}]
+2022-06-25 13:01:27 daemon INFO Required tool [tool: {ToolName:"avrdude",ToolVersion:"6.3.0-arduino17",ToolPackager:"arduino"}]
+2022-06-25 13:01:27 daemon INFO Adding libraries dir [dir: /home/alessio/.arduino15/packages/arduino/hardware/avr/1.8.5/libraries, location: platform]
+2022-06-25 13:01:27 daemon INFO Adding libraries dir [dir: /home/alessio/Arduino/libraries, location: user]
+2022-06-25 13:01:27 daemon INFO Resolving include Servo.h for arch avr
+2022-06-25 13:01:27 daemon INFO   found better lib [lib: Servo, prio: 64D]
+2022-06-25 13:01:29 daemon INFO inventory.Store.ConfigFileUsed() /home/alessio/.arduino15/inventory.yaml
+2022-06-25 13:01:29 daemon INFO inventory.Store.ConfigFileUsed() /home/alessio/.arduino15/inventory.yaml
+2022-06-25 13:01:29 daemon INFO Searching tools required for board arduino:avr:mega
+2022-06-25 13:01:29 daemon INFO Required tool [tool: {ToolName:"arduinoOTA",ToolVersion:"1.3.0",ToolPackager:"arduino"}]
+2022-06-25 13:01:29 daemon INFO Required tool [tool: {ToolName:"avr-gcc",ToolVersion:"7.3.0-atmel3.6.1-arduino7",ToolPackager:"arduino"}]
+2022-06-25 13:01:29 daemon INFO Required tool [tool: {ToolName:"avrdude",ToolVersion:"6.3.0-arduino17",ToolPackager:"arduino"}]
+2022-06-25 13:01:29 daemon INFO Adding libraries dir [dir: /home/alessio/.arduino15/packages/arduino/hardware/avr/1.8.5/libraries, location: platform]
+2022-06-25 13:01:29 daemon INFO Adding libraries dir [dir: /home/alessio/Arduino/libraries, location: user]
+2022-06-25 13:01:29 daemon INFO Resolving include Servo.h for arch avr
+2022-06-25 13:01:29 daemon INFO   found better lib [lib: Servo, prio: 64D]
+2022-06-25 13:01:36 daemon INFO inventory.Store.ConfigFileUsed() /home/alessio/.arduino15/inventory.yaml
+2022-06-25 13:01:36 daemon INFO inventory.Store.ConfigFileUsed() /home/alessio/.arduino15/inventory.yaml
+2022-06-25 13:01:36 daemon INFO Searching tools required for board arduino:avr:mega
+2022-06-25 13:01:36 daemon INFO Required tool [tool: {ToolName:"arduinoOTA",ToolVersion:"1.3.0",ToolPackager:"arduino"}]
+2022-06-25 13:01:36 daemon INFO Required tool [tool: {ToolName:"avr-gcc",ToolVersion:"7.3.0-atmel3.6.1-arduino7",ToolPackager:"arduino"}]
+2022-06-25 13:01:36 daemon INFO Required tool [tool: {ToolName:"avrdude",ToolVersion:"6.3.0-arduino17",ToolPackager:"arduino"}]
+2022-06-25 13:01:36 daemon INFO Adding libraries dir [dir: /home/alessio/.arduino15/packages/arduino/hardware/avr/1.8.5/libraries, location: platform]
+2022-06-25 13:01:36 daemon INFO Adding libraries dir [dir: /home/alessio/Arduino/libraries, location: user]
+2022-06-25 13:01:36 daemon INFO Resolving include Servo.h for arch avr
+2022-06-25 13:01:36 daemon INFO   found better lib [lib: Servo, prio: 64D]
+2022-06-25 13:01:37 root ERROR Request compile failed with error: Compilation error: exit status 1
+2022-06-25 13:03:17 serial-service INFO >>> Disposing serial service...
+2022-06-25 13:03:17 serial-service INFO <<< Disposed serial service.
+2022-06-25 13:03:20 serial-service INFO >>> Disposing serial service...
+2022-06-25 13:03:20 serial-service INFO <<< Disposed serial service.

@@ -1,0 +1,8 @@
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:19:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass ERA::MyRobot[m[K’ has no member named ‘[01m[KsetControlManager[m[K’; did you mean ‘[01m[KsetControllerManager[m[K’?
+   19 |     robot.[01;31m[KsetControlManager[m[K(&cm);
+      |           [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+      |           [32m[KsetControllerManager[m[K
+make[2]: *** [CMakeFiles/braccio_urdf_description_exe.dir/build.make:63: CMakeFiles/braccio_urdf_description_exe.dir/hardware_interface/src/new_hardware_interface_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:287: CMakeFiles/braccio_urdf_description_exe.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

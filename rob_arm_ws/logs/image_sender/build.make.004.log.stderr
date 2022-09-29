@@ -1,0 +1,7 @@
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/image_sender/src/image_publisher.cpp:3:10:[m[K [01;31m[Kfatal error: [m[Kimage_transport/compressed_image_transport.h: No such file or directory
+    3 | #include [01;31m[K<image_transport/compressed_image_transport.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/image_publisher_exe.dir/build.make:63: CMakeFiles/image_publisher_exe.dir/src/image_publisher.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:786: CMakeFiles/image_publisher_exe.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

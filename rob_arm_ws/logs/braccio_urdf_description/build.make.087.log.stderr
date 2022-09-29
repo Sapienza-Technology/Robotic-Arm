@@ -1,0 +1,20 @@
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface.cpp:[m[K In member function ‘[01m[Kvoid ERA::MyRobot::update(const ros::TimerEvent&)[m[K’:
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface.cpp:42:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kelapsed_time_[m[K’ was not declared in this scope
+   42 |                 [01;31m[Kelapsed_time_[m[K = ros::Duration(e.current_real - e.last_real);
+      |                 [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:8:20:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[Kint[m[K’
+    8 | using namespace ERA
+      |                    [01;31m[K^[m[K
+      |                    [32m[K;[m[K
+    9 | 
+   10 | [32m[Kint[m[K main(int argc, char** argv) {
+      | [32m[K~~~[m[K                 
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:21:5:[m[K [01;31m[Kerror: [m[K‘[01m[Knon_realtime_loop_[m[K’ was not declared in this scope
+   21 |     [01;31m[Knon_realtime_loop_[m[K = nh.createTimer(update_freq, &MyRobot::update, &robot);
+      |     [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/launch_hardware_interface.dir/build.make:76: CMakeFiles/launch_hardware_interface.dir/hardware_interface/src/new_hardware_interface_node.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/launch_hardware_interface.dir/build.make:63: CMakeFiles/launch_hardware_interface.dir/hardware_interface/src/new_hardware_interface.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:439: CMakeFiles/launch_hardware_interface.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

@@ -1,0 +1,19 @@
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:8:17:[m[K [01;31m[Kerror: [m[K‘[01m[KERA[m[K’ is not a namespace-name
+    8 | using namespace [01;31m[KERA[m[K;
+      |                 [01;31m[K^~~[m[K
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:10:1:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K{[m[K’ token
+   10 | [01;31m[K{[m[K
+      | [01;31m[K^[m[K
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:93:5:[m[K [01;31m[Kerror: [m[K‘[01m[KMyRobot[m[K’ was not declared in this scope
+   93 |     [01;31m[KMyRobot[m[K robot;
+      |     [01;31m[K^~~~~~~[m[K
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:94:47:[m[K [01;31m[Kerror: [m[K‘[01m[Krobot[m[K’ was not declared in this scope
+   94 |     controller_manager::ControllerManager cm(&[01;31m[Krobot[m[K, nh);
+      |                                               [01;31m[K^~~~~[m[K
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:97:66:[m[K [01;31m[Kerror: [m[K‘[01m[KMyRobot[m[K’ is not a class, namespace, or enumeration
+   97 |     ros::Timer non_realtime_loop_ = nh.createTimer(update_freq, &[01;31m[KMyRobot[m[K::update, &robot);
+      |                                                                  [01;31m[K^~~~~~~[m[K
+make[2]: *** [CMakeFiles/braccio_urdf_description_exe.dir/build.make:63: CMakeFiles/braccio_urdf_description_exe.dir/hardware_interface/src/new_hardware_interface_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:287: CMakeFiles/braccio_urdf_description_exe.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

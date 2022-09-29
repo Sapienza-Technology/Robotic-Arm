@@ -5,4 +5,4 @@ Description: Description of braccio_urdf_description
 Version: 0.0.0
 Cflags: -I/home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/braccio_urdf_description/include
 Libs: -L${prefix}/lib 
-Requires: rospy message_runtime
+Requires: roscpp rospy message_runtime

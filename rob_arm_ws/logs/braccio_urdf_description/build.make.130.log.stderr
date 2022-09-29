@@ -1,0 +1,29 @@
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:105:58:[m[K [01;31m[Kerror: [m[K‘[01m[KFloat64MultiArray[m[K’ is not a member of ‘[01m[Kstd_msgs[m[K’
+  105 |     ros:: Publisher chatter_pub = nh.advertise<std_msgs::[01;31m[KFloat64MultiArray[m[K>("/braccio_urdf/command2Arduino", 1000);
+      |                                                          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:105:58:[m[K [01;31m[Kerror: [m[K‘[01m[KFloat64MultiArray[m[K’ is not a member of ‘[01m[Kstd_msgs[m[K’
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:105:114:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kros::NodeHandle::advertise<<expression error> >(const char [30], int)[m[K’
+  105 |     ros:: Publisher chatter_pub = nh.advertise<std_msgs::Float64MultiArray>("/braccio_urdf/command2Arduino", 1000[01;31m[K)[m[K;
+      |                                                                                                                  [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/hardware_interface/robot_hw.h:40[m[K,
+                 from [01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:3[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:249:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class M> ros::Publisher ros::NodeHandle::advertise(const string&, uint32_t, bool)[m[K’
+  249 |     Publisher [01;36m[Kadvertise[m[K(const std::string& topic, uint32_t queue_size, bool latch = false)
+      |               [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:249:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:105:114:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  105 |     ros:: Publisher chatter_pub = nh.advertise<std_msgs::Float64MultiArray>("/braccio_urdf/command2Arduino", 1000[01;31m[K)[m[K;
+      |                                                                                                                  [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/hardware_interface/robot_hw.h:40[m[K,
+                 from [01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:3[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:315:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class M> ros::Publisher ros::NodeHandle::advertise(const string&, uint32_t, const SubscriberStatusCallback&, const SubscriberStatusCallback&, const VoidConstPtr&, bool)[m[K’
+  315 |   Publisher [01;36m[Kadvertise[m[K(const std::string& topic, uint32_t queue_size,
+      |             [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:315:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/src/new_hardware_interface_node.cpp:105:114:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  105 |     ros:: Publisher chatter_pub = nh.advertise<std_msgs::Float64MultiArray>("/braccio_urdf/command2Arduino", 1000[01;31m[K)[m[K;
+      |                                                                                                                  [01;31m[K^[m[K
+make[2]: *** [CMakeFiles/braccio_urdf_description_exe.dir/build.make:63: CMakeFiles/braccio_urdf_description_exe.dir/hardware_interface/src/new_hardware_interface_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:345: CMakeFiles/braccio_urdf_description_exe.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

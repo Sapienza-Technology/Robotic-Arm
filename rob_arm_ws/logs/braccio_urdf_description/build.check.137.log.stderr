@@ -1,0 +1,28 @@
+CMake Warning (dev) at CMakeLists.txt:2 (project):
+  Policy CMP0048 is not set: project() command manages VERSION variables.
+  Run "cmake --help-policy CMP0048" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  The following variable(s) would be set to empty:
+
+    CMAKE_PROJECT_VERSION
+    CMAKE_PROJECT_VERSION_MAJOR
+    CMAKE_PROJECT_VERSION_MINOR
+    CMAKE_PROJECT_VERSION_PATCH
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+[31m[1mCMake Error[0m at /home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/CMakeLists.txt:227 (add_executable):
+  Cannot find source file:
+
+    hardware_interface/src/subscriber_test.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+  .hpp .hxx .in .txx
+
+
+[31m[1mCMake Error[0m at /home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/CMakeLists.txt:227 (add_executable):
+  No SOURCES given to target: subscriber_test_exe
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
+make: *** [Makefile:1276: cmake_check_build_system] Error 1

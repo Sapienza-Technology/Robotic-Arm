@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<robot name="braccio3_urdf" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="Giunto3_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Giunto3">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Giunto3_actr">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Giunto4_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Giunto4">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Giunto4_actr">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Giunto5_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Giunto5">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Giunto5_actr">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Giunto0_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Giunto0">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Giunto0_actr">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Giunto1_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Giunto1">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Giunto1_actr">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Giunto2_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Giunto2">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Giunto2_actr">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>
