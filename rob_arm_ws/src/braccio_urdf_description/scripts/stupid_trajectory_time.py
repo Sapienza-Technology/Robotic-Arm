@@ -16,12 +16,14 @@ def main():
     pub_command = rospy.Publisher("/firmware_arm_pos", Float32MultiArray, queue_size=100)
     pub_ee = rospy.Publisher("/firmware_EEP_pos", Float32, queue_size=100)
 
-    offsets = np.array([0, degToRad(90), degToRad(-90), 0, -degToRad(115), 0])
+    offsets = np.array([0, degToRad(90), degToRad(-90), 0, -degToRad(105), 0])
 
-    steps = 42
+    steps = 21
+
+    time_durations = [8, 6, 6, 6, 6, 8]
 
     print("Generando traiettoria...")
-
+    
     time.sleep(5)
     
     """
@@ -45,22 +47,22 @@ def main():
 
     #return 
 
-    T = premade_traj("pirulo", steps, offsets) #array of trajectories between points
+    T = premade_traj_time("pirulo", time_durations, offsets) #array of trajectories between points
 
     print(T)
 
     print("Traiettoria generata: eseguendo...")
 
     curr_pos = np.zeros(6)
-    max_time = [0.1, 0.5, 0.5, 0.5, 0.5, 0.25, 0.5]
+    max_time = [0.5, 1, 1, 1, 1, 0.5]
 
 
     # For every point in trajectory T
     for j in range(len(T)):
         arm_goal_arr = T[j].q
+        arm_vel_arr = T[j].qd
         print("Andando verso il prossimo punto...")
-        time_resolution = max_time[j] / (steps/3)
-        time_to_wait = 0
+
         if j == 2:
             command = Float32()
             command.data = 1.0
@@ -70,13 +72,18 @@ def main():
             command = Float32()
             command.data = 0.0
             pub_ee.publish(command)
-            time.sleep(5)
+            time.sleep(3)
 
         for i in range(len(arm_goal_arr)):
             print("Step: ")
             print(arm_goal_arr[i])
             command = Float32MultiArray()
-            command.data = arm_goal_arr[i] - offsets
+            if i == 0:
+                command.data = np.concatenate((arm_goal_arr[i] - offsets, arm_vel_arr[1]))
+            elif i == len(arm_goal_arr)-1:
+                command.data = np.concatenate((arm_goal_arr[i] - offsets, arm_vel_arr[len(arm_goal_arr)-2]))
+            else:
+                command.data = np.concatenate((arm_goal_arr[i] - offsets, arm_vel_arr[i]))
             pub_command.publish(command)
             print(f"{i}. Inviando: {command.data}")
             """
@@ -87,6 +94,8 @@ def main():
             print(f"Aspettando: {time_to_wait}")
             time.sleep(time_to_wait)
             curr_pos = arm_goal_arr[i]
+            """
+
             """
             if ((i+1) // (steps/3) == 0):
                 time_to_wait += time_resolution
@@ -99,6 +108,8 @@ def main():
                     time_to_wait -= time_resolution
             print("time_to_wait: ", time_to_wait)
             time.sleep(time_to_wait)
+            """
+            time.sleep(1.5)
         print("Aspettando di arrivare al punto")
         user_input = input("prosegui: ")
         while user_input == "n":
@@ -133,11 +144,6 @@ def main():
         time.sleep(1)
     """
 
-    print("Aprendo prima di tornare allo zero...")
-    command = Float32()
-    command.data = 1.0
-    pub_ee.publish(command)
-    time.sleep(5)
 
     print("Tornando allo zero...")
     command = Float32MultiArray()

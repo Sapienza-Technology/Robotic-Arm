@@ -610,3 +610,10 @@ def rotate(task:bool, elbow:bool, q_pres:np.array, direct: string, steps:int, di
       prec_qfin = q_pres[3:]
       q_des.append(inv_kin_total_bis(coord, rot, task, elbow, prec_qfin))
     return q_des 
+
+# Function we tried to use to compute time intervals for the trajectory
+def weighted_norm(x, w=np.ones(6)):
+  W = np.matmul(w, np.eye(6))
+  print("transpose: ", np.transpose(x))
+  print("Result: ", np.matmul(np.matmul(x, W), x))
+  return sqrt(np.matmul(np.matmul(x, W), x))
