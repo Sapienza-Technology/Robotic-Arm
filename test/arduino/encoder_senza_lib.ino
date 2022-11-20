@@ -1,10 +1,20 @@
+//#include <BasicLinearAlgebra.h>
+#include <ElementStorage.h>
+#include <Kalman.h>
 #include <Wire.h> //This is for i2C
 #include <math.h>
 
+using namespace BLA ;
 // i2C OLED
-#define I2C_ADDRESS 0x3C
-#define RST_PIN -1
+#define I2C_ADDRESS 0x3C ;
+#define RST_PIN -1;
+const int Nstate = 2;
+const int Nobs = 1;
+KALMAN<Nstate, Nobs> K;
 
+//KALMAN<2, 1> K;
+BLA::Matrix<Nobs> obs;
+//BLA::Matrix<Nstate> my_x = K.getxcopy();
 float OLEDTimer = 0;
 //I2C pins:
 //STM32: SDA: PB7 SCL: PB6
@@ -25,14 +35,21 @@ float correctedAngle = 0; //tared angle - based on the startup value
 float startAngle = 0; //starting angle
 float totalAngle = 0; //total absolute angular displacement
 float previoustotalAngle = 0; //for the display printing
-
+float T=0;
+float DT=0;
 void setup()
 {
   Serial.begin(115200); //start serial - tip: don't use serial if you don't need it (speed considerations)
   Serial.println("Antonio Bozza>>>>>");
   Wire.begin(); //start i2C  
   Wire.setClock(800000L); //fast clock
-
+  K.F={0.0, 1.0,
+       1.0, 0.0};
+  K.H={1.0, 0.0}; 
+  K.Q={0.0, 0.0,
+       0.0, 1.758};
+  K.R={0.08};
+  T=millis();
   checkMagnetPresence(); //check the magnet (blocks until magnet is found)
 
   ReadRawAngle(); //make a reading so the degAngle gets updated
@@ -43,41 +60,24 @@ void setup()
 }
 
 
-float q_des;
-float dq_des;
-float err;
-int K;
-float dq;
-const int delta_t = 0.1;
-float P_k = 1.758;
-float V_k = 1.758;
-float W_k = 0.08;
-float dq_pred=3;
-float P_pred;
-
 
 void loop()
 {    
     ReadRawAngle(); //ask the value from the sensor
     correctAngle(); //tare the value
     checkQuadrant(); //check quadrant, check rotations, check absolute angular position
-    q_des = 50.0;
-    dq_des = 5.0;
-    err = q_des - correctedAngle;
-    K = 5;
-    //dq = dq_des + K*err;
-
-    dq = dq_pred + P_k*(correctedAngle-dq_pred*delta_t);
-    //we step k+1 -> k
-    dq_pred = (correctedAngle - previoustotalAngle)/delta_t;
-    P_pred = P_k/(delta_t*delta_t) + V_k;
-    P_k = P_pred + P_pred/(P_pred+0.08);
-    previoustotalAngle = correctedAngle;
-    Serial.print("Velocità comandata: ");
-    Serial.print(dq);
-    Serial.print("   errore: ");
-    Serial.print(err);
-    Serial.print("\n");
+    DT=(millis()-T)/1000.0;
+    T=millis();
+  
+    K.F={1.0, DT, 0.0, 1.0};
+    obs=correctedAngle;
+    K.update(obs);
+//    Serial.print("Velocità comandata: ");
+//    Serial.print(dq);
+//    Serial.print("   errore: ");
+//    Serial.print(err);
+//    Serial.print("\n");
+    Serial << obs << ' ' << K.x << ' ' << K.P << '\n';
     refreshDisplay();
     delay(100); //wait a little - adjust it for "better resolution"
 
