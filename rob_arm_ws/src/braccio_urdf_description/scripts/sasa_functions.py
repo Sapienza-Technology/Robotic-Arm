@@ -566,6 +566,7 @@ def move_from_rtag(cod, q_pres, steps):
   
 # per ruotare
 def rotate(task:bool, elbow:bool, q_pres:np.array, direct: string, steps:int, distance, in_final_frame:bool = False):
+    print("entrato")
     q_des = []
     if direct == 'r_cw':    # roll cw
       s = 0
@@ -604,11 +605,15 @@ def rotate(task:bool, elbow:bool, q_pres:np.array, direct: string, steps:int, di
         #print(coord)
         #print("\n")
       '''
-      rot = rot*rot_delta
-      
+      #rot = np.matmul(np.transpose(rot), rot_delta)
+      rot = np.matmul(rot, rot_delta)
+      print(rot_delta)
       #print(coord)
       prec_qfin = q_pres[3:]
       q_des.append(inv_kin_total_bis(coord, rot, task, elbow, prec_qfin))
+    
+    print(q_des)
+    print(rot)
     return q_des 
 
 # Function we tried to use to compute time intervals for the trajectory

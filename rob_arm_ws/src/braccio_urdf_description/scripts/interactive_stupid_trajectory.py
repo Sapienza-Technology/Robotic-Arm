@@ -31,7 +31,7 @@ def main():
     return
     """
 
-    offsets = np.array([0, degToRad(90), degToRad(-90), 0, math.pi/2, 0])
+    offsets = np.array([0, degToRad(90), degToRad(-90), 0, -degToRad(115), 0])
 
     q_pres = offsets
 
@@ -45,30 +45,30 @@ def main():
         print(character)
         if character == 'w': 
             #p1 = move_gazebo(p1, 'up')
-            arm_goal_arr = go_straight(True, True, q_pres, "u", steps, 0.01, False)
+            arm_goal_arr = go_straight(True, True, q_pres, "u", steps, 0.03, False)
         elif character == 's': 
-            arm_goal_arr = go_straight(True, True, q_pres, "d", steps, 0.01, False)
+            arm_goal_arr = go_straight(True, True, q_pres, "d", steps, 0.03, False)
         elif character == 'd': 
-            arm_goal_arr = go_straight(True, True, q_pres, "r", steps, 0.01, False)
+            arm_goal_arr = go_straight(True, True, q_pres, "r", steps, 0.03, False)
         elif character == 'a': 
-            arm_goal_arr = go_straight(True, True, q_pres, "l", steps, 0.01, False)
+            arm_goal_arr = go_straight(True, True, q_pres, "l", steps, 0.03, False)
         elif character == 'q': 
-            arm_goal_arr = go_straight(True, True, q_pres, "f", steps, 0.01, False)
+            arm_goal_arr = go_straight(True, True, q_pres, "f", steps, 0.03, False)
         elif character == 'e': 
-            arm_goal_arr = go_straight(True, True, q_pres, "b", steps, 0.01, False)
+            arm_goal_arr = go_straight(True, True, q_pres, "b", steps, 0.03, False)
         # for rotations
-        elif character == '8': 
-            arm_goal_arr = rotate(True, True, q_pres, "r_cw", steps, 0.1, True)
-        elif character == '2': 
-            arm_goal_arr = rotate(True, True, q_pres, "r_ccw", steps, 0.1, True)
         elif character == '6': 
-            arm_goal_arr = rotate(True, True, q_pres, "p_cw", steps, 0.1, True)
+            arm_goal_arr = rotate(True, True, q_pres, "r_cw", steps, 0.3, False)
         elif character == '4': 
-            arm_goal_arr = rotate(True, True, q_pres, "p_ccw", steps, 0.1, True)
-        elif character == '3': 
-            arm_goal_arr = rotate(True, True, q_pres, "y_cw", steps, 0.1, True)
+            arm_goal_arr = rotate(True, True, q_pres, "r_ccw", steps, 0.3, False)
+        elif character == '2': 
+            arm_goal_arr = rotate(True, True, q_pres, "p_cw", steps, 0.3, False)
+        elif character == '8': 
+            arm_goal_arr = rotate(True, True, q_pres, "p_ccw", steps, 0.3, False)
+        elif character == '3':
+            arm_goal_arr = rotate(True, True, q_pres, "y_cw", steps, 0.3, False)
         elif character == '1': 
-            arm_goal_arr = rotate(True, True, q_pres, "y_ccw", steps, 0.1, True)
+            arm_goal_arr = rotate(True, True, q_pres, "y_ccw", steps, 0.3, False)
         elif character == "o":
             command = Float32()
             command.data = 0
@@ -98,7 +98,7 @@ def main():
             data[4] += math.pi/2
             command.data = data
             pub_command.publish(command)
-            time.sleep(1)
+            time.sleep(0.5)
 
         
 
