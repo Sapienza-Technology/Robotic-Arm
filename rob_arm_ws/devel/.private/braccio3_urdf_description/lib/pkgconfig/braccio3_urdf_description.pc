@@ -1,4 +1,4 @@
-prefix=/home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/braccio3_urdf_description
+prefix=/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/braccio3_urdf_description
 
 Name: braccio3_urdf_description
 Description: Description of braccio3_urdf_description

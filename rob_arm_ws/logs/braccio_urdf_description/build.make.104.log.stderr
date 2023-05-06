@@ -1,8 +1,0 @@
-/usr/bin/ld: CMakeFiles/braccio_urdf_description_exe.dir/hardware_interface/src/new_hardware_interface_node.cpp.o: in function `main':
-new_hardware_interface_node.cpp:(.text+0x17b): undefined reference to `ERA::MyRobot::MyRobot()'
-/usr/bin/ld: new_hardware_interface_node.cpp:(.text+0x1b4): undefined reference to `ERA::MyRobot::setControlManager(controller_manager::ControllerManager*)'
-/usr/bin/ld: new_hardware_interface_node.cpp:(.text+0x1d6): undefined reference to `ERA::MyRobot::update(ros::TimerEvent const&)'
-collect2: error: ld returned 1 exit status
-make[2]: *** [CMakeFiles/braccio_urdf_description_exe.dir/build.make:116: /home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/braccio_urdf_description/lib/braccio_urdf_description/braccio_urdf_description_exe] Error 1
-make[1]: *** [CMakeFiles/Makefile2:287: CMakeFiles/braccio_urdf_description_exe.dir/all] Error 2
-make: *** [Makefile:141: all] Error 2

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/image_sender
+CMAKE_SOURCE_DIR = /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/image_sender
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alessio/ROS/Robotic-Arm/rob_arm_ws/build/image_sender
+CMAKE_BINARY_DIR = /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/image_sender
 
 # Utility rule file for roscpp_generate_messages_eus.
 
@@ -67,6 +67,6 @@ CMakeFiles/roscpp_generate_messages_eus.dir/clean:
 .PHONY : CMakeFiles/roscpp_generate_messages_eus.dir/clean
 
 CMakeFiles/roscpp_generate_messages_eus.dir/depend:
-	cd /home/alessio/ROS/Robotic-Arm/rob_arm_ws/build/image_sender && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/image_sender /home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/image_sender /home/alessio/ROS/Robotic-Arm/rob_arm_ws/build/image_sender /home/alessio/ROS/Robotic-Arm/rob_arm_ws/build/image_sender /home/alessio/ROS/Robotic-Arm/rob_arm_ws/build/image_sender/CMakeFiles/roscpp_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/image_sender && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/image_sender /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/image_sender /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/image_sender /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/image_sender /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/image_sender/CMakeFiles/roscpp_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/roscpp_generate_messages_eus.dir/depend
 

@@ -1,5 +1,0 @@
-[31m[1mCMake Error[0m at /home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/image_sender/CMakeLists.txt:60 (add_service_files):
-  Unknown CMake command "add_service_files".
-
-
-make: *** [Makefile:714: cmake_check_build_system] Error 1

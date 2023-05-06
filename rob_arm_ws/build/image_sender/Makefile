@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/image_sender
+CMAKE_SOURCE_DIR = /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/image_sender
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alessio/ROS/Robotic-Arm/rob_arm_ws/build/image_sender
+CMAKE_BINARY_DIR = /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/image_sender
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,9 +137,9 @@ install/local/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alessio/ROS/Robotic-Arm/rob_arm_ws/build/image_sender/CMakeFiles /home/alessio/ROS/Robotic-Arm/rob_arm_ws/build/image_sender/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/image_sender/CMakeFiles /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/image_sender/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alessio/ROS/Robotic-Arm/rob_arm_ws/build/image_sender/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/image_sender/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

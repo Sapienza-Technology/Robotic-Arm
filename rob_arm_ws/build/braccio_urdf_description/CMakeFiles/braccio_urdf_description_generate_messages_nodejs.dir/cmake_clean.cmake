@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/braccio_urdf_description/share/gennodejs/ros/braccio_urdf_description/msg/Float6Array.js"
+  "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/braccio_urdf_description/share/gennodejs/ros/braccio_urdf_description/msg/Float6Array.js"
   "CMakeFiles/braccio_urdf_description_generate_messages_nodejs"
 )
 

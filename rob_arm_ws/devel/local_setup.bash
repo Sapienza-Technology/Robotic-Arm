@@ -1,1 +1,1 @@
-/home/alessio/ROS/rob_arm_ws_old/devel/.private/catkin_tools_prebuild/local_setup.bash
+/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/catkin_tools_prebuild/local_setup.bash

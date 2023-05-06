@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/subscriber_test.cpp
+/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/subscriber_test.cpp
 ros/ros.h
-/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/ros/ros.h
+/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/ros/ros.h
 std_msgs/String.h
-/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/std_msgs/String.h
+/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/std_msgs/String.h
 std_msgs/Float64MultiArray.h
-/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/std_msgs/Float64MultiArray.h
+/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/hardware_interface/std_msgs/Float64MultiArray.h
 
 /opt/ros/noetic/include/ros/advertise_options.h
 ros/forwards.h
@@ -667,7 +667,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -685,7 +685,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -701,7 +701,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -719,7 +719,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -

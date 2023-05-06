@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

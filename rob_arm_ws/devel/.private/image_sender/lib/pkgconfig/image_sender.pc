@@ -1,4 +1,4 @@
-prefix=/home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/image_sender
+prefix=/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/image_sender
 
 Name: image_sender
 Description: Description of image_sender

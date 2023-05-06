@@ -1,4 +1,0 @@
-[35m[1mScanning dependencies of target image_publisher_exe[0m
-[ 50%] [32mBuilding CXX object CMakeFiles/image_publisher_exe.dir/src/image_publisher.cpp.o[0m
-[100%] [32m[1mLinking CXX executable /home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/image_sender/lib/image_sender/image_publisher_exe[0m
-[100%] Built target image_publisher_exe

@@ -67,14 +67,14 @@ set(braccio3_urdf_description_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(braccio3_urdf_description_SOURCE_PREFIX /home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/braccio3_urdf_description)
-  set(braccio3_urdf_description_DEVEL_PREFIX /home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/.private/braccio3_urdf_description)
+  set(braccio3_urdf_description_SOURCE_PREFIX /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/braccio3_urdf_description)
+  set(braccio3_urdf_description_DEVEL_PREFIX /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/braccio3_urdf_description)
   set(braccio3_urdf_description_INSTALL_PREFIX "")
   set(braccio3_urdf_description_PREFIX ${braccio3_urdf_description_DEVEL_PREFIX})
 else()
   set(braccio3_urdf_description_SOURCE_PREFIX "")
   set(braccio3_urdf_description_DEVEL_PREFIX "")
-  set(braccio3_urdf_description_INSTALL_PREFIX /home/alessio/ROS/Robotic-Arm/rob_arm_ws/install)
+  set(braccio3_urdf_description_INSTALL_PREFIX /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install)
   set(braccio3_urdf_description_PREFIX ${braccio3_urdf_description_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/alessio/ROS/Robotic-Arm/rob_arm_ws/install/lib;/home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/lib;/home/alessio/ROS/rob_arm_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/lib;/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/alessio/ROS/Robotic-Arm/rob_arm_ws/src/image_sender/src/image_publisher_2.cpp
+/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/image_sender/src/image_publisher_2.cpp
 ros/ros.h
 -
 image_transport/image_transport.h
@@ -777,7 +777,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -797,7 +797,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -815,7 +815,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -833,7 +833,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -857,7 +857,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -

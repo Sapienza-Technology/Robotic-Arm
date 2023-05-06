@@ -1,4 +1,4 @@
-prefix=/home/alessio/ROS/Robotic-Arm/rob_arm_ws/install
+prefix=/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install
 
 Name: braccio_urdf_description
 Description: Description of braccio_urdf_description

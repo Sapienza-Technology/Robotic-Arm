@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/alessio/ROS/Robotic-Arm/rob_arm_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/alessio/ROS/Robotic-Arm/rob_arm_ws/build/braccio_urdf_description/gtest/googletest/cmake_install.cmake")
+  include("/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/braccio_urdf_description/gtest/googletest/cmake_install.cmake")
 
 endif()
 

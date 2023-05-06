@@ -1,6 +1,6 @@
-devel_space: /home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel
+devel_space: /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel
 install: false
-install_space: /home/alessio/ROS/Robotic-Arm/rob_arm_ws/install
+install_space: /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install
 profile: default
-source_space: /home/alessio/ROS/Robotic-Arm/rob_arm_ws/src
-workspace: /home/alessio/ROS/Robotic-Arm/rob_arm_ws
+source_space: /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src
+workspace: /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws

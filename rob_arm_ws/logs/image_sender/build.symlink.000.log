@@ -1,4 +1,5 @@
-Symlinking /home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/share/image_sender/cmake/image_senderConfig.cmake
-Symlinking /home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/share/image_sender/cmake/image_senderConfig-version.cmake
-Symlinking /home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/lib/pkgconfig/image_sender.pc
-Symlinking /home/alessio/ROS/Robotic-Arm/rob_arm_ws/devel/lib/image_sender/image_publisher_exe
+Symlinking /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/image_sender/image_publisher_exe
+Symlinking /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/image_sender/image_publisher_2_exe
+Symlinking /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/pkgconfig/image_sender.pc
+Symlinking /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/share/image_sender/cmake/image_senderConfig-version.cmake
+Symlinking /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/share/image_sender/cmake/image_senderConfig.cmake

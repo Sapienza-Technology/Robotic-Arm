@@ -1,0 +1,8 @@
+[35m[1mScanning dependencies of target image_publisher_2_exe[0m
+[35m[1mScanning dependencies of target image_publisher_exe[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/image_publisher_exe.dir/src/image_publisher.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/image_publisher_2_exe.dir/src/image_publisher_2.cpp.o[0m
+[ 75%] [32m[1mLinking CXX executable /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/image_sender/lib/image_sender/image_publisher_2_exe[0m
+[100%] [32m[1mLinking CXX executable /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/image_sender/lib/image_sender/image_publisher_exe[0m
+[100%] Built target image_publisher_2_exe
+[100%] Built target image_publisher_exe
