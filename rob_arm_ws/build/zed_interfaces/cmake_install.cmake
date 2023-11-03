@@ -37,7 +37,12 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   
       if (NOT EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}")
         file(MAKE_DIRECTORY "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}")
@@ -47,7 +52,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/_setup_util.py")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -56,10 +61,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install" TYPE PROGRAM FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_interfaces/catkin_generated/installspace/_setup_util.py")
+  file(INSTALL DESTINATION "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install" TYPE PROGRAM FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_interfaces/catkin_generated/installspace/_setup_util.py")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/env.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -68,10 +73,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install" TYPE PROGRAM FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_interfaces/catkin_generated/installspace/env.sh")
+  file(INSTALL DESTINATION "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install" TYPE PROGRAM FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_interfaces/catkin_generated/installspace/env.sh")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/setup.bash;/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/local_setup.bash")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -80,13 +85,13 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install" TYPE FILE FILES
+  file(INSTALL DESTINATION "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install" TYPE FILE FILES
     "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_interfaces/catkin_generated/installspace/setup.bash"
     "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_interfaces/catkin_generated/installspace/local_setup.bash"
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/setup.sh;/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/local_setup.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -95,13 +100,13 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install" TYPE FILE FILES
+  file(INSTALL DESTINATION "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install" TYPE FILE FILES
     "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_interfaces/catkin_generated/installspace/setup.sh"
     "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_interfaces/catkin_generated/installspace/local_setup.sh"
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/setup.zsh;/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/local_setup.zsh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -110,13 +115,13 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install" TYPE FILE FILES
+  file(INSTALL DESTINATION "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install" TYPE FILE FILES
     "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_interfaces/catkin_generated/installspace/setup.zsh"
     "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_interfaces/catkin_generated/installspace/local_setup.zsh"
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/.rosinstall")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -125,10 +130,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install" TYPE FILE FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_interfaces/catkin_generated/installspace/.rosinstall")
+  file(INSTALL DESTINATION "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install" TYPE FILE FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_interfaces/catkin_generated/installspace/.rosinstall")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_interfaces/msg" TYPE FILE FILES
     "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/zed-ros-wrapper/zed-ros-interfaces/msg/BoundingBox2Df.msg"
     "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/zed-ros-wrapper/zed-ros-interfaces/msg/BoundingBox2Di.msg"
@@ -145,7 +150,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_interfaces/srv" TYPE FILE FILES
     "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/zed-ros-wrapper/zed-ros-interfaces/srv/set_pose.srv"
     "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/zed-ros-wrapper/zed-ros-interfaces/srv/reset_odometry.srv"
@@ -165,54 +170,54 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_interfaces/cmake" TYPE FILE FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_interfaces/catkin_generated/installspace/zed_interfaces-msg-paths.cmake")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/zed_interfaces/include/zed_interfaces")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/zed_interfaces/share/roseus/ros/zed_interfaces")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/zed_interfaces/share/common-lisp/ros/zed_interfaces")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/zed_interfaces/share/gennodejs/ros/zed_interfaces")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/zed_interfaces/lib/python3/dist-packages/zed_interfaces")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/zed_interfaces/lib/python3/dist-packages/zed_interfaces")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_interfaces/catkin_generated/installspace/zed_interfaces.pc")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_interfaces/cmake" TYPE FILE FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_interfaces/catkin_generated/installspace/zed_interfaces-msg-extras.cmake")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_interfaces/cmake" TYPE FILE FILES
     "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_interfaces/catkin_generated/installspace/zed_interfacesConfig.cmake"
     "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_interfaces/catkin_generated/installspace/zed_interfacesConfig-version.cmake"
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_interfaces" TYPE FILE FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/zed-ros-wrapper/zed-ros-interfaces/package.xml")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_interfaces" TYPE DIRECTORY FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/zed-ros-wrapper/zed-ros-interfaces/meshes")
 endif()
 

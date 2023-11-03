@@ -9,7 +9,6 @@
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils:$CMAKE_PREFIX_PATH"
 export LD_LIBRARY_PATH="/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/tag_utils'
 export PYTHONPATH="/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/lib/python3/dist-packages:$PYTHONPATH"
 export ROSLISP_PACKAGE_DIRECTORIES="/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"

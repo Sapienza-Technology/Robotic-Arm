@@ -45,14 +45,14 @@ except AttributeError:
 
 N_BUTTONS=8
 margin=0
-button_width=0.025 #original button width
+button_width=0.024 #original button width
 button_height=0.05
 #b_w=button_width + margin*2 #button width and margin
 #b_h=button_height + margin*2 #button height
 d_x=0.084 #distance between tag/button element on the right and the one on the left
-d_x=0.11 #on our panel
+d_x=0.10 #on our panel
 d_y=0.071 #distance between tag/button element on the top and the one on the bottom
-d_y=0.077 #on our panel
+d_y=0.072 #on our panel
 button_coordinates=np.zeros((N_BUTTONS,3))
 
 to_press=np.zeros((5,3))
@@ -70,20 +70,21 @@ def compute_button_offsets(tag,params,margin=0):
     '''
     off_x=button_width + margin*2 #button width and margin
     buttons_offset=[
-    [-off_x/2 ,      -d_y],
-    [off_x/2,       -d_y],
-    [d_x - off_x/2, -d_y],
-    [d_x + off_x/2, -d_y],
-    [-off_x/2,      -d_y*2],
-    [off_x/2,       -d_y*2],
-    [d_x - off_x/2, -d_y*2],
-    [d_x + off_x/2, -d_y*2],
+    [-off_x/2 ,      -d_y ],
+    [off_x/2,       -d_y ],
+    [d_x - off_x/2, -d_y ],
+    [d_x + off_x/2, -d_y ],
+    [-off_x/2,      -d_y*2 ],
+    [off_x/2,       -d_y*2 ],
+    [d_x - off_x/2, -d_y*2 ],
+    [d_x + off_x/2, -d_y*2 ],
     ]
+   
     print("buttons offset: ",buttons_offset)
     return buttons_offset
 
 def compute_main_position(params,margin=0):
-    main_button_offset=[d_x-button_width/2, -(button_height/2 - margin)]
+    main_button_offset=[d_x-button_width/2, -(button_height/2 )]
     return main_button_offset
 
 def viz_pos_to_press(image,to_press,params):
@@ -102,7 +103,7 @@ def viz_pos_to_press(image,to_press,params):
         viz_img=cv2.resize(viz_img, (0,0), fx=0.5, fy=0.5)
         cv2.imshow('Tag', viz_img)
         cv2.waitKey(0)
-        cv2.destroyAllWindows()
+        #cv2.destroyAllWindows()
 
 #preprocess the image
 def preprocess_image(image,params,viz=False):
@@ -135,7 +136,7 @@ def preprocess_image(image,params,viz=False):
         viz_img=cv2.resize(viz_img, (0,0), fx=0.5, fy=0.5)
         #cv2.imwrite('black_and_white.png', viz_img)
         cv2.imshow('Preprocessed image', viz_img)
-        cv2.waitKey(0)
+        cv2.waitKey(1000)
         #cv2.destroyAllWindows()
     return image
 
@@ -180,7 +181,7 @@ def apply_offset(tag,offset_x,offset_y):
     button_T=button_T.reshape((3,))
     return button_T
 
-def apply_offset2(tag,offset_x,offset_y,T=None):
+def apply_offset2(tag,offset_x,offset_y,push=False,T=None):
     #offset_x is the distance of the button wrt to the side
     #offset_y is the offset in the up direction
     
@@ -194,6 +195,9 @@ def apply_offset2(tag,offset_x,offset_y,T=None):
     Rot=np.array(Rot)
     Rot=Rot[:3,:3]
     #Rot=np.transpose(Rot)
+    if push:
+        offset_y-= button_height/2
+         
     new_offset=np.matmul(Rot,[offset_x,offset_y,0])
     new_T= np.array(T) + new_offset
     #print("new T: ",new_T)
@@ -214,9 +218,11 @@ def process_button_image(button_image,level,params):
             cv2.THRESH_BINARY,11,2)
     if level==2:
         return button_image
-    #apply morphology
-    kernel=cv2.getStructuringElement(cv2.MORPH_RECT,(3,3))
-    button_image = cv2.morphologyEx(button_image, cv2.MORPH_CLOSE, kernel)
+    #remove noise
+    button_image = cv2.morphologyEx(button_image, cv2.MORPH_CLOSE, np.ones((3,3),np.uint8))
+    if level==3:
+        return button_image
+
 
     return button_image
     
@@ -229,17 +235,16 @@ def get_button_image(image,button_coordinates,tag,params,viz=False):
     viz=True
     #get the four corners of the button, convert them to pixel and get a croop of the image
     button_width_margin=0.005
-    button_offset_w=button_width/2#+ button_width_margin/2
-    button_offset_h=button_height/2 #+ button_width_margin/2
+    button_height_margin=0.01
+    button_offset_w=button_width/2  + button_width_margin
+    button_offset_h=button_height/2 + button_height_margin
 
-    corner1= apply_offset2(tag,button_offset_w,-button_offset_h,button_coordinates)
-    corner2= apply_offset2(tag,-button_offset_w,-button_offset_h,button_coordinates)
-    corner3= apply_offset2(tag,-button_offset_w,button_offset_h,button_coordinates)
-    corner4= apply_offset2(tag,button_offset_w,button_offset_h,button_coordinates)
-    #corner1=[button_coordinates[0]+button_offset_w,button_coordinates[1]-button_offset_h,button_coordinates[2]]
-    #corner2=[button_coordinates[0]-button_offset_w,button_coordinates[1]-button_offset_h,button_coordinates[2]]
-    #corner3=[button_coordinates[0]-button_offset_w,button_coordinates[1]+button_offset_h,button_coordinates[2]]
-    #corner4=[button_coordinates[0]+button_offset_w,button_coordinates[1]+button_offset_h,button_coordinates[2]]
+    corner1= apply_offset2(tag,button_offset_w,-button_offset_h,T=button_coordinates)
+    corner2= apply_offset2(tag,-button_offset_w,-button_offset_h,T=button_coordinates)
+    #TODO ATTENTO AL NUMERO AL CENTRO DLE PULSANTE NELLA TASK VERA; REGOLA BENE
+    corner3= apply_offset2(tag,-button_offset_w,0,T=button_coordinates)
+    corner4= apply_offset2(tag,button_offset_w,0,T=button_coordinates)
+    
     button_corners=np.array([corner1,corner2,corner3,corner4])
 
     button_corners_pixel=np.zeros((4,2))
@@ -278,7 +283,7 @@ def get_button_image(image,button_coordinates,tag,params,viz=False):
         #resize
         viz_img=cv2.resize(viz_img, (0,0), fx=0.5, fy=0.5)
         cv2.imshow('Button image', viz_img)
-        cv2.waitKey(0)
+        cv2.waitKey(1000)
         #cv2.destroyAllWindows()
 
     #draw a rectangle on button on original image
@@ -292,7 +297,8 @@ def get_button_image(image,button_coordinates,tag,params,viz=False):
     if GUI:
         viz_img=cv2.resize(new_image, (0,0), fx=0.5, fy=0.5)
         cv2.imshow('Button image', viz_img)
-        cv2.waitKey(0)
+        cv2.waitKey(1000)
+        cv2.destroyAllWindows()
     return button_image,new_image
 
 #given the image of a button detect the number
@@ -319,6 +325,14 @@ def find_combination_of_5(numbers, target_sum):
             return combination
     return None
 
+def find_best_combination_of_4(numbers, target_sum):
+    e_best = 1000
+    for combination in combinations(numbers, 4):
+        #print(combination)
+        e = target_sum - sum(combination)
+        if abs(e)<abs(e_best):
+            return combination
+    return None
 
 #given an image and a detected tag, detect all the buttons, 
 # find the number on each button and find which buttons have to be pressed
@@ -338,7 +352,7 @@ def buttonTask(image,tag,params):
         
         viz_img=cv2.resize(viz_img, (0,0), fx=0.5, fy=0.5)
         cv2.imshow('Tag', viz_img)
-        cv2.waitKey(0)
+        cv2.waitKey(1000)
         cv2.destroyAllWindows()
 
     '''
@@ -357,7 +371,7 @@ def buttonTask(image,tag,params):
     total_time_detect=time.time()
     time_image_subset_mean=0
     time_detect_mean=0
-    buttons_offset=compute_button_offsets(tag,params,margin=0.005)
+    buttons_offset=compute_button_offsets(tag,params,margin=0)
     if buttons_to_found:
         '''
         Detect buttons
@@ -399,7 +413,7 @@ def buttonTask(image,tag,params):
                     viz_img=cv2.resize(viz_img, (0,0), fx=0.5, fy=0.5)
                     cv2.imshow('Button image level {}'.format(processing_level), viz_img)
                     cv2.waitKey(2000)
-                    #cv2.destroyAllWindows()
+                    cv2.destroyAllWindows()
 
                 number=detect_number(new_button_image,params)
                 if number==0:
@@ -419,7 +433,7 @@ def buttonTask(image,tag,params):
         #print("offsets: ",buttons_offset)
         for i in range(N_BUTTONS):
             #button_coordinates[i]=np.array([tag_x+buttons_offset[i][0],tag_y-buttons_offset[i][1],tag_z])
-            button_coordinates[i]=apply_offset2(tag,buttons_offset[i][0],buttons_offset[i][1])
+            button_coordinates[i]=apply_offset2(tag,buttons_offset[i][0],buttons_offset[i][1],push=True)
     button_numbers=params["numbers_found"]
 
     '''
@@ -436,22 +450,28 @@ def buttonTask(image,tag,params):
     
     if combination is None:
         print("Error: could not find combination of buttons that sum up to {}".format(params["desired_sum"]))
+        return None
     else:
+        #convert buton_numbers to normal list
+        button_numbers=list(button_numbers)
         for i in range(len(combination)):
             number_index=button_numbers.index(combination[i])
-            to_press[i]=button_coordinates[number_index]
+            to_press[i]=apply_offset2(tag,buttons_offset[number_index][0],buttons_offset[number_index][1],push=True)
             #print("number index: ",number_index)
             #print("button coordinates: ",button_coordinates[number_index])
 
 
     #TODO add main button
     main_offsets=compute_main_position(params,margin=0.005)
-    main_button_coordinates=np.array([tag_x+main_offsets[0],tag_y-main_offsets[1],tag_z])
+    main_button_coordinates=apply_offset2(tag,main_offsets[0],main_offsets[1])
     to_press=to_press.tolist()
     to_press=[main_button_coordinates]+to_press
 
     #visualize the positions to press
     viz_pos_to_press(image,to_press,params)
+
+    #Return to home after pressing the buttons
+    to_press=to_press+[0,0,0]
 
     print("numbers detected: {}".format(button_numbers))
     print("numbers to press: {}".format(combination))
@@ -532,21 +552,24 @@ def callback(data,params):
             print("can't find requested tag: ",params["tag_to_consider"])
             print(":/ trying again...")
             continue
+        print("Found tag!")
+        print("\tposition: ",tag.T)
+        print("\torientation: ",np.degrees(tag.R))
         #tag.transform_tag_frame(params["base_frame"])
         params["tag_pub"].publish(tag.get_marker_msg())
         bridge=CvBridge()
         image = bridge.imgmsg_to_cv2(data, "bgr8")
         to_press=buttonTask(image,tag,params)
+        if to_press is None:
+            print("Error: could not find combination of buttons that sum up to {}".format(params["desired_sum"]))
+            return -1
         params["to_press"]=to_press
         q=tf.transformations.quaternion_from_euler(tag.R[0],tag.R[1],tag.R[2])
         params["button_q"]= q
         
-    
+
         return 0
     return -1
-
-    
-    
 
 
 
@@ -564,7 +587,18 @@ def main():
     
     print("Waiting for camera_info topic...")
     #get one message from camera_info topic to get camera matrix
-    camera_info = rospy.wait_for_message(camera_info_topic, CameraInfo, timeout=rospy.Duration(10))
+    camera_info=None
+    try:
+        camera_info = rospy.wait_for_message(camera_info_topic, CameraInfo, timeout=rospy.Duration(10))
+    except:
+        print("camera not found, using predefined camera matrix")
+        camera_info=CameraInfo()
+        camera_info.K=[1434.139460782626, 0.0, 973.6538554108535, 0.0, 1436.3633946021157, 569.8171742637575,0.0, 0.0, 1.0]
+        camera_info.D=[0.08805401531313174, -0.07239869214123995, 0.008630089121876891, -0.0010041704916033236,-0.29564052464535373]
+        camera_info.width=1920
+        camera_info.height=1080
+
+        
     tagDetector.set_camera_from_camera_info(camera_info)
     print("Got camera_info topic")
     if not cv2_4_7:
@@ -577,12 +611,16 @@ def main():
         #detectorParams.perspectiveRemovePixelPerCell=0
         #detectorParams.minMarkerPerimeterRate = 0.005
         #detectorParams.perspectiveRemoveIgnoredMarginPerCell=0.33  #spiegazione https://github.com/zsiki/Find-GCP
-        detectorParams.cornerRefinementMethod = cv2.aruco.CORNER_REFINE_SUBPIX
-        #detectorParams.maxErroneousBitsInBorderRate = 0.5
-        #detectorParams.polygonalApproxAccuracyRate = 0.1
 
-
-
+        #parameters for most accurate pose
+        #etectorParams.cornerRefinementMethod = cv2.aruco.CORNER_REFINE_SUBPIX
+        #detectorParams.cornerRefinementMethod = cv2.aruco.CORNER_REFINE_CONTOUR
+        #detectorParams.cornerRefinementMethod = cv2.aruco.CORNER_REFINE_APRILTAG
+        detectorParams.cornerRefinementMethod = cv2.aruco.CORNER_REFINE_APRILTAG
+        #detectorParams.cornerRefinementWinSize = 5
+        #detectorParams.cornerRefinementMaxIterations = 30
+        #detectorParams.cornerRefinementMinAccuracy = 0.1
+        #detectorParams.cornerRefinementMinMarginal = 0.1
         tagDetector.set_detector_params(detectorParams)
         print("detector params set")
     else:
@@ -650,7 +688,7 @@ def main():
             elif command=="q":
                 return
             print("processing image")
-            use_ros=True
+            use_ros=False
             retries=0
             max_retries=10
             if use_ros:
@@ -662,10 +700,13 @@ def main():
                     if res==-1:
                         print("could not find requested tag")
                         retries+=1
-                
+                    else:
+                        found=True
+                        break
                     time.sleep(0.5)
                 print("could not find requested tag after {} retries".format(max_retries))
             else:
+                
                 print("Getting image from file")
                 #read cv image from folder
                 path =os.path.dirname(os.path.realpath(__file__))
@@ -680,7 +721,12 @@ def main():
                 #convert to ros image
                 bridge=CvBridge()
                 ros_img=bridge.cv2_to_imgmsg(image, encoding="bgr8")
-                callback(ros_img,params)
+                res=callback(ros_img,params)
+                if res==0:
+                    found=True
+                    break
+            print("retrying in 5 seconds...")
+            time.sleep(5)
     except KeyboardInterrupt:
         #on ctrl c exit
         return

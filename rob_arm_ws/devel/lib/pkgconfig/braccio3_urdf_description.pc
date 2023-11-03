@@ -1,1 +1,0 @@
-/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/braccio3_urdf_description/lib/pkgconfig/braccio3_urdf_description.pc

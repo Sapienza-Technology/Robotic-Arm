@@ -1,0 +1,1 @@
+/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/arm_old_and_auxiliary_pkg/lib/python3/dist-packages/arm_old_and_auxiliary_pkg/msg/__init__.py

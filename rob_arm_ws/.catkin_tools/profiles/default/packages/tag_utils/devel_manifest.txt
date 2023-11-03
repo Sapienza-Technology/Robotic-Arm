@@ -6,7 +6,6 @@ tag_utils
 /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/lib/python3/dist-packages/tag_utils/__init__.py /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/python3/dist-packages/tag_utils/__init__.py
 /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/lib/python3/dist-packages/tag_utils/srv/_GetTag.py /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/python3/dist-packages/tag_utils/srv/_GetTag.py
 /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/lib/python3/dist-packages/tag_utils/srv/__init__.py /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/python3/dist-packages/tag_utils/srv/__init__.py
-/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/lib/tag_utils/remote_tag_detection.py /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tag_utils/remote_tag_detection.py
 /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/lib/tag_utils/cmake.lock /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tag_utils/cmake.lock
 /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/lib/tag_utils/maintenance_tag_detection_simple.py /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tag_utils/maintenance_tag_detection_simple.py
 /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/lib/tag_utils/remote_objective_3.py /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tag_utils/remote_objective_3.py
@@ -16,7 +15,6 @@ tag_utils
 /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/lib/tag_utils/remote_objective_1.py /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tag_utils/remote_objective_1.py
 /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/lib/tag_utils/remote_objective_2.py /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tag_utils/remote_objective_2.py
 /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/lib/tag_utils/ekf_tag.py /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tag_utils/ekf_tag.py
-/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/lib/tag_utils/detect_tag_arm.py /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tag_utils/detect_tag_arm.py
 /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/lib/tag_utils/maintenance_tag_detection.py /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tag_utils/maintenance_tag_detection.py
 /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/lib/tag_utils/remote_objective_9.py /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tag_utils/remote_objective_9.py
 /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/lib/tag_utils/maintenance_presa.py /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tag_utils/maintenance_presa.py

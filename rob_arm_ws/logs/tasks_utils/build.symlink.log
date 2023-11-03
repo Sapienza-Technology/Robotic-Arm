@@ -4,6 +4,7 @@ Symlinking /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tasks
 Symlinking /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tasks_utils/cmake.lock
 Symlinking /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tasks_utils/plot_odom_quality.py
 Symlinking /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tasks_utils/convert_gt.py
+Symlinking /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tasks_utils/firmware_drilling.py
 Symlinking /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tasks_utils/get_compressed_image_exe
 Symlinking /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tasks_utils/check_odom_error.py
 Symlinking /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/tasks_utils/firmware_velocity.py

@@ -66,6 +66,7 @@ Not searching for unused variables given on the command line.
 [36m--[0m Installing devel-space wrapper /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/tasks_utils/scripts/capture_camera.py to /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tasks_utils/lib/tasks_utils
 [36m--[0m Installing devel-space wrapper /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/tasks_utils/scripts/input_from_cmd.py to /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tasks_utils/lib/tasks_utils
 [36m--[0m Installing devel-space wrapper /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/tasks_utils/scripts/camera_setup.py to /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tasks_utils/lib/tasks_utils
-[36m--[0m Configuring done (2.2s)
-[36m--[0m Generating done (0.0s)
+[36m--[0m Installing devel-space wrapper /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/tasks_utils/scripts/firmware_drilling.py to /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tasks_utils/lib/tasks_utils
+[36m--[0m Configuring done (2.4s)
+[36m--[0m Generating done (0.1s)
 [36m--[0m Build files have been written to: /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/tasks_utils

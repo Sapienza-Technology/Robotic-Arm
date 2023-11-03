@@ -1,24 +1,38 @@
 Not searching for unused variables given on the command line.
-[36m--[0m Found CUDA: /usr/local/cuda (found suitable version "11.7", minimum required is "11")
-[36m--[0m Found CUDA: /usr/local/cuda (found version "11.7")
-[36m--[0m Using CATKIN_DEVEL_PREFIX: /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/zed_nodelets
-[36m--[0m Using CMAKE_PREFIX_PATH: /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel;/opt/ros/noetic
-[36m--[0m This workspace overlays: /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel;/opt/ros/noetic
-[36m--[0m Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3")
-[36m--[0m Using PYTHON_EXECUTABLE: /usr/bin/python3
-[36m--[0m Using Debian Python package layout
-[36m--[0m Using empy: /usr/lib/python3/dist-packages/em.py
-[36m--[0m Using CATKIN_ENABLE_TESTING: ON
-[36m--[0m Call enable_testing()
-[36m--[0m Using CATKIN_TEST_RESULTS_DIR: /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_nodelets/test_results
-[36m--[0m Forcing gtest/gmock from source, though one was otherwise available.
-[36m--[0m Found gtest sources under '/usr/src/googletest': gtests will be built
-[36m--[0m Found gmock sources under '/usr/src/googletest': gmock will be built
-[36m--[0m Found PythonInterp: /usr/bin/python3 (found version "3.8.10")
-[36m--[0m Using Python nosetests: /usr/bin/nosetests3
-[36m--[0m catkin 0.8.10
-[36m--[0m BUILD_SHARED_LIBS is on
-[36m--[0m Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
-[36m--[0m Configuring done
-[36m--[0m Generating done
-[36m--[0m Build files have been written to: /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/zed_nodelets
+[36m--[0m The C compiler identification is GNU 9.4.0
+[36m--[0m The CXX compiler identification is GNU 9.4.0
+[36m--[0m Detecting C compiler ABI info
+[36m--[0m Detecting C compiler ABI info - done
+[36m--[0m Check for working C compiler: /usr/bin/cc - skipped
+[36m--[0m Detecting C compile features
+[36m--[0m Detecting C compile features - done
+[36m--[0m Detecting CXX compiler ABI info
+[36m--[0m Detecting CXX compiler ABI info - done
+[36m--[0m Check for working CXX compiler: /usr/bin/c++ - skipped
+[36m--[0m Detecting CXX compile features
+[36m--[0m Detecting CXX compile features - done
+[33mCMake Warning at CMakeLists.txt:25 (find_package):
+  Could not find a configuration file for package "ZED" that is compatible
+  with requested version "4".
+
+  The following configuration files were considered but not accepted:
+
+    /usr/local/zed/zed-config.cmake, version: 3.8.2
+
+
+[0m
+[31mCMake Error at CMakeLists.txt:20 (message):
+
+
+
+
+   ZED SDK v4.x not found, install it from:
+   https://www.stereolabs.com/developers/
+
+
+
+[36mCall Stack (most recent call first):[0m
+  CMakeLists.txt:26 (checkPackage)
+
+[0m
+[36m--[0m Configuring incomplete, errors occurred!

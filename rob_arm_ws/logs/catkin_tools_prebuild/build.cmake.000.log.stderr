@@ -1,26 +1,24 @@
-[31m[1mCMake Error[0m at /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/catkin_tools_prebuild/CMakeLists.txt:12 (message):
-  The catkin CMake module was not found, but it is required to build a linked
-  workspace.  To resolve this, please do one of the following, and try
-  building again.
+[0mCMake Deprecation Warning at /usr/src/googletest/CMakeLists.txt:4 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
 
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
 
+[0m
+[0mCMake Deprecation Warning at /usr/src/googletest/googlemock/CMakeLists.txt:45 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
 
-   1. Source the setup.sh file from an existing catkin workspace:
-      source SETUP_FILE
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
 
+[0m
+[0mCMake Deprecation Warning at /usr/src/googletest/googletest/CMakeLists.txt:56 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
 
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
 
-   2. Extend another catkin workspace's result (install or devel) space:
-      catkin config --extend RESULT_SPACE
-
-
-
-   3. Set `catkin_DIR` to the directory containing `catkin-config.cmake`:
-      catkin config --cmake-args -Dcatkin_DIR=CATKIN_CMAKE_CONFIG_PATH
-
-
-
-   4. Add the catkin source package to your workspace's source space:
-      cd SOURCE_SPACE && git clone https://github.com/ros/catkin.git
-
-
+[0m

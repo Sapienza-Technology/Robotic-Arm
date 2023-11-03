@@ -44,7 +44,7 @@ except AttributeError:
     pass
 
 N_BUTTONS=2
-N_TO_PRESS=2
+N_TO_PRESS=3
 margin=0
 button_width=0.05 #original button width
 button_height=0.08 #should be 0.05 but center of tag is not perfectly aligned with center of button  in our panel
@@ -235,10 +235,13 @@ def buttonTask(image,tag,params):
 
     to_press[0]=button_coordinates[0]
     to_press[1]=button_coordinates[1]
+    
 
 
     #visualize the positions to press
     viz_pos_to_press(image,to_press,params)
+
+    to_press[2]=[0,0,0]
 
     print("Positions to press: {}".format(to_press))
     print("Times:")
@@ -313,6 +316,9 @@ def callback(data,params):
             print(":/ trying again...")
             continue
         #tag.transform_tag_frame(params["base_frame"])
+        print("Tag found!")
+        print("\tTag position: ",tag.T)
+        print("\tTag orientation: ",np.degrees(tag.R))
         params["tag_pub"].publish(tag.get_marker_msg())
         bridge=CvBridge()
         image = bridge.imgmsg_to_cv2(data, "bgr8")
@@ -361,12 +367,20 @@ def main():
         #detectorParams.polygonalApproxAccuracyRate = 0.1
 
 
-
         tagDetector.set_detector_params(detectorParams)
         print("detector params set")
     else:
         detectorParams=cv2.aruco.DetectorParameters()
         detectorParams.markerBorderBits = rospy.get_param("border_thickness",1)
+
+        #thresholding parameters
+        detectorParams.adaptiveThreshWinSizeMin=50
+        detectorParams.adaptiveThreshWinSizeMax=200
+        detectorParams.adaptiveThreshWinSizeStep=20
+        #detectorParams.perspectiveRemovePixelPerCell=0
+        #detectorParams.minMarkerPerimeterRate = 0.005
+        #detectorParams.perspectiveRemoveIgnoredMarginPerCell=0.33  #spiegazione
+        detectorParams.cornerRefinementMethod = cv2.aruco.CORNER_REFINE_SUBPIX
         tagDetector.set_detector_params(detectorParams)
 
     print("params set")
@@ -383,16 +397,15 @@ def main():
     print("Number detector loaded\n")
 
     #subscriber
-    request_sub=rospy.Subscriber("request_button", Float32, lambda msg: request_callback(msg, params))
+    request_sub=rospy.Subscriber("button_request", Float32, lambda msg: request_callback(msg, params))
     params= {
         "base_frame":  rospy.get_param("~target_frame","base_link"),
         "tag_pub": tag_pub,
         "tagDetector": tagDetector,
-        "desired_sum": 99, #TODO add as rospy param
         "numDetector": numDetector,
         "numbers_found": np.zeros(N_BUTTONS),
         "verbosity": verbosity,
-        "button_pub": rospy.Publisher("button_pose",PoseStamped, queue_size=10),
+        "button_pub": rospy.Publisher("button_to_press",PoseStamped, queue_size=10),
         "to_press_idx": 0,
         "button_q": None,
         "tag_to_consider": int(rospy.get_param("~tag_to_consider",0)),
@@ -404,21 +417,9 @@ def main():
     #when the user press SPACE: the first image received get processed
     try:
         while(True):
-            command=input("Press enter to process the next image, or space for the secret move ;)")
-            if command==" ":
-                print("secret move activated")
-                #TODO do secret move
-                path=os.path.dirname(os.path.realpath(__file__))
-                path=os.path.dirname(path)
-                path=os.path.dirname(path)
-                path=path+"/files/button_numbers.txt"
-                #read numbers from file
-                with open(path, 'r') as fp:
-                    button_numbers = fp.read()
-                button_numbers=[int(num) for num in button_numbers.split(",")]
-                params["numbers_found"]=button_numbers
+            command=input("Press enter to process the next image or q to exit: ")
             #if command is q exit
-            elif command=="q":
+            if command=="q":
                 return
             print("processing image")
             use_ros=True

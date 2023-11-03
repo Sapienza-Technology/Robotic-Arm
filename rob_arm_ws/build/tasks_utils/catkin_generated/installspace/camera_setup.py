@@ -14,19 +14,16 @@ class CameraSetup(object):
         #get available device indexes
         index=0
         arr=[]
-        while True:
+        while index<10:
             cap = cv2.VideoCapture(index)
-            if not cap.read()[0]:
-                break
-            else:
+            if cap.read()[0]:
                 arr.append(index)
             cap.release()
             index += 1
         print("Available devices: ",arr)
         if params["device"] not in arr:
-            print("Device not available")
+            print("Device ,",params["device"],", not available")
             exit()
-
         self.cap = cv2.VideoCapture(params["device"])
         self.cap.set(3, params["width"])
         self.cap.set(4, params["height"])
@@ -47,18 +44,27 @@ class CameraSetup(object):
         self.run()
 
     def run(self):
-        while not rospy.is_shutdown():
-            ret, frame = self.cap.read()
-            if ret:
-                try:
-                    self.image_pub.publish(self.bridge.cv2_to_imgmsg(frame, "bgr8"))
-                    self.compressed_image_pub.publish(self.bridge.cv2_to_compressed_imgmsg(frame))
-                    if self.camera_info_path!="":
-                        self.camera_info.header.stamp = rospy.Time.now()
-                        self.camera_info_pub.publish(self.camera_info)
-                except CvBridgeError as e:
-                    print(e)
-            self.rate.sleep()
+        while True:
+            try:
+
+                ret, frame = self.cap.read()
+                if ret:
+                    try:
+                        self.image_pub.publish(self.bridge.cv2_to_imgmsg(frame, "bgr8"))
+                        self.compressed_image_pub.publish(self.bridge.cv2_to_compressed_imgmsg(frame))
+                        if self.camera_info_path!="":
+                            self.camera_info.header.stamp = rospy.Time.now()
+                            self.camera_info_pub.publish(self.camera_info)
+                    except CvBridgeError as e:
+                        print(e)
+                    except Exception as e:
+                        print(e)
+                
+            except KeyboardInterrupt:
+                print("Shutting down")
+                self.cap.release()
+                cv2.destroyAllWindows()
+                break
 
     def extract_camera_info(self):
         if self.camera_info_path=="":
