@@ -1,0 +1,7 @@
+set(tag_utils_SETUP_PY_SETUP_MODULE "distutils.core")
+set(tag_utils_SETUP_PY_VERSION "0.0.0")
+set(tag_utils_SETUP_PY_SCRIPTS "")
+set(tag_utils_SETUP_PY_PACKAGES "tag_utils")
+set(tag_utils_SETUP_PY_PACKAGE_DIRS "src/tag_utils")
+set(tag_utils_SETUP_PY_MODULES "")
+set(tag_utils_SETUP_PY_MODULE_DIRS "")

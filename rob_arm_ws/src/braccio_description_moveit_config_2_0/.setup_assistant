@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: braccio_description
+    relative_path: urdf/braccio.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/braccio.srdf
+  CONFIG:
+    author_name: Tech_Team_Arm_Division
+    author_email: sapienza.technology.team@gmail.com
+    generated_timestamp: 1684582317

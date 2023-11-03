@@ -1,0 +1,19 @@
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target _tag_utils_generate_messages_check_deps_GetTag
+[ 14%] [34m[1mGenerating Python code from SRV tag_utils/GetTag[0m
+[ 42%] [34m[1mGenerating C++ code from tag_utils/GetTag.srv[0m
+[ 42%] [34m[1mGenerating EusLisp code from tag_utils/GetTag.srv[0m
+[ 57%] [34m[1mGenerating EusLisp manifest code for tag_utils[0m
+[ 71%] [34m[1mGenerating Javascript code from tag_utils/GetTag.srv[0m
+[ 85%] [34m[1mGenerating Lisp code from tag_utils/GetTag.srv[0m
+[ 85%] Built target tag_utils_generate_messages_lisp
+[ 85%] Built target tag_utils_generate_messages_nodejs
+[100%] [34m[1mGenerating Python srv __init__.py for tag_utils[0m
+[100%] Built target tag_utils_generate_messages_cpp
+[100%] Built target tag_utils_generate_messages_py
+[100%] Built target tag_utils_generate_messages_eus
+[100%] Built target tag_utils_generate_messages

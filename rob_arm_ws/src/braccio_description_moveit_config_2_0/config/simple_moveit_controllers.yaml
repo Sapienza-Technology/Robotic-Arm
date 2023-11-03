@@ -1,0 +1,12 @@
+controller_list:
+  - name: arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - Azimuth_joint
+      - Elevation_joint
+      - Elbow_joint
+      - joint_3
+      - wrist_pitch_joint
+      - wrist_roll_joint

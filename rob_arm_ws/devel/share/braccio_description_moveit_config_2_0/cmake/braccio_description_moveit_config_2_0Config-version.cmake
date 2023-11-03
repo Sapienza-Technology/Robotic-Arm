@@ -1,0 +1,1 @@
+/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/braccio_description_moveit_config_2_0/share/braccio_description_moveit_config_2_0/cmake/braccio_description_moveit_config_2_0Config-version.cmake

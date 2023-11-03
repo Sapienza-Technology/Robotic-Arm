@@ -182,6 +182,7 @@ install(PROGRAMS
   scripts/trajectory.py
   scripts/stupid_trajectory.py
   scripts/interactive_stupid_trajectory.py
+  scripts/prova_movit_dock.py
 	DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

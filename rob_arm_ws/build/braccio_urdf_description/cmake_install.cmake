@@ -199,6 +199,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/trajectory.py"
     "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/stupid_trajectory.py"
     "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/interactive_stupid_trajectory.py"
+    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/braccio_urdf_description/scripts/prova_movit_dock.py"
     )
 endif()
 

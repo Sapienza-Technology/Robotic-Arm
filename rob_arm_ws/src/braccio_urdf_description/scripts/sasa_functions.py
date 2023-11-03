@@ -39,10 +39,10 @@ def Rz(theta):
 
 #####################################################################
 ## robot constants ###################################################
-a0=0.0100
-d0=0.0655
-l1=0.2950
-l2=0.3610
+a0=0.0
+d0=0.1070
+l1=0.3445
+l2=0.3420
 pirul = -0.145
 maintenance = -0.121
 #####################################################################
@@ -53,7 +53,7 @@ def inv_kin_bis(coord:np.array,elbow:bool)->np.array:
     all_q0=np.array([atan2(coord[1],coord[0]),atan2(-coord[1],-coord[0])])
     #q0=atan2(coord[1],coord[0])
     c2=(pow(m.sqrt(pow(coord[0],2)+pow(coord[1],2))-a0,2)+pow(coord[2]-d0,2)-pow(l1,2)-pow(l2,2))/(2*l1*l2)
-
+    print(c2)
     if abs(c2) > 1:
       print("out of workspace")
       new_pos = out_of_range_exeption(coord)
@@ -89,11 +89,15 @@ def inv_kin_bis(coord:np.array,elbow:bool)->np.array:
     # ora abbiamo tutti i possibili risultati di q2 A so q1 forse è necessario solo q1 e q2 vediamo come usarle
 
 def out_of_range_exeption(coord:np.array)->np.array:
-  y = sqrt(pow(l1+l2+0.05,2)/(pow(coord[0],2)/pow(coord[1],2) + pow(coord[2],2)/pow(coord[1],2) + 1))
-  if coord[1] < 0:
-    y = -y
-  x = y*coord[0]/coord[1]
-  z = y*coord[2]/coord[1]
+  #y = sqrt(pow(l1+l2+0.05,2)/(pow(coord[0],2)/pow(coord[1],2) + pow(coord[2],2)/pow(coord[1],2) + 1))
+  #if coord[1] < 0:
+  #  y = -y
+  #x = y*coord[0]/coord[1]
+  #z = y*coord[2]/coord[1]
+  ratio = (l1+l2)/(pow(coord[0],2)+pow(coord[1],2)+pow(coord[2],2))
+  x = coord[0]*ratio
+  y = coord[1]*ratio
+  z = coord[2]*ratio
   return np.array([x,y,z])
 
 
@@ -117,10 +121,12 @@ def inv_kin_total_bis(position:np.array, Rtarg:np.matrix, phase, elbow:bool, pre
     q1=q[0]
     q2=q[1]
     q3=q[2]
-    Pint = np.matrix(np.array([[ sin(q2 + q3)*cos(q1), -sin(q1), cos(q2 + q3)*cos(q1),  (cos(q1)*(361*cos(q2 + q3) + 295*cos(q2) + 10))/1000],
-                               [ sin(q2 + q3)*sin(q1),  cos(q1), cos(q2 + q3)*sin(q1),  (sin(q1)*(361*cos(q2 + q3) + 295*cos(q2) + 10))/1000],
-                               [        -cos(q2 + q3),        0,         sin(q2 + q3), (361*sin(q2 + q3))/1000 + (59*sin(q2))/200 + 131/2000],
-                               [                    0,        0,                    0,                                                     1]]))
+    
+    Pint = np.matrix(np.array([[sin(q2 + q3)*cos(q1), -sin(q1), cos(q2 + q3)*cos(q1), cos(q1)*(a0 + l2*cos(q2 + q3) + l1*cos(q2))],
+                               [sin(q2 + q3)*sin(q1),  cos(q1), cos(q2 + q3)*sin(q1), sin(q1)*(a0 + l2*cos(q2 + q3) + l1*cos(q2))],
+                               [       -cos(q2 + q3),        0,         sin(q2 + q3),           d0 + l2*sin(q2 + q3) + l1*sin(q2)],
+                               [                   0,        0,                    0,                                           1]]))
+    
     Rint = Pint[0:3, 0:3]
     Rsol = np.matmul(Rint.transpose(), Rtarg)
     c5 = Rsol[2,2]
@@ -163,19 +169,28 @@ def dir_kin_total(q:np.array, phase) -> np.array:
   q6 = q[5]
 
   if phase:
-    x = cos(q1)/100 + (59*cos(q1)*cos(q2))/200 + (29*sin(q1)*sin(q4)*sin(q5))/200 + (361*cos(q1)*cos(q2)*cos(q3))/1000 - (361*cos(q1)*sin(q2)*sin(q3))/1000 + (29*cos(q1)*cos(q2)*cos(q3)*cos(q5))/200 - (29*cos(q1)*cos(q5)*sin(q2)*sin(q3))/200 - (29*cos(q1)*cos(q2)*cos(q4)*sin(q3)*sin(q5))/200 - (29*cos(q1)*cos(q3)*cos(q4)*sin(q2)*sin(q5))/200
-    y = sin(q1)/100 + (59*cos(q2)*sin(q1))/200 - (361*sin(q1)*sin(q2)*sin(q3))/1000 + (361*cos(q2)*cos(q3)*sin(q1))/1000 - (29*cos(q1)*sin(q4)*sin(q5))/200 + (29*cos(q2)*cos(q3)*cos(q5)*sin(q1))/200 - (29*cos(q5)*sin(q1)*sin(q2)*sin(q3))/200 - (29*cos(q2)*cos(q4)*sin(q1)*sin(q3)*sin(q5))/200 - (29*cos(q3)*cos(q4)*sin(q1)*sin(q2)*sin(q5))/200
-    z = (59*sin(q2))/200 + (361*cos(q2)*sin(q3))/1000 + (361*cos(q3)*sin(q2))/1000 + (29*cos(q2)*cos(q5)*sin(q3))/200 + (29*cos(q3)*cos(q5)*sin(q2))/200 + (29*cos(q2)*cos(q3)*cos(q4)*sin(q5))/200 - (29*cos(q4)*sin(q2)*sin(q3)*sin(q5))/200 + 131/2000
-
-    #x = a1*cos(q1) + l1*cos(q1)*cos(q2) + l2*cos(alpha3)*sin(q1) - pirul*cos(alpha3)*cos(q5)*sin(q1) - l2*cos(q1)*cos(q2)*cos(q3)*sin(alpha3) + l2*cos(q1)*sin(alpha3)*sin(q2)*sin(q3) + pirul*sin(alpha3)*sin(q1)*sin(q4)*sin(q5) + pirul*cos(q1)*cos(q2)*cos(q4)*sin(q3)*sin(q5) + pirul*cos(q1)*cos(q3)*cos(q4)*sin(q2)*sin(q5) - pirul*cos(q1)*cos(q5)*sin(alpha3)*sin(q2)*sin(q3) + pirul*cos(q1)*cos(q2)*cos(q3)*cos(q5)*sin(alpha3) + pirul*cos(alpha3)*cos(q1)*cos(q2)*cos(q3)*sin(q4)*sin(q5) - pirul*cos(alpha3)*cos(q1)*sin(q2)*sin(q3)*sin(q4)*sin(q5)
-    #y = a1*sin(q1) - l2*cos(alpha3)*cos(q1) + l1*cos(q2)*sin(q1) + pirul*cos(alpha3)*cos(q1)*cos(q5) - l2*cos(q2)*cos(q3)*sin(alpha3)*sin(q1) - pirul*cos(q1)*sin(alpha3)*sin(q4)*sin(q5) + l2*sin(alpha3)*sin(q1)*sin(q2)*sin(q3) + pirul*cos(q2)*cos(q3)*cos(q5)*sin(alpha3)*sin(q1) + pirul*cos(q2)*cos(q4)*sin(q1)*sin(q3)*sin(q5) + pirul*cos(q3)*cos(q4)*sin(q1)*sin(q2)*sin(q5) - pirul*cos(q5)*sin(alpha3)*sin(q1)*sin(q2)*sin(q3) - pirul*cos(alpha3)*sin(q1)*sin(q2)*sin(q3)*sin(q4)*sin(q5) + pirul*cos(alpha3)*cos(q2)*cos(q3)*sin(q1)*sin(q4)*sin(q5)
-    #z = d1 + l1*sin(q2) - l2*cos(q2)*sin(alpha3)*sin(q3) - l2*cos(q3)*sin(alpha3)*sin(q2) - pirul*cos(q2)*cos(q3)*cos(q4)*sin(q5) + pirul*cos(q2)*cos(q5)*sin(alpha3)*sin(q3) + pirul*cos(q3)*cos(q5)*sin(alpha3)*sin(q2) + pirul*cos(q4)*sin(q2)*sin(q3)*sin(q5) + pirul*cos(alpha3)*cos(q2)*sin(q3)*sin(q4)*sin(q5) + pirul*cos(alpha3)*cos(q3)*sin(q2)*sin(q4)*sin(q5)
-
-
+    ee = pirul
   else:
-    x = cos(q1)/100 + (59*cos(q1)*cos(q2))/200 + (121*sin(q1)*sin(q4)*sin(q5))/1000 + (361*cos(q1)*cos(q2)*cos(q3))/1000 - (361*cos(q1)*sin(q2)*sin(q3))/1000 + (121*cos(q1)*cos(q2)*cos(q3)*cos(q5))/1000 - (121*cos(q1)*cos(q5)*sin(q2)*sin(q3))/1000 - (121*cos(q1)*cos(q2)*cos(q4)*sin(q3)*sin(q5))/1000 - (121*cos(q1)*cos(q3)*cos(q4)*sin(q2)*sin(q5))/1000
-    y = sin(q1)/100 + (59*cos(q2)*sin(q1))/200 - (361*sin(q1)*sin(q2)*sin(q3))/1000 + (361*cos(q2)*cos(q3)*sin(q1))/1000 - (121*cos(q1)*sin(q4)*sin(q5))/1000 + (121*cos(q2)*cos(q3)*cos(q5)*sin(q1))/1000 - (121*cos(q5)*sin(q1)*sin(q2)*sin(q3))/1000 - (121*cos(q2)*cos(q4)*sin(q1)*sin(q3)*sin(q5))/1000 - (121*cos(q3)*cos(q4)*sin(q1)*sin(q2)*sin(q5))/1000
-    z = (59*sin(q2))/200 + (361*cos(q2)*sin(q3))/1000 + (361*cos(q3)*sin(q2))/1000 + (121*cos(q2)*cos(q5)*sin(q3))/1000 + (121*cos(q3)*cos(q5)*sin(q2))/1000 + (121*cos(q2)*cos(q3)*cos(q4)*sin(q5))/1000 - (121*cos(q4)*sin(q2)*sin(q3)*sin(q5))/1000 + 131/2000
+    ee = maintenance
+
+  x = a0*cos(q1) + l1*cos(q1)*cos(q2) + l2*cos(q1)*cos(q2)*cos(q3) - l2*cos(q1)*sin(q2)*sin(q3) - ee*sin(q1)*sin(q4)*sin(q5) - ee*cos(q1)*cos(q2)*cos(q3)*cos(q5) + ee*cos(q1)*cos(q5)*sin(q2)*sin(q3) + ee*cos(q1)*cos(q2)*cos(q4)*sin(q3)*sin(q5) + ee*cos(q1)*cos(q3)*cos(q4)*sin(q2)*sin(q5)
+  y = a0*sin(q1) + l1*cos(q2)*sin(q1) + l2*cos(q2)*cos(q3)*sin(q1) + ee*cos(q1)*sin(q4)*sin(q5) - l2*sin(q1)*sin(q2)*sin(q3) - ee*cos(q2)*cos(q3)*cos(q5)*sin(q1) + ee*cos(q5)*sin(q1)*sin(q2)*sin(q3) + ee*cos(q2)*cos(q4)*sin(q1)*sin(q3)*sin(q5) + ee*cos(q3)*cos(q4)*sin(q1)*sin(q2)*sin(q5)
+  z = d0 + l1*sin(q2) + l2*cos(q2)*sin(q3) + l2*cos(q3)*sin(q2) - ee*cos(q2)*cos(q5)*sin(q3) - ee*cos(q3)*cos(q5)*sin(q2) - ee*cos(q2)*cos(q3)*cos(q4)*sin(q5) + ee*cos(q4)*sin(q2)*sin(q3)*sin(q5)
+
+#  if phase:
+#    x = cos(q1)/100 + (59*cos(q1)*cos(q2))/200 + (29*sin(q1)*sin(q4)*sin(q5))/200 + (361*cos(q1)*cos(q2)*cos(q3))/1000 - (361*cos(q1)*sin(q2)*sin(q3))/1000 + (29*cos(q1)*cos(q2)*cos(q3)*cos(q5))/200 - (29*cos(q1)*cos(q5)*sin(q2)*sin(q3))/200 - (29*cos(q1)*cos(q2)*cos(q4)*sin(q3)*sin(q5))/200 - (29*cos(q1)*cos(q3)*cos(q4)*sin(q2)*sin(q5))/200
+#    y = sin(q1)/100 + (59*cos(q2)*sin(q1))/200 - (361*sin(q1)*sin(q2)*sin(q3))/1000 + (361*cos(q2)*cos(q3)*sin(q1))/1000 - (29*cos(q1)*sin(q4)*sin(q5))/200 + (29*cos(q2)*cos(q3)*cos(q5)*sin(q1))/200 - (29*cos(q5)*sin(q1)*sin(q2)*sin(q3))/200 - (29*cos(q2)*cos(q4)*sin(q1)*sin(q3)*sin(q5))/200 - (29*cos(q3)*cos(q4)*sin(q1)*sin(q2)*sin(q5))/200
+#    z = (59*sin(q2))/200 + (361*cos(q2)*sin(q3))/1000 + (361*cos(q3)*sin(q2))/1000 + (29*cos(q2)*cos(q5)*sin(q3))/200 + (29*cos(q3)*cos(q5)*sin(q2))/200 + (29*cos(q2)*cos(q3)*cos(q4)*sin(q5))/200 - (29*cos(q4)*sin(q2)*sin(q3)*sin(q5))/200 + 131/2000
+#
+#    #x = a1*cos(q1) + l1*cos(q1)*cos(q2) + l2*cos(alpha3)*sin(q1) - pirul*cos(alpha3)*cos(q5)*sin(q1) - l2*cos(q1)*cos(q2)*cos(q3)*sin(alpha3) + l2*cos(q1)*sin(alpha3)*sin(q2)*sin(q3) + pirul*sin(alpha3)*sin(q1)*sin(q4)*sin(q5) + pirul*cos(q1)*cos(q2)*cos(q4)*sin(q3)*sin(q5) + pirul*cos(q1)*cos(q3)*cos(q4)*sin(q2)*sin(q5) - pirul*cos(q1)*cos(q5)*sin(alpha3)*sin(q2)*sin(q3) + pirul*cos(q1)*cos(q2)*cos(q3)*cos(q5)*sin(alpha3) + pirul*cos(alpha3)*cos(q1)*cos(q2)*cos(q3)*sin(q4)*sin(q5) - pirul*cos(alpha3)*cos(q1)*sin(q2)*sin(q3)*sin(q4)*sin(q5)
+#    #y = a1*sin(q1) - l2*cos(alpha3)*cos(q1) + l1*cos(q2)*sin(q1) + pirul*cos(alpha3)*cos(q1)*cos(q5) - l2*cos(q2)*cos(q3)*sin(alpha3)*sin(q1) - pirul*cos(q1)*sin(alpha3)*sin(q4)*sin(q5) + l2*sin(alpha3)*sin(q1)*sin(q2)*sin(q3) + pirul*cos(q2)*cos(q3)*cos(q5)*sin(alpha3)*sin(q1) + pirul*cos(q2)*cos(q4)*sin(q1)*sin(q3)*sin(q5) + pirul*cos(q3)*cos(q4)*sin(q1)*sin(q2)*sin(q5) - pirul*cos(q5)*sin(alpha3)*sin(q1)*sin(q2)*sin(q3) - pirul*cos(alpha3)*sin(q1)*sin(q2)*sin(q3)*sin(q4)*sin(q5) + pirul*cos(alpha3)*cos(q2)*cos(q3)*sin(q1)*sin(q4)*sin(q5)
+#    #z = d1 + l1*sin(q2) - l2*cos(q2)*sin(alpha3)*sin(q3) - l2*cos(q3)*sin(alpha3)*sin(q2) - pirul*cos(q2)*cos(q3)*cos(q4)*sin(q5) + pirul*cos(q2)*cos(q5)*sin(alpha3)*sin(q3) + pirul*cos(q3)*cos(q5)*sin(alpha3)*sin(q2) + pirul*cos(q4)*sin(q2)*sin(q3)*sin(q5) + pirul*cos(alpha3)*cos(q2)*sin(q3)*sin(q4)*sin(q5) + pirul*cos(alpha3)*cos(q3)*sin(q2)*sin(q4)*sin(q5)
+#
+#
+#  else:
+#    x = cos(q1)/100 + (59*cos(q1)*cos(q2))/200 + (121*sin(q1)*sin(q4)*sin(q5))/1000 + (361*cos(q1)*cos(q2)*cos(q3))/1000 - (361*cos(q1)*sin(q2)*sin(q3))/1000 + (121*cos(q1)*cos(q2)*cos(q3)*cos(q5))/1000 - (121*cos(q1)*cos(q5)*sin(q2)*sin(q3))/1000 - (121*cos(q1)*cos(q2)*cos(q4)*sin(q3)*sin(q5))/1000 - (121*cos(q1)*cos(q3)*cos(q4)*sin(q2)*sin(q5))/1000
+#    y = sin(q1)/100 + (59*cos(q2)*sin(q1))/200 - (361*sin(q1)*sin(q2)*sin(q3))/1000 + (361*cos(q2)*cos(q3)*sin(q1))/1000 - (121*cos(q1)*sin(q4)*sin(q5))/1000 + (121*cos(q2)*cos(q3)*cos(q5)*sin(q1))/1000 - (121*cos(q5)*sin(q1)*sin(q2)*sin(q3))/1000 - (121*cos(q2)*cos(q4)*sin(q1)*sin(q3)*sin(q5))/1000 - (121*cos(q3)*cos(q4)*sin(q1)*sin(q2)*sin(q5))/1000
+#    z = (59*sin(q2))/200 + (361*cos(q2)*sin(q3))/1000 + (361*cos(q3)*sin(q2))/1000 + (121*cos(q2)*cos(q5)*sin(q3))/1000 + (121*cos(q3)*cos(q5)*sin(q2))/1000 + (121*cos(q2)*cos(q3)*cos(q4)*sin(q5))/1000 - (121*cos(q4)*sin(q2)*sin(q3)*sin(q5))/1000 + 131/2000
 
   coord=np.array([x,y,z]) 
   return coord
@@ -188,35 +203,34 @@ def dir_kin_total_with_rot(q:np.array, phase) -> np.array:
   q5 = q[4]
   q6 = q[5]
   
-  rot = np.matrix([[ cos(q6)*(cos(q2 + q3)*cos(q1)*sin(q5) - cos(q5)*sin(q1)*sin(q4) + cos(q1)*cos(q2)*cos(q4)*cos(q5)*sin(q3) + cos(q1)*cos(q3)*cos(q4)*cos(q5)*sin(q2)) - sin(q6)*(cos(q4)*sin(q1) + cos(q1)*cos(q2)*sin(q3)*sin(q4) + cos(q1)*cos(q3)*sin(q2)*sin(q4)), - cos(q6)*(cos(q4)*sin(q1) + cos(q1)*cos(q2)*sin(q3)*sin(q4) + cos(q1)*cos(q3)*sin(q2)*sin(q4)) - sin(q6)*(cos(q2 + q3)*cos(q1)*sin(q5) - cos(q5)*sin(q1)*sin(q4) + cos(q1)*cos(q2)*cos(q4)*cos(q5)*sin(q3) + cos(q1)*cos(q3)*cos(q4)*cos(q5)*sin(q2)), cos(q2 + q3)*cos(q1)*cos(q5) - sin(q5)*(cos(q1)*cos(q2)*cos(q4)*sin(q3) - sin(q1)*sin(q4) + cos(q1)*cos(q3)*cos(q4)*sin(q2))],
-                   [ cos(q6)*(cos(q2 + q3)*sin(q1)*sin(q5) + cos(q1)*cos(q5)*sin(q4) + cos(q2)*cos(q4)*cos(q5)*sin(q1)*sin(q3) + cos(q3)*cos(q4)*cos(q5)*sin(q1)*sin(q2)) - sin(q6)*(cos(q2)*sin(q1)*sin(q3)*sin(q4) - cos(q1)*cos(q4) + cos(q3)*sin(q1)*sin(q2)*sin(q4)), - cos(q6)*(cos(q2)*sin(q1)*sin(q3)*sin(q4) - cos(q1)*cos(q4) + cos(q3)*sin(q1)*sin(q2)*sin(q4)) - sin(q6)*(cos(q2 + q3)*sin(q1)*sin(q5) + cos(q1)*cos(q5)*sin(q4) + cos(q2)*cos(q4)*cos(q5)*sin(q1)*sin(q3) + cos(q3)*cos(q4)*cos(q5)*sin(q1)*sin(q2)), cos(q2 + q3)*cos(q5)*sin(q1) - sin(q5)*(cos(q1)*sin(q4) + cos(q2)*cos(q4)*sin(q1)*sin(q3) + cos(q3)*cos(q4)*sin(q1)*sin(q2))],
-                   [                                                                                                                                                         cos(q6)*(sin(q2 + q3)*sin(q5) - cos(q2 + q3)*cos(q4)*cos(q5)) + cos(q2 + q3)*sin(q4)*sin(q6),                                                                                                                                                           cos(q2 + q3)*cos(q6)*sin(q4) - sin(q6)*(sin(q2 + q3)*sin(q5) - cos(q2 + q3)*cos(q4)*cos(q5)),                                                                          sin(q2 + q3)*cos(q5) + cos(q2 + q3)*cos(q4)*sin(q5)]])
+  rot = np.matrix([[cos(q6)*(cos(q2 + q3)*cos(q1)*sin(q5) - cos(q5)*sin(q1)*sin(q4) + cos(q1)*cos(q2)*cos(q4)*cos(q5)*sin(q3) + cos(q1)*cos(q3)*cos(q4)*cos(q5)*sin(q2)) - sin(q6)*(cos(q4)*sin(q1) + cos(q1)*cos(q2)*sin(q3)*sin(q4) + cos(q1)*cos(q3)*sin(q2)*sin(q4)), - cos(q6)*(cos(q4)*sin(q1) + cos(q1)*cos(q2)*sin(q3)*sin(q4) + cos(q1)*cos(q3)*sin(q2)*sin(q4)) - sin(q6)*(cos(q2 + q3)*cos(q1)*sin(q5) - cos(q5)*sin(q1)*sin(q4) + cos(q1)*cos(q2)*cos(q4)*cos(q5)*sin(q3) + cos(q1)*cos(q3)*cos(q4)*cos(q5)*sin(q2)), cos(q2 + q3)*cos(q1)*cos(q5) - sin(q5)*(cos(q1)*cos(q2)*cos(q4)*sin(q3) - sin(q1)*sin(q4) + cos(q1)*cos(q3)*cos(q4)*sin(q2))],
+                  [cos(q6)*(cos(q2 + q3)*sin(q1)*sin(q5) + cos(q1)*cos(q5)*sin(q4) + cos(q2)*cos(q4)*cos(q5)*sin(q1)*sin(q3) + cos(q3)*cos(q4)*cos(q5)*sin(q1)*sin(q2)) - sin(q6)*(cos(q2)*sin(q1)*sin(q3)*sin(q4) - cos(q1)*cos(q4) + cos(q3)*sin(q1)*sin(q2)*sin(q4)), - cos(q6)*(cos(q2)*sin(q1)*sin(q3)*sin(q4) - cos(q1)*cos(q4) + cos(q3)*sin(q1)*sin(q2)*sin(q4)) - sin(q6)*(cos(q2 + q3)*sin(q1)*sin(q5) + cos(q1)*cos(q5)*sin(q4) + cos(q2)*cos(q4)*cos(q5)*sin(q1)*sin(q3) + cos(q3)*cos(q4)*cos(q5)*sin(q1)*sin(q2)), cos(q2 + q3)*cos(q5)*sin(q1) - sin(q5)*(cos(q1)*sin(q4) + cos(q2)*cos(q4)*sin(q1)*sin(q3) + cos(q3)*cos(q4)*sin(q1)*sin(q2))],
+                  [                                                                                                                                                        cos(q6)*(sin(q2 + q3)*sin(q5) - cos(q2 + q3)*cos(q4)*cos(q5)) + cos(q2 + q3)*sin(q4)*sin(q6),                                                                                                                                                           cos(q2 + q3)*cos(q6)*sin(q4) - sin(q6)*(sin(q2 + q3)*sin(q5) - cos(q2 + q3)*cos(q4)*cos(q5)),                                                                          sin(q2 + q3)*cos(q5) + cos(q2 + q3)*cos(q4)*sin(q5)]])
 
   if phase:
-    x = cos(q1)/100 + (59*cos(q1)*cos(q2))/200 + (29*sin(q1)*sin(q4)*sin(q5))/200 + (361*cos(q1)*cos(q2)*cos(q3))/1000 - (361*cos(q1)*sin(q2)*sin(q3))/1000 + (29*cos(q1)*cos(q2)*cos(q3)*cos(q5))/200 - (29*cos(q1)*cos(q5)*sin(q2)*sin(q3))/200 - (29*cos(q1)*cos(q2)*cos(q4)*sin(q3)*sin(q5))/200 - (29*cos(q1)*cos(q3)*cos(q4)*sin(q2)*sin(q5))/200
-    y = sin(q1)/100 + (59*cos(q2)*sin(q1))/200 - (361*sin(q1)*sin(q2)*sin(q3))/1000 + (361*cos(q2)*cos(q3)*sin(q1))/1000 - (29*cos(q1)*sin(q4)*sin(q5))/200 + (29*cos(q2)*cos(q3)*cos(q5)*sin(q1))/200 - (29*cos(q5)*sin(q1)*sin(q2)*sin(q3))/200 - (29*cos(q2)*cos(q4)*sin(q1)*sin(q3)*sin(q5))/200 - (29*cos(q3)*cos(q4)*sin(q1)*sin(q2)*sin(q5))/200
-    z = (59*sin(q2))/200 + (361*cos(q2)*sin(q3))/1000 + (361*cos(q3)*sin(q2))/1000 + (29*cos(q2)*cos(q5)*sin(q3))/200 + (29*cos(q3)*cos(q5)*sin(q2))/200 + (29*cos(q2)*cos(q3)*cos(q4)*sin(q5))/200 - (29*cos(q4)*sin(q2)*sin(q3)*sin(q5))/200 + 131/2000
-
+    ee = pirul
   else:
-    x = cos(q1)/100 + (59*cos(q1)*cos(q2))/200 + (121*sin(q1)*sin(q4)*sin(q5))/1000 + (361*cos(q1)*cos(q2)*cos(q3))/1000 - (361*cos(q1)*sin(q2)*sin(q3))/1000 + (121*cos(q1)*cos(q2)*cos(q3)*cos(q5))/1000 - (121*cos(q1)*cos(q5)*sin(q2)*sin(q3))/1000 - (121*cos(q1)*cos(q2)*cos(q4)*sin(q3)*sin(q5))/1000 - (121*cos(q1)*cos(q3)*cos(q4)*sin(q2)*sin(q5))/1000
-    y = sin(q1)/100 + (59*cos(q2)*sin(q1))/200 - (361*sin(q1)*sin(q2)*sin(q3))/1000 + (361*cos(q2)*cos(q3)*sin(q1))/1000 - (121*cos(q1)*sin(q4)*sin(q5))/1000 + (121*cos(q2)*cos(q3)*cos(q5)*sin(q1))/1000 - (121*cos(q5)*sin(q1)*sin(q2)*sin(q3))/1000 - (121*cos(q2)*cos(q4)*sin(q1)*sin(q3)*sin(q5))/1000 - (121*cos(q3)*cos(q4)*sin(q1)*sin(q2)*sin(q5))/1000
-    z = (59*sin(q2))/200 + (361*cos(q2)*sin(q3))/1000 + (361*cos(q3)*sin(q2))/1000 + (121*cos(q2)*cos(q5)*sin(q3))/1000 + (121*cos(q3)*cos(q5)*sin(q2))/1000 + (121*cos(q2)*cos(q3)*cos(q4)*sin(q5))/1000 - (121*cos(q4)*sin(q2)*sin(q3)*sin(q5))/1000 + 131/2000
+    ee = maintenance
+
+  x = a0*cos(q1) + l1*cos(q1)*cos(q2) + l2*cos(q1)*cos(q2)*cos(q3) - l2*cos(q1)*sin(q2)*sin(q3) - ee*sin(q1)*sin(q4)*sin(q5) - ee*cos(q1)*cos(q2)*cos(q3)*cos(q5) + ee*cos(q1)*cos(q5)*sin(q2)*sin(q3) + ee*cos(q1)*cos(q2)*cos(q4)*sin(q3)*sin(q5) + ee*cos(q1)*cos(q3)*cos(q4)*sin(q2)*sin(q5)
+  y = a0*sin(q1) + l1*cos(q2)*sin(q1) + l2*cos(q2)*cos(q3)*sin(q1) + ee*cos(q1)*sin(q4)*sin(q5) - l2*sin(q1)*sin(q2)*sin(q3) - ee*cos(q2)*cos(q3)*cos(q5)*sin(q1) + ee*cos(q5)*sin(q1)*sin(q2)*sin(q3) + ee*cos(q2)*cos(q4)*sin(q1)*sin(q3)*sin(q5) + ee*cos(q3)*cos(q4)*sin(q1)*sin(q2)*sin(q5)
+  z = d0 + l1*sin(q2) + l2*cos(q2)*sin(q3) + l2*cos(q3)*sin(q2) - ee*cos(q2)*cos(q5)*sin(q3) - ee*cos(q3)*cos(q5)*sin(q2) - ee*cos(q2)*cos(q3)*cos(q4)*sin(q5) + ee*cos(q4)*sin(q2)*sin(q3)*sin(q5)
 
   coord=np.array([x,y,z]) 
   return rot, coord
- 
+
 
 #funzioni ausiliarie
 def range_check(q:np.array):
   res = True  #limiti
   bool_vec = np.ones(3)
-  if q[0]>5*pi/4:      
+  if q[0]>7*pi/6 or q[0]<-7*pi/6:      
     res = False
     bool_vec[0] = 0
   if q[1]<-0.2618 or q[1]>2.2689:
     res = False
     bool_vec[1] = 0
-  if q[2]<-1.9199 or q[2]>1.9199:
+  if q[2]<-5*pi/6 or q[2]>-pi/12:
     res = False
     bool_vec[2] = 0
   return res, bool_vec
@@ -246,7 +260,7 @@ def best_qp(all_q:np.array, elbow:bool, coord:np.array)->np.array:
       if best_dist > dist:
         best_dist=dist
         best=q
-      elif best_dist==dist and np.linagl.norm(best)>np.linalg.norm(q):
+      elif best_dist==dist and np.linalg.norm(best)>np.linalg.norm(q):
         best=q
   res, bool_vec = range_check(best)
   if not res:
@@ -255,8 +269,8 @@ def best_qp(all_q:np.array, elbow:bool, coord:np.array)->np.array:
 
 def out_of_joint_range(all_q:np.array, elbow:bool, coord:np.array):
   best=np.array([2*pi, 2*pi, 2*pi])
-  high_limits = np.array([5*pi/4, 2.2689, 1.9199])         #limiti
-  low_limits = np.array([-pi/4, -0.2618, -1.9199])       #limiti
+  high_limits = np.array([pi, 2.2689, -pi/12])         #limiti
+  low_limits = np.array([-pi, -0.2618, -5*pi/6])       #limiti
   for i in range(8):
     q0=all_q[0][i]
     q1=all_q[1][i]
@@ -277,7 +291,7 @@ def out_of_joint_range(all_q:np.array, elbow:bool, coord:np.array):
       if best_dist > dist:
         best_dist=dist
         best=q
-      elif best_dist==dist and np.linagl.norm(best)>np.linalg.norm(q):
+      elif best_dist==dist and np.linalg.norm(best)>np.linalg.norm(q):
         best=q
   res, bool_vec = range_check(best)
   if res:

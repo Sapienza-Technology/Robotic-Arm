@@ -1,0 +1,8 @@
+prefix=/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install
+
+Name: tasks_utils
+Description: Description of tasks_utils
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

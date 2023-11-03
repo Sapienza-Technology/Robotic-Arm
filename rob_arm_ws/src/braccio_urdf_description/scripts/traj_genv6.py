@@ -25,7 +25,7 @@ def premade_traj(no, steps, starting_q:np.array):
         task=False
         c_all = [np.array([0.5, 0., 0.3]), np.array([-0.349000, 0, 0.2210000]), np.array([-0.42, 0, 0.15]), np.array([-0.41, 0, 0.22]), np.array([0.4, 0., 0.2])]
         R_all = [Ry(-np.pi), Ry(3*pi/4), Ry(-4*pi/5), Ry(-4*pi/5), Ry(-np.pi)]
-        elbow_all = [True, True, True, True, False]
+        elbow_all = [True, True, True, True, True]
     elif(no=="pirulo"):
         task=True
         c_all = [np.array([-0.40, 0.140, 0.315]), np.array([-0.493, 0.140, 0.315]), np.array([-0.513, 0.140, 0.169]), np.array([-0.493, 0.140, 0.32]), np.array([-0.40, 0.140, 0.32]), np.array([0.4, 0, 0.3]), np.array([0.4, 0, -0.10])]
