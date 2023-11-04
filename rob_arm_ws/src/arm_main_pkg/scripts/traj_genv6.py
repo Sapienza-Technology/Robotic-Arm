@@ -2,8 +2,6 @@
 
 import math
 from time import sleep
-from turtle import position
-import scipy
 import swift
 import roboticstoolbox as rtb
 from roboticstoolbox import ETS, ERobot

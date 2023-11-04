@@ -3,7 +3,6 @@
 from array import array
 import math
 import string
-from tabnanny import check
 from numpy.core.fromnumeric import transpose
 import numpy as np 
 from math import sin, cos, pow, atan2, sqrt, pi 
@@ -90,9 +89,15 @@ def inv_kin_bis(coord:np.array,elbow:bool,prec_qin:np.array)->np.array:
     Fa la inverse_kin per una posizione intermedia, 
     calcolando solo i valori dei primi tre giunti q1 q2 q3
 
-    coord: poszione desiderata
-    elbow: True se Up, False se Down
-    prec_qin: valori di q1 q2 q3 correnti (precedenti)
+    Parameters
+    ----------
+    coord : np.array posizione desiderata
+    elbow : bool True se UP, False se DOWN
+    prec_qin : np.array valori di giunto correnti (precedenti) q1 q2 q3
+
+    Returns
+    -------
+    q : np.array valori di giunto calcolati q1 q2 q3
     '''
     all_q0=np.array([atan2(coord[1],coord[0]),atan2(-coord[1],-coord[0])])
     #q0=atan2(coord[1],coord[0])
@@ -151,13 +156,20 @@ def inv_kin_total_bis(position:np.array, Rtarg:np.matrix, phase, elbow:bool, pre
     (che dipende dalla presenza della posa desidetata nel workspace del braccio) e check sui limiti 
     dei giunti, imposti a piacere rispetto ai limiti meccanici in range_check
 
-    position: posizione target
-    Rtarg: matrice di rotazione target
-    phase: se nella pirulazione (scavo) True, se nella maintenance False
-    elbow: True se UP, False se DOWN
-    prec_qin: sei valori di giunto correnti (precedenti)
-    g_offset: larghezza corrente della pinza (se c'è una pinza) 
+    Parameters
+    ----------
+    position : np.array posizione desiderata
+    Rtarg : np.matrix matrice di rotazione desiderata
+    phase : bool True se pirulazione, False se maintenance
+    elbow : bool True se UP, False se DOWN
+    prec_q : np.array sei valori di giunto correnti (precedenti)
+    g_offset : float larghezza corrente della pinza (se c'è una pinza)
+
+    Returns
+    -------
+    q : np.array sei valori di giunto calcolati
     '''
+
     prec_qfin = prec_q[3:]
     prec_qin  = prec_q[:3]
 
@@ -231,7 +243,13 @@ def dir_kin(q : np.array) -> np.array :
     '''
     Funzione ausiliaria per avere una direct kin intermedia, a valle dei primi tre giunti
 
-    q: valori di q1 q2 q3 correnti
+    Parameters
+    ----------
+    q : np.array valori di q1 q2 q3 correnti
+
+    Returns
+    -------
+    coord : np.array posizione intermedia
     '''
     x=(a0+l1*cos(q[1])+l2*cos(q[1]+q[2]))*cos(q[0])
     y=(a0+l1*cos(q[1])+l2*cos(q[1]+q[2]))*sin(q[0])
@@ -245,9 +263,15 @@ def dir_kin_total(q:np.array, phase, q_gripper) -> np.array:
   Attraveso DH_universal_sim viene generata la matrice di roto-traslazione, per passare dal frame
   dell'end effector, a quello del base link, e viene dato in output la posizione in x y z nel base link.
 
-  q: valori di giunto correnti
-  phase: se nella pirulazione (scavo) True, se nella maintenance False
-  q_gripper: larghezza corrente della pinza (se c'è una pinza)
+  Parameters
+  ----------
+  q : np.array valori di giunto correnti
+  phase : bool True se pirulazione, False se maintenance
+  q_gripper : float larghezza corrente della pinza (se c'è una pinza)
+
+  Returns
+  -------
+  coord : np.array posizione in x y z nel base link
   '''
 
   q1 = q[0]
@@ -288,9 +312,16 @@ def dir_kin_total_with_rot(q:np.array, phase, q_gripper) -> np.array:
   dell'end effector, a quello del base link, e viene dato in output la posizione in x y z nel base link 
   e la matrice di rotazione.
 
-  q: valori di giunto correnti
-  phase: se nella pirulazione (scavo) True, se nella maintenance False
-  q_gripper: larghezza corrente della pinza (se c'è una pinza)
+  Parameters
+  ----------
+  q : np.array valori di giunto correnti
+  phase : bool True se pirulazione, False se maintenance
+  q_gripper : float larghezza corrente della pinza (se c'è una pinza)
+
+  Returns
+  -------
+  rot : np.array matrice di rotazione
+  coord : np.array posizione in x y z nel base link
   '''
 
   q1 = q[0]
@@ -333,7 +364,14 @@ def range_check(q:np.array):
   range_check controlla che i valori di giunto siano all'interno dei limiti imposti
   dai limiti meccanici del braccio
 
-  q: valori di giunto correnti
+  Parameters
+  ----------
+  q : np.array valori di giunto correnti
+
+  Returns
+  -------
+  res: True se i valori di giunto sono all'interno dei limiti, False altrimenti
+  bool_vec: np.array di 3 valori, 1 se il giunto è all'interno dei limiti, 0 altrimenti
   '''
   res = True  #limiti
   bool_vec = np.ones(3)
@@ -353,10 +391,16 @@ def best_qp(all_q:np.array, elbow:bool, coord:np.array, prec_qin:np.array)->np.a
   best_qp trova la soluzione di giunto che minimizza la distanza tra la posizione desiderata
   e quella calcolata nello spazio dei giunti
 
-  all_q: matrice 3x8 con tutte le soluzioni di giunto
-  elbow: True se UP, False se DOWN
-  coord: posizione desiderata
-  prec_qin: sei valori di giunto correnti (precedenti)
+  Parameters
+  ----------
+  all_q : np.array matrice 3x8 con tutte le soluzioni di giunto
+  elbow : bool True se UP, False se DOWN
+  coord : np.array posizione desiderata
+  prec_qin : np.array sei valori di giunto correnti (precedenti)
+
+  Returns
+  -------
+  best : np.array tre migliori valori di giunto calcolati
   '''
 
   best=np.array([2*pi, 2*pi, 2*pi])
@@ -398,9 +442,15 @@ def out_of_joint_range(all_q:np.array, elbow:bool, coord:np.array):
   tra la posizione desiderata e quella calcolata nello spazio dei giunti, quando si è fuori
   dai limiti imposti dai limiti meccanici del braccio
 
-  all_q: matrice 3x8 con tutte le soluzioni di giunto
-  elbow: True se UP, False se DOWN
-  coord: posizione desiderata
+  Parameters
+  ----------
+  all_q : np.array matrice 3x8 con tutte le soluzioni di giunto
+  elbow : bool True se UP, False se DOWN
+  coord : np.array posizione desiderata
+
+  Returns
+  -------
+  best : np.array tre migliori valori di giunto calcolati (e eventualmente limitati)
   '''
 
   best=np.array([2*pi, 2*pi, 2*pi])
@@ -467,15 +517,22 @@ def go_straight(task:bool, elbow:bool, q_pres:np.array, direct: string, steps:in
     go_straight si occupa di calcolare la cinematica inversa per andare dritti, in una direzione
     specificata, per una certa distanza, in un certo numero di passi.
 
-    task: True se pirulazione, False se maintenance
-    elbow: True se UP, False se DOWN
-    q_pres: sei valori di giunto correnti
-    direct: direzione in cui andare (l, r, u, d, f, b)
-    steps: numero di passi
-    distance: distanza da percorrere
-    q_gripper: larghezza corrente della pinza (se c'è una pinza)
-    in_final_frame: False se si vuole andare dritti nello spazio del base link, True se si vuole andare dritti nello spazio dell'end effector
+    Parameters
+    ----------
+    task : bool True se pirulazione, False se maintenance
+    elbow : bool True se UP, False se DOWN
+    q_pres : np.array sei valori di giunto correnti
+    direct : string direzione in cui andare (l, r, u, d, f, b)
+    steps : int numero di passi
+    distance : float distanza da percorrere
+    q_gripper : float larghezza corrente della pinza (se c'è una pinza)
+    in_final_frame : bool False se si vuole andare dritti nello spazio del base link, True se si vuole andare dritti nello spazio dell'end effector
+
+    Returns
+    -------
+    q_des : np.array sei valori di giunto calcolati
     '''
+
     q_des = []
     if direct == 'l':    # left
       s = 1
@@ -528,14 +585,20 @@ def rotate(task:bool, elbow:bool, q_pres:np.array, direct: string, steps:int, di
     specificata, per una certa distanza, in un certo numero di passi.
     NOTA: in_final_frame non è consigliato per la rotazione, infatti è commentato
 
-    task: True se pirulazione, False se maintenance
-    elbow: True se UP, False se DOWN
-    q_pres: sei valori di giunto correnti
-    direct: direzione in cui andare (r_cw, r_ccw, p_cw, p_ccw, y_cw, y_ccw)
-    steps: numero di passi
-    distance: distanza da percorrere
-    q_gripper: larghezza corrente della pinza (se c'è una pinza)
-    in_final_frame: False se si vuole andare dritti nello spazio del base link, True se si vuole andare dritti nello spazio dell'end effector
+    Parameters
+    ----------
+    task : bool True se pirulazione, False se maintenance
+    elbow : bool True se UP, False se DOWN
+    q_pres : np.array sei valori di giunto correnti
+    direct : string direzione in cui andare (r_cw, r_ccw, p_cw, p_ccw, y_cw, y_ccw)
+    steps : int numero di passi
+    distance : float distanza da percorrere
+    q_gripper : float larghezza corrente della pinza (se c'è una pinza)
+    in_final_frame : bool False se si vuole andare dritti nello spazio del base link, True se si vuole andare dritti nello spazio dell'end effector
+
+    Returns
+    -------
+    q_des : np.array sei valori di giunto calcolati
     '''
 
     print("entrato")
@@ -605,8 +668,15 @@ def DH_universal_sym(DH:np.array):
   DH_universal_sym si occupa di calcolare la matrice di roto-traslazione, attraverso il formalismo
   di Denavith-Hartemberg, a partire dalla tabella DH.
 
-  DH: tabella DH
+  Parameters
+  ----------
+  DH : np.array tabella DH
+
+  Returns
+  -------
+  A : np.array matrice di roto-traslazione 
   '''
+
   n,m = DH.shape
   print(n)
   if m != 4:
@@ -633,7 +703,13 @@ def tf_camera_from_base(q:np.array):
   di Denavith-Hartemberg, a partire dai valori di giunto, per passare dal frame del base link, a quello
   della camera.
 
-  q: valori di giunto correnti
+  Parameters
+  ----------
+  q : np.array valori di giunto correnti
+
+  Returns
+  -------
+  camera_final : np.array matrice di roto-traslazione da camera_frame a base_frame
   '''
   #if request == '03':
   DH_table1 = np.array([[ pi/2,     a0,      d0,        q[0]],
