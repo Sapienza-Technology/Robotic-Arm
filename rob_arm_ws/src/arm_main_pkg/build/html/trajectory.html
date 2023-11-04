@@ -1,0 +1,685 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>trajectory module &#8212; arm_2023 v1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-trajectory">
+<span id="trajectory-module"></span><h1>trajectory module<a class="headerlink" href="#module-trajectory" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="trajectory.Trajectory">
+<em class="property">class </em><code class="descclassname">trajectory.</code><code class="descname">Trajectory</code><span class="sig-paren">(</span><em>name</em>, <em>t</em>, <em>s</em>, <em>sd=None</em>, <em>sdd=None</em>, <em>istime=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/trajectory.html#Trajectory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trajectory.Trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A container class for trajectory data.</p>
+<dl class="attribute">
+<dt id="trajectory.Trajectory.naxes">
+<code class="descname">naxes</code><a class="headerlink" href="#trajectory.Trajectory.naxes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of axes in the trajectory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">number of axes or dimensions</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="trajectory.Trajectory.plot">
+<code class="descname">plot</code><span class="sig-paren">(</span><em>block=False</em>, <em>plotargs=None</em>, <em>textargs=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/trajectory.html#Trajectory.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trajectory.Trajectory.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot trajectory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>block</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – wait till plot is dismissed</td>
+</tr>
+</tbody>
+</table>
+<p>Plot the position, velocity and acceleration data.  The format of the
+plot depends on the function that created it.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">quintic</span></code> and <code class="docutils literal notranslate"><span class="pre">trapezoidal</span></code> show the individual points with markers</li>
+<li><code class="docutils literal notranslate"><span class="pre">trapezoidal</span></code> color code the different motion phases</li>
+<li><code class="docutils literal notranslate"><span class="pre">jtraj</span></code> general m-axis trajectory, show legend</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Seealso:</th><td class="field-body"><a class="reference internal" href="#trajectory.quintic" title="trajectory.quintic"><code class="xref py py-func docutils literal notranslate"><span class="pre">quintic()</span></code></a>, <a class="reference internal" href="#trajectory.trapezoidal" title="trajectory.trapezoidal"><code class="xref py py-func docutils literal notranslate"><span class="pre">trapezoidal()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="trajectory.Trajectory.q">
+<code class="descname">q</code><a class="headerlink" href="#trajectory.Trajectory.q" title="Permalink to this definition">¶</a></dt>
+<dd><p>Position trajectory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">trajectory with one row per timestep, one column per axis</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray(n,m)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a synonym for <code class="docutils literal notranslate"><span class="pre">.s</span></code>, for compatibility with other
+applications.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="trajectory.Trajectory.qd">
+<code class="descname">qd</code><a class="headerlink" href="#trajectory.Trajectory.qd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Velocity trajectory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">trajectory velocity with one row per timestep, one column per axis</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray(n,m)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a synonym for <code class="docutils literal notranslate"><span class="pre">.sd</span></code>, for compatibility with other
+applications.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="trajectory.Trajectory.qdd">
+<code class="descname">qdd</code><a class="headerlink" href="#trajectory.Trajectory.qdd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Acceleration trajectory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">trajectory acceleration with one row per timestep, one column per axis</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray(n,m)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a synonym for <code class="docutils literal notranslate"><span class="pre">.sdd</span></code>, for compatibility with other
+applications.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="trajectory.Trajectory.qplot">
+<code class="descname">qplot</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/trajectory.html#Trajectory.qplot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trajectory.Trajectory.qplot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot multi-axis trajectory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> – <p>optional arguments passed to <code class="docutils literal notranslate"><span class="pre">qplot</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Plots a multi-axis trajectory, held within the object, as position against time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Seealso:</th><td class="field-body"><a class="reference internal" href="#trajectory.Trajectory.qplot" title="trajectory.Trajectory.qplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">qplot()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="trajectory.cmstraj">
+<code class="descclassname">trajectory.</code><code class="descname">cmstraj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/trajectory.html#cmstraj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trajectory.cmstraj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="trajectory.ctraj">
+<code class="descclassname">trajectory.</code><code class="descname">ctraj</code><span class="sig-paren">(</span><em>T0</em>, <em>T1</em>, <em>t=None</em>, <em>s=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/trajectory.html#ctraj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trajectory.ctraj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cartesian trajectory between two poses</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>T0</strong> (<em>SE3</em>) – initial pose</li>
+<li><strong>T1</strong> (<em>SE3</em>) – final pose</li>
+<li><strong>t</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em> or </em><em>ndarray</em><em>(</em><em>n</em><em>)</em>) – number of samples or time vector</li>
+<li><strong>s</strong> (<em>ndarray</em><em>(</em><em>s</em><em>)</em>) – array of distance along the path, in the interval [0, 1]</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return T0:</th><td class="field-body"><p class="first">smooth path from <code class="docutils literal notranslate"><span class="pre">T0</span></code> to <code class="docutils literal notranslate"><span class="pre">T1</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">SE3</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">ctraj(T0,</span> <span class="pre">T1,</span> <span class="pre">n)</span></code> is a Cartesian trajectory from SE3 pose <code class="docutils literal notranslate"><span class="pre">T0</span></code> to
+<code class="docutils literal notranslate"><span class="pre">T1</span></code> with <code class="docutils literal notranslate"><span class="pre">n</span></code> points that follow a trapezoidal velocity profile along
+the path. The Cartesian trajectory is an SE3 instance containing <code class="docutils literal notranslate"><span class="pre">n</span></code>
+values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ctraj(T0,</span> <span class="pre">T1,</span> <span class="pre">t)</span></code> as above but the trajectory is sampled at
+the  points in the array <code class="docutils literal notranslate"><span class="pre">t</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ctraj(T0,</span> <span class="pre">T1,</span> <span class="pre">s=s)</span></code> as above but the elements of <code class="docutils literal notranslate"><span class="pre">s</span></code> specify the
+fractional distance  along the path, and these values are in the
+range [0 1]. The i’th point corresponds to a distance <code class="docutils literal notranslate"><span class="pre">s[i]</span></code> along
+the path.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tg</span> <span class="o">=</span> <span class="n">ctraj</span><span class="p">(</span><span class="n">SE3</span><span class="o">.</span><span class="n">Rand</span><span class="p">(),</span> <span class="n">SE3</span><span class="o">.</span><span class="n">Rand</span><span class="p">(),</span> <span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">tg</span><span class="p">)</span>
+<span class="go">20</span>
+</pre></div>
+</div>
+<p>Notes:</p>
+<ul class="simple">
+<li>In the second case <code class="docutils literal notranslate"><span class="pre">s</span></code> could be generated by a scalar trajectory
+generator such as <code class="docutils literal notranslate"><span class="pre">quintic</span></code> or <code class="docutils literal notranslate"><span class="pre">trapezoidal</span></code> (default).</li>
+<li>Orientation interpolation is performed using unit-quaternion
+interpolation.</li>
+</ul>
+<p>Reference:</p>
+<ul class="simple">
+<li>Robotics, Vision &amp; Control, Sec 3.1.5,
+Peter Corke, Springer 2011</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Seealso:</th><td class="field-body"><code class="xref py py-func docutils literal notranslate"><span class="pre">trapezoidal()</span></code>,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">interp()</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trajectory.jtraj">
+<code class="descclassname">trajectory.</code><code class="descname">jtraj</code><span class="sig-paren">(</span><em>q0</em>, <em>qf</em>, <em>t</em>, <em>qd0=None</em>, <em>qd1=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/trajectory.html#jtraj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trajectory.jtraj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute a joint-space trajectory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q0</strong> (<em>array_like</em><em>(</em><em>n</em><em>)</em>) – initial joint coordinate</li>
+<li><strong>qf</strong> (<em>array_like</em><em>(</em><em>n</em><em>)</em>) – final joint coordinate</li>
+<li><strong>t</strong> (<em>array_like</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – time vector or number of steps</li>
+<li><strong>qd0</strong> (<em>array_like</em><em>(</em><em>n</em><em>)</em><em>, </em><em>optional</em>) – initial velocity, defaults to zero</li>
+<li><strong>qd1</strong> (<em>array_like</em><em>(</em><em>n</em><em>)</em><em>, </em><em>optional</em>) – final velocity, defaults to zero</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">trajectory</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Trajectory instance</p>
+</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">=</span> <span class="pre">jtraj(q0,</span> <span class="pre">qf,</span> <span class="pre">N)</span></code> is a joint space trajectory where the joint
+coordinates vary from <code class="docutils literal notranslate"><span class="pre">q0</span></code> (M) to <code class="docutils literal notranslate"><span class="pre">qf</span></code> (M).  A quintic (5th order)
+polynomial is used with default zero boundary conditions for velocity and
+acceleration.  Time is assumed to vary from 0 to 1 in <code class="docutils literal notranslate"><span class="pre">N</span></code> steps.</li>
+<li><code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">=</span> <span class="pre">jtraj(q0,</span> <span class="pre">qf,</span> <span class="pre">t)</span></code> as above but <code class="docutils literal notranslate"><span class="pre">t</span></code> is a uniformly-spaced time
+vector</li>
+</ul>
+<p>The return value is an object that contains position, velocity and
+acceleration data.</p>
+<p>Notes:</p>
+<ul class="simple">
+<li>The time vector, if given, scales the velocity and acceleration outputs
+assuming that the time vector starts at zero and increases
+linearly.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Seealso:</th><td class="field-body"><a class="reference internal" href="#trajectory.ctraj" title="trajectory.ctraj"><code class="xref py py-func docutils literal notranslate"><span class="pre">ctraj()</span></code></a>, <code class="xref py py-func docutils literal notranslate"><span class="pre">qplot()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">jtraj()</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trajectory.lspb">
+<code class="descclassname">trajectory.</code><code class="descname">lspb</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/trajectory.html#lspb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trajectory.lspb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="trajectory.mstraj">
+<code class="descclassname">trajectory.</code><code class="descname">mstraj</code><span class="sig-paren">(</span><em>viapoints</em>, <em>dt</em>, <em>tacc</em>, <em>qdmax=None</em>, <em>tsegment=None</em>, <em>q0=None</em>, <em>qd0=None</em>, <em>qdf=None</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/trajectory.html#mstraj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trajectory.mstraj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multi-segment multi-axis trajectory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>viapoints</strong> (<em>ndarray</em><em>(</em><em>m</em><em>,</em><em>n</em><em>)</em>) – A set of viapoints, one per row</li>
+<li><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em> (</em><em>seconds</em><em>)</em>) – time step</li>
+<li><strong>tacc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – acceleration time (seconds)</li>
+<li><strong>qdmax</strong> (<em>array_like</em><em>(</em><em>n</em><em>) or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em>, </em><em>optional</em>) – maximum speed, defaults to None</li>
+<li><strong>tsegment</strong> (<em>array_like</em><em>, </em><em>optional</em>) – maximum time of each motion segment (seconds), defaults
+to None</li>
+<li><strong>q0</strong> (<em>array_like</em><em>(</em><em>n</em><em>)</em><em>, </em><em>optional</em>) – initial coordinates, defaults to first row of viapoints</li>
+<li><strong>qd0</strong> (<em>array_like</em><em>(</em><em>n</em><em>)</em><em>, </em><em>optional</em>) – inital  velocity, defaults to zero</li>
+<li><strong>qdf</strong> (<em>array_like</em><em>(</em><em>n</em><em>)</em><em>, </em><em>optional</em>) – final  velocity, defaults to zero</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a><em>, </em><em>optional</em>) – print debug information, defaults to False</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">trajectory</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Trajectory instance</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Computes a trajectory for N axes moving smoothly through a set of
+viapoints.
+The motion comprises M segments:</p>
+<ul class="simple">
+<li>The initial coordinates are the first row of <code class="docutils literal notranslate"><span class="pre">viapoints</span></code> or <code class="docutils literal notranslate"><span class="pre">q0</span></code> if
+provided.</li>
+<li>The final coordinates are the last row of <code class="docutils literal notranslate"><span class="pre">viapoints</span></code></li>
+<li>Each segment is linear motion and polynomial blends connect the
+viapoints.</li>
+<li>All joints arrive at each via point at the same time, ie. the motion is
+coordinated across axes</li>
+</ul>
+<p>The time of the segments can be specified in two different ways:</p>
+<ol class="arabic">
+<li><p class="first">In terms of segment time where <code class="docutils literal notranslate"><span class="pre">tsegment</span></code> is an array of segment times
+which is the number of via points minus one:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>``traj = mstraj(viapoints, dt, tacc, tsegment=TS)``
+</pre></div>
+</div>
+</li>
+<li><p class="first">Governed by the speed of the slowest axis for the segment.  The axis
+speed is a scalar (all axes have the same speed) or an N-vector of speed
+per axis:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">traj</span> <span class="o">=</span> <span class="n">mstraj</span><span class="p">(</span><span class="n">viapoints</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">tacc</span><span class="p">,</span> <span class="n">qdmax</span><span class="o">=</span><span class="n">SPEED</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>The return value is a namedtuple (named <code class="docutils literal notranslate"><span class="pre">mstraj</span></code>) with elements:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">t</span></code>  the time coordinate as a numpy ndarray, shape=(K,)</li>
+<li><code class="docutils literal notranslate"><span class="pre">q</span></code>  the axis values as a numpy ndarray, shape=(K,N)</li>
+<li><code class="docutils literal notranslate"><span class="pre">arrive</span></code> a list of arrival times for each segment</li>
+<li><code class="docutils literal notranslate"><span class="pre">info</span></code> a list of named tuples, one per segment that describe the
+slowest axis, segment time,  and time stamp</li>
+<li><code class="docutils literal notranslate"><span class="pre">via</span></code> the passed set of via points</li>
+</ul>
+</div></blockquote>
+<p>The  trajectory proper is (<code class="docutils literal notranslate"><span class="pre">traj.t</span></code>, <code class="docutils literal notranslate"><span class="pre">traj.q</span></code>).  The trajectory is a
+matrix has one row per time step, and one column per axis.</p>
+<blockquote>
+<div><p>Notes:</p>
+<ul class="simple">
+<li>Only one of <code class="docutils literal notranslate"><span class="pre">qdmag</span></code> or <code class="docutils literal notranslate"><span class="pre">tsegment</span></code> can be specified</li>
+<li>If <code class="docutils literal notranslate"><span class="pre">tacc</span></code> is greater than zero then the path smoothly accelerates
+between segments using a polynomial blend.  This means that the the via
+point is not actually reached.</li>
+<li>The path length K is a function of the number of via
+points and the time or velocity limits that apply.</li>
+<li>Can be used to create joint space trajectories where each axis is a
+joint coordinate.</li>
+<li>Can be used to create Cartesian trajectories where the “axes”
+correspond to translation and orientation in RPY or Euler angle form.</li>
+<li>If <code class="docutils literal notranslate"><span class="pre">qdmax</span></code> is a scalar then all axes are assumed to have the same
+maximum speed.</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">tg</span></code> has extra attributes <code class="docutils literal notranslate"><span class="pre">arrive</span></code>, <code class="docutils literal notranslate"><span class="pre">info</span></code> and <code class="docutils literal notranslate"><span class="pre">via</span></code></li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Seealso:</th><td class="field-body"><a class="reference internal" href="#trajectory.trapezoidal" title="trajectory.trapezoidal"><code class="xref py py-func docutils literal notranslate"><span class="pre">trapezoidal()</span></code></a>, <a class="reference internal" href="#trajectory.ctraj" title="trajectory.ctraj"><code class="xref py py-func docutils literal notranslate"><span class="pre">ctraj()</span></code></a>, <a class="reference internal" href="#trajectory.mtraj" title="trajectory.mtraj"><code class="xref py py-func docutils literal notranslate"><span class="pre">mtraj()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trajectory.mtraj">
+<code class="descclassname">trajectory.</code><code class="descname">mtraj</code><span class="sig-paren">(</span><em>tfunc</em>, <em>q0</em>, <em>qf</em>, <em>t</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/trajectory.html#mtraj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trajectory.mtraj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multi-axis trajectory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tfunc</strong> (<em>callable</em>) – a 1D trajectory function, eg. <a class="reference internal" href="#trajectory.quintic" title="trajectory.quintic"><code class="xref py py-func docutils literal notranslate"><span class="pre">quintic()</span></code></a> or <a class="reference internal" href="#trajectory.trapezoidal" title="trajectory.trapezoidal"><code class="xref py py-func docutils literal notranslate"><span class="pre">trapezoidal()</span></code></a></li>
+<li><strong>q0</strong> (<em>ndarray</em><em>(</em><em>m</em><em>)</em>) – initial configuration</li>
+<li><strong>qf</strong> (<em>ndarray</em><em>(</em><em>m</em><em>)</em>) – final configuration</li>
+<li><strong>t</strong> (<em>array_like</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – time vector or number of steps</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.12)"><strong>TypeError</strong></a> – <code class="docutils literal notranslate"><span class="pre">tfunc</span></code> is not callable</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.12)"><strong>ValueError</strong></a> – length of <code class="docutils literal notranslate"><span class="pre">q0</span></code> and <code class="docutils literal notranslate"><span class="pre">qf</span></code> are different</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">trajectory</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Trajectory instance</p>
+</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">=</span> <span class="pre">mtraj(func,</span> <span class="pre">q0,</span> <span class="pre">qf,</span> <span class="pre">n)</span></code> is a multi-axis trajectory varying
+from configuration <code class="docutils literal notranslate"><span class="pre">q0</span></code> (M) to <code class="docutils literal notranslate"><span class="pre">qf</span></code> (M) according to the scalar trajectory
+function <code class="docutils literal notranslate"><span class="pre">tfunc</span></code> in <code class="docutils literal notranslate"><span class="pre">n`</span></code> steps.</li>
+<li><code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">=</span> <span class="pre">mtraj(func,</span> <span class="pre">q0,</span> <span class="pre">qf,</span> <span class="pre">t)</span></code> as above but <code class="docutils literal notranslate"><span class="pre">t</span></code> is a uniformly-spaced time
+vector</li>
+</ul>
+<p>The scalar trajectory function is applied to each axis:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tg</span> <span class="o">=</span> <span class="n">tfunc</span><span class="p">(</span><span class="n">s0</span><span class="p">,</span> <span class="n">sF</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and possible values of TFUNC include <code class="docutils literal notranslate"><span class="pre">trapezoidal</span></code> for a trapezoidal trajectory, or
+<code class="docutils literal notranslate"><span class="pre">quintic</span></code> for a polynomial trajectory.</p>
+<p>The return value is an object that contains position, velocity and
+acceleration data.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The time vector, if given, is assumed to be monotonically increasing, and
+time scaling is based on the first and last element.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Seealso:</th><td class="field-body"><a class="reference internal" href="#trajectory.quintic" title="trajectory.quintic"><code class="xref py py-func docutils literal notranslate"><span class="pre">quintic()</span></code></a>, <a class="reference internal" href="#trajectory.trapezoidal" title="trajectory.trapezoidal"><code class="xref py py-func docutils literal notranslate"><span class="pre">trapezoidal()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trajectory.quintic">
+<code class="descclassname">trajectory.</code><code class="descname">quintic</code><span class="sig-paren">(</span><em>q0</em>, <em>qf</em>, <em>t</em>, <em>qd0=0</em>, <em>qdf=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/trajectory.html#quintic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trajectory.quintic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate scalar polynomial trajectory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q0</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – initial value</li>
+<li><strong>qf</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – final value</li>
+<li><strong>t</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em> or </em><em>array_like</em><em>(</em><em>m</em><em>)</em>) – time</li>
+<li><strong>qd0</strong> – initial velocity, optional</li>
+<li><strong>qdf</strong> – final velocity, optional</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">trajectory</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Trajectory instance</p>
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">=</span> <span class="pre">quintic(q0,</span> <span class="pre">q1,</span> <span class="pre">m)</span></code> is a scalar trajectory (Mx1) that varies
+smoothly from <code class="docutils literal notranslate"><span class="pre">q0</span></code> to <code class="docutils literal notranslate"><span class="pre">qf</span></code> using a quintic polynomial.  The initial
+and final velocity and acceleration are zero. <code class="docutils literal notranslate"><span class="pre">m</span></code> is an integer scalar,
+indicating the total number of timesteps and</p>
+<blockquote>
+<div><ul class="simple">
+<li>Velocity is in units of distance per trajectory step, not per
+second.</li>
+<li>Acceleration is in units of distance per trajectory step squared,
+<em>not</em> per second squared.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">=</span> <span class="pre">quintic(q0,</span> <span class="pre">q1,</span> <span class="pre">t)</span></code> as above but <code class="docutils literal notranslate"><span class="pre">t</span></code> is a uniformly-spaced time
+vector</p>
+<blockquote>
+<div><ul class="simple">
+<li>Velocity is in units of distance per second.</li>
+<li>Acceleration is in units of distance per second squared.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>The return value is an object that contains position, velocity and
+acceleration data.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The time vector T is assumed to be monotonically increasing, and
+time scaling is based on the first and last element.</p>
+</div>
+<p>References:</p>
+<ul class="simple">
+<li>Robotics, Vision &amp; Control, Chap 3,
+P. Corke, Springer 2011.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Seealso:</th><td class="field-body"><a class="reference internal" href="#trajectory.trapezoidal" title="trajectory.trapezoidal"><code class="xref py py-func docutils literal notranslate"><span class="pre">trapezoidal()</span></code></a>, <a class="reference internal" href="#trajectory.mtraj" title="trajectory.mtraj"><code class="xref py py-func docutils literal notranslate"><span class="pre">mtraj()</span></code></a>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trajectory.quintic_func">
+<code class="descclassname">trajectory.</code><code class="descname">quintic_func</code><span class="sig-paren">(</span><em>q0</em>, <em>qf</em>, <em>T</em>, <em>qd0=0</em>, <em>qdf=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/trajectory.html#quintic_func"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trajectory.quintic_func" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="trajectory.trapezoidal">
+<code class="descclassname">trajectory.</code><code class="descname">trapezoidal</code><span class="sig-paren">(</span><em>q0</em>, <em>qf</em>, <em>t</em>, <em>V=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/trajectory.html#trapezoidal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trajectory.trapezoidal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scalar trapezoidal trajectory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q0</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – initial value</li>
+<li><strong>qf</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – final value</li>
+<li><strong>t</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em> or </em><em>array_like</em>) – time</li>
+<li><strong>V</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – velocity of linear segment, optional</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">trajectory</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Trajectory instance</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Computes a trapezoidal trajectory, which has a linear motion segment with
+parabolic blends.</p>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">=</span> <span class="pre">trapezoidal(q0,</span> <span class="pre">qf,</span> <span class="pre">t)</span></code> is a scalar trajectory (Mx1) that varies
+smoothly from <code class="docutils literal notranslate"><span class="pre">q0</span></code> to <code class="docutils literal notranslate"><span class="pre">qf</span></code> in M steps using a constant velocity
+segment and parabolic blends.  Time <code class="docutils literal notranslate"><span class="pre">t</span></code> can be either:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">an integer scalar, indicating the total number of timesteps</p>
+<blockquote>
+<div><ul class="simple">
+<li>Velocity is in units of distance per trajectory step, not per
+second.</li>
+<li>Acceleration is in units of distance per trajectory step squared,
+<em>not</em> per second squared.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">an array_like, containing the time steps.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Results are scaled to units of time.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">=</span> <span class="pre">trapezoidal(q0,</span> <span class="pre">q1,</span> <span class="pre">t,</span> <span class="pre">V)</span></code>  as above but specifies the velocity of the
+linear segment which is normally computed automatically.</p>
+</li>
+</ul>
+<p>The return value is an object that contains position, velocity and
+acceleration data.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>For some values of V no solution is possible and an error is flagged.</li>
+<li>The time vector, if given, is assumed to be monotonically increasing,
+and time scaling is based on the first and last element.</li>
+<li><code class="docutils literal notranslate"><span class="pre">tg</span></code> has an extra attribute <code class="docutils literal notranslate"><span class="pre">xblend</span></code> which is the blend duration.</li>
+</ul>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">References:</th><td class="field-body"><ul class="first simple">
+<li>Robotics, Vision &amp; Control, Chap 3,
+P. Corke, Springer 2011.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Seealso:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#trajectory.quintic" title="trajectory.quintic"><code class="xref py py-func docutils literal notranslate"><span class="pre">quintic()</span></code></a>, <a class="reference internal" href="#trajectory.mtraj" title="trajectory.mtraj"><code class="xref py py-func docutils literal notranslate"><span class="pre">mtraj()</span></code></a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trajectory.trapezoidal_func">
+<code class="descclassname">trajectory.</code><code class="descname">trapezoidal_func</code><span class="sig-paren">(</span><em>q0</em>, <em>qf</em>, <em>tf</em>, <em>V=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/trajectory.html#trapezoidal_func"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trajectory.trapezoidal_func" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">arm_2023</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sasa_functions.html">sasa_functions module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Antonio Bozza.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/trajectory.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

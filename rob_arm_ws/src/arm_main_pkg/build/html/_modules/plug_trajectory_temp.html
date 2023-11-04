@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>plug_trajectory_temp &mdash; arm_2023 v1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            arm_2023
+              <img src="../_static/STT_Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main_functions.html">Main Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker_setup.html">Docker Setup</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">arm_2023</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">plug_trajectory_temp</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for plug_trajectory_temp</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="kn">import</span> <span class="nn">rospy</span>
+<span class="kn">from</span> <span class="nn">std_msgs.msg</span> <span class="kn">import</span> <span class="n">Float32MultiArray</span><span class="p">,</span> <span class="n">Float32</span><span class="p">,</span> <span class="n">Bool</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">getch</span> <span class="kn">import</span> <span class="n">getch</span>
+
+<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">PoseStamped</span><span class="p">,</span> <span class="n">Pose</span>
+<span class="kn">from</span> <span class="nn">sasa_functions</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">traj_genv6</span> <span class="kn">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="degToRad"><a class="viewcode-back" href="../plug_trajectory_temp.html#plug_trajectory_temp.degToRad">[docs]</a><span class="k">def</span> <span class="nf">degToRad</span><span class="p">(</span><span class="n">angle</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">angle</span><span class="o">/</span><span class="mi">180</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span></div>
+
+<div class="viewcode-block" id="matrix4x4_from_pose"><a class="viewcode-back" href="../plug_trajectory_temp.html#plug_trajectory_temp.matrix4x4_from_pose">[docs]</a><span class="k">def</span> <span class="nf">matrix4x4_from_pose</span><span class="p">(</span><span class="n">pose</span><span class="p">):</span>
+    <span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span><span class="p">]</span>
+    <span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">transformations</span><span class="o">.</span><span class="n">euler_from_quaternion</span><span class="p">(</span><span class="n">q</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">transformations</span><span class="o">.</span><span class="n">compose_matrix</span><span class="p">(</span><span class="n">translate</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">angles</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">transformations</span><span class="o">.</span><span class="n">euler_from_quaternion</span><span class="p">(</span><span class="n">q</span><span class="p">)))</span></div>
+
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../plug_trajectory_temp.html#plug_trajectory_temp.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+
+    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">&quot;button_trajectory&quot;</span><span class="p">)</span>
+
+    <span class="n">pub_command</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">&quot;/firmware_arm_pos&quot;</span><span class="p">,</span> <span class="n">Float32MultiArray</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">pub_command_vel</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">&quot;/firmware_arm_vel&quot;</span><span class="p">,</span> <span class="n">Float32MultiArray</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">pub_ee</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">&quot;/firmware_arm_pinza&quot;</span><span class="p">,</span> <span class="n">Float32</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="n">request_topic</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">&quot;/button_request&quot;</span><span class="p">,</span> <span class="n">Float32</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="n">offsets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">degToRad</span><span class="p">(</span><span class="mi">90</span><span class="p">),</span> <span class="n">degToRad</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">q_pres</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">degToRad</span><span class="p">(</span><span class="mi">90</span><span class="p">),</span> <span class="n">degToRad</span><span class="p">(</span><span class="o">-</span><span class="mi">130</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+
+    <span class="n">tot_time</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">steps</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">open_pinza</span> <span class="o">=</span> <span class="mf">0.05</span>
+    <span class="n">max_time</span> <span class="o">=</span> <span class="mi">2</span>
+
+    <span class="n">joint_val_pres</span> <span class="o">=</span> <span class="n">q_pres</span><span class="o">-</span><span class="n">offsets</span>         <span class="c1">### joint values in the real motor world</span>
+
+    <span class="n">last_command</span> <span class="o">=</span> <span class="n">q_pres</span><span class="o">-</span><span class="n">offsets</span>
+
+    
+
+    <span class="n">task</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">c_all</span><span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.115</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">]),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.115</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">]),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.115</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">]),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span>  <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]),]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;c_all: &quot;</span><span class="p">,</span> <span class="n">c_all</span><span class="p">)</span>
+    <span class="n">R_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">Ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span><span class="n">Ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span><span class="n">Ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span><span class="n">Ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span>
+    <span class="n">elbow_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">True</span><span class="p">]</span>
+
+
+    <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Premi un tasto per continuare...&quot;</span><span class="p">)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">era_traj</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">q_pres</span><span class="p">,</span> <span class="n">c_all</span><span class="p">,</span> <span class="n">R_all</span><span class="p">,</span> <span class="n">elbow_all</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">open_pinza</span><span class="p">)</span> <span class="c1">#array of trajectories between points</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Traiettoria generata: eseguendo...&quot;</span><span class="p">)</span>
+    
+
+    <span class="c1"># For every point in trajectory T</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">T</span><span class="p">)):</span>
+        <span class="n">arm_goal_arr</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">q</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Andando verso il prossimo punto...&quot;</span><span class="p">)</span>
+        <span class="n">time_resolution</span> <span class="o">=</span> <span class="n">max_time</span> <span class="o">/</span> <span class="p">(</span><span class="n">steps</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Apertura pinza&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">Float32</span><span class="p">()</span>
+                <span class="n">command</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">open_pinza</span> <span class="o">+</span> <span class="mf">0.02</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span>  <span class="c1">###### aggiusta</span>
+                <span class="n">pub_ee</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Chiusura pinza&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">Float32</span><span class="p">()</span>
+                <span class="n">command</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">open_pinza</span> <span class="o">-</span> <span class="mf">0.02</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span>  <span class="c1">###### aggiusta</span>
+                <span class="n">pub_ee</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="n">max_time</span> <span class="o">=</span> <span class="mi">10</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arm_goal_arr</span><span class="p">)):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step: &quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">arm_goal_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="n">Float32MultiArray</span><span class="p">()</span>
+            <span class="n">command_vel</span> <span class="o">=</span> <span class="n">Float32MultiArray</span><span class="p">()</span>
+            <span class="n">res</span><span class="p">,</span> <span class="n">bool_vec</span> <span class="o">=</span> <span class="n">range_check</span><span class="p">(</span><span class="n">arm_goal_arr</span><span class="p">[</span><span class="n">i</span><span class="p">,:</span><span class="mi">3</span><span class="p">])</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">res</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Range check failed: joint &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">bool_vec</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; out of range&quot;</span><span class="p">)</span>
+                <span class="n">command</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">last_command</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">command</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">arm_goal_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">offsets</span>
+                <span class="n">last_command</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">data</span>
+
+            <span class="n">delta_joint</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">joint_val_pres</span>
+            <span class="n">joint_val_pres</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">data</span>
+            <span class="n">command_vel</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">delta_joint</span><span class="o">/</span><span class="n">max_time</span>
+            <span class="n">pub_command_vel</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">command_vel</span><span class="p">)</span>
+            <span class="n">pub_command</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">. Inviando: </span><span class="si">{</span><span class="n">command</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">. Inviando velocità: </span><span class="si">{</span><span class="n">command_vel</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">tot_time</span><span class="o">/</span><span class="n">steps</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aspettando di arrivare al punto&quot;</span><span class="p">)</span>
+        <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;prosegui: &quot;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">user_input</span> <span class="o">==</span> <span class="s2">&quot;n&quot;</span><span class="p">:</span>                                          <span class="c1">#### stai attento alla n</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A quale punto vuoi che vada l&#39;end-effector?&quot;</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;x: &quot;</span><span class="p">))</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;y: &quot;</span><span class="p">))</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;z: &quot;</span><span class="p">))</span>
+
+            <span class="n">task</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">c_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">])]</span>
+            <span class="n">R_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">Ry</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)]</span>
+            <span class="n">elbow_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span>
+            <span class="n">intermediate_T</span> <span class="o">=</span> <span class="n">era_traj</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">arm_goal_arr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">offsets</span><span class="p">,</span> <span class="n">c_all</span><span class="p">,</span> <span class="n">R_all</span><span class="p">,</span> <span class="n">elbow_all</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">open_pinza</span><span class="p">)</span>
+            <span class="n">arm_goal_arr</span> <span class="o">=</span> <span class="n">intermediate_T</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">q</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step: &quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">arm_goal_arr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="n">Float32MultiArray</span><span class="p">()</span>
+            <span class="n">command_vel</span> <span class="o">=</span> <span class="n">Float32MultiArray</span><span class="p">()</span>
+            <span class="n">command</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">arm_goal_arr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">offsets</span>
+            <span class="n">delta_joint</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">joint_val_pres</span>
+            <span class="n">joint_val_pres</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">data</span>
+            <span class="n">command_vel</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">delta_joint</span><span class="o">/</span><span class="n">max_time</span>
+            <span class="n">pub_command_vel</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">command_vel</span><span class="p">)</span>
+            <span class="n">pub_command</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tornando allo zero...&quot;</span><span class="p">)</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="n">Float32MultiArray</span><span class="p">()</span>
+    <span class="n">command</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+    <span class="n">pub_command</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
+
+
+<span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Antonio Bozza.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+    /* Sidebar header (and topbar for mobile) */
+    .wy-side-nav-search, .wy-nav-top {
+      background: #F1C232;
+    }
+    /* Sidebar
+    .wy-nav-side {
+      background: #ff0000;
+    } */
+  </style>
+
+
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>traj_genv6 &mdash; arm_2023 v1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            arm_2023
+              <img src="../_static/STT_Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main_functions.html">Main Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker_setup.html">Docker Setup</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">arm_2023</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">traj_genv6</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for traj_genv6</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">import</span> <span class="nn">swift</span>
+<span class="kn">import</span> <span class="nn">roboticstoolbox</span> <span class="k">as</span> <span class="nn">rtb</span>
+<span class="kn">from</span> <span class="nn">roboticstoolbox</span> <span class="kn">import</span> <span class="n">ETS</span><span class="p">,</span> <span class="n">ERobot</span>
+<span class="c1">#from trajectory import Trajectory</span>
+<span class="kn">import</span> <span class="nn">spatialmath</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">spatialmath</span> <span class="kn">import</span> <span class="n">base</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">qpsolvers</span> <span class="k">as</span> <span class="nn">qp</span>
+<span class="kn">from</span> <span class="nn">sasa_functions</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
+
+<span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+
+<div class="viewcode-block" id="cartesian_traj"><a class="viewcode-back" href="../traj_genv6.html#traj_genv6.cartesian_traj">[docs]</a><span class="k">def</span> <span class="nf">cartesian_traj</span><span class="p">(</span><span class="n">start_pos</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">end_pos</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span><span class="nb">bool</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function generates a cartesian trajectory between two points</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    start_pos : np.array initial position</span>
+<span class="sd">    end_pos : np.array final position</span>
+<span class="sd">    task : bool True if the task is pirulation, False if the task is panel manipulation</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    X : np.array trajectory</span>
+<span class="sd">    resolution : int number of steps</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">end_pos</span><span class="o">-</span><span class="n">start_pos</span><span class="p">)</span>
+    <span class="n">resolution</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">distance</span><span class="o">/</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start_pos</span><span class="p">,</span> <span class="n">end_pos</span><span class="p">,</span> <span class="n">resolution</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">resolution</span></div>
+
+<div class="viewcode-block" id="premade_traj"><a class="viewcode-back" href="../traj_genv6.html#traj_genv6.premade_traj">[docs]</a><span class="k">def</span> <span class="nf">premade_traj</span><span class="p">(</span><span class="n">no</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">starting_q</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function generates a preset trajectory for the robot arm</span>
+<span class="sd">    Each trajectory is composed by a list of points, a list of rotations, a list of elbow states</span>
+<span class="sd">    and a list of gripper states. The number of lists elements NEED to be coherent.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    no : str name of the trajectory</span>
+<span class="sd">    steps : int number of steps</span>
+<span class="sd">    starting_q : np.array starting joint position of the robot arm</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    T_all : list of trajectories</span>
+<span class="sd">    gripper_state : list of gripper states</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">no</span><span class="o">==</span><span class="s2">&quot;paletta&quot;</span><span class="p">):</span>
+        <span class="n">task</span><span class="o">=</span><span class="kc">False</span>
+        <span class="n">c_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.349000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2210000</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.42</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.41</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.22</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])]</span>
+        <span class="n">R_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">Ry</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span> <span class="n">Ry</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">),</span> <span class="n">Ry</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">5</span><span class="p">),</span> <span class="n">Ry</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">5</span><span class="p">),</span> <span class="n">Ry</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)]</span>
+        <span class="n">elbow_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
+        <span class="n">gripper_state</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+    <span class="k">elif</span><span class="p">(</span><span class="n">no</span><span class="o">==</span><span class="s2">&quot;pirulo&quot;</span><span class="p">):</span>
+        <span class="n">task</span><span class="o">=</span><span class="kc">True</span>
+        <span class="n">c_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.40</span><span class="p">,</span> <span class="mf">0.140</span><span class="p">,</span> <span class="mf">0.315</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.493</span><span class="p">,</span> <span class="mf">0.140</span><span class="p">,</span> <span class="mf">0.315</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.513</span><span class="p">,</span> <span class="mf">0.140</span><span class="p">,</span> <span class="mf">0.169</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.493</span><span class="p">,</span> <span class="mf">0.140</span><span class="p">,</span> <span class="mf">0.32</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.40</span><span class="p">,</span> <span class="mf">0.140</span><span class="p">,</span> <span class="mf">0.32</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.10</span><span class="p">])]</span>
+        <span class="n">R_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">Ry</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span> <span class="n">Ry</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span> <span class="n">Ry</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span> <span class="n">Ry</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span> <span class="n">Ry</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span> <span class="n">Ry</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span> <span class="n">Ry</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)]</span>
+        <span class="n">elbow_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+        <span class="n">gripper_state</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+    <span class="k">elif</span><span class="p">(</span><span class="n">no</span><span class="o">==</span><span class="s2">&quot;inPose&quot;</span><span class="p">):</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">c_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.55</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">])]</span>
+        <span class="n">R_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">Ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="n">Ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span>
+        <span class="n">elbow_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">True</span><span class="p">]</span>
+        <span class="n">gripper_state</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+    <span class="k">elif</span><span class="p">(</span><span class="n">no</span> <span class="o">==</span> <span class="s2">&quot;prova&quot;</span><span class="p">):</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">c_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.55</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.55</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.55</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">])]</span>
+        <span class="n">R_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">Ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">Ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="n">Ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="n">Ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="n">Ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="n">Ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span>
+        <span class="n">elbow_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+        <span class="n">gripper_state</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+    <span class="k">elif</span><span class="p">(</span><span class="n">no</span> <span class="o">==</span> <span class="s2">&quot;cubo&quot;</span><span class="p">):</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">X1</span><span class="p">,</span> <span class="n">res1</span> <span class="o">=</span> <span class="n">cartesian_traj</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">]),</span><span class="n">task</span><span class="p">)</span>
+        <span class="n">X2</span><span class="p">,</span> <span class="n">res2</span> <span class="o">=</span> <span class="n">cartesian_traj</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.65</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">]),</span><span class="n">task</span><span class="p">)</span>
+        <span class="n">X3</span><span class="p">,</span> <span class="n">res3</span> <span class="o">=</span> <span class="n">cartesian_traj</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.65</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">]),</span><span class="n">task</span><span class="p">)</span>
+        <span class="n">X4</span><span class="p">,</span> <span class="n">res4</span> <span class="o">=</span> <span class="n">cartesian_traj</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">]),</span><span class="n">task</span><span class="p">)</span>
+        <span class="n">X5</span><span class="p">,</span> <span class="n">res5</span> <span class="o">=</span> <span class="n">cartesian_traj</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">]),</span><span class="n">task</span><span class="p">)</span>
+        <span class="n">X6</span><span class="p">,</span> <span class="n">res6</span> <span class="o">=</span> <span class="n">cartesian_traj</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]),</span><span class="n">task</span><span class="p">)</span>
+        <span class="n">X7</span><span class="p">,</span> <span class="n">res7</span> <span class="o">=</span> <span class="n">cartesian_traj</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.65</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]),</span><span class="n">task</span><span class="p">)</span>
+        <span class="n">X8</span><span class="p">,</span> <span class="n">res8</span> <span class="o">=</span> <span class="n">cartesian_traj</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.65</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]),</span><span class="n">task</span><span class="p">)</span>
+        <span class="n">X9</span><span class="p">,</span> <span class="n">res9</span> <span class="o">=</span> <span class="n">cartesian_traj</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]),</span><span class="n">task</span><span class="p">)</span>
+        <span class="n">X10</span><span class="p">,</span> <span class="n">res10</span> <span class="o">=</span> <span class="n">cartesian_traj</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]),</span><span class="n">task</span><span class="p">)</span>
+
+        <span class="n">c_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">row_stack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">]),</span><span class="n">X1</span><span class="p">,</span> 
+                            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">]),</span> <span class="n">X2</span><span class="p">,</span> 
+                            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.65</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">]),</span><span class="n">X3</span><span class="p">,</span>
+                            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">]),</span><span class="n">X4</span><span class="p">,</span>
+                            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">]),</span><span class="n">X5</span><span class="p">,</span>
+                            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">]),</span><span class="n">X6</span><span class="p">,</span>
+                            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]),</span><span class="n">X7</span><span class="p">,</span>
+                            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.65</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]),</span><span class="n">X8</span><span class="p">,</span>
+                            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]),</span><span class="n">X9</span><span class="p">,</span>
+                            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]),</span><span class="n">X10</span><span class="p">,</span>
+                            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">])))</span>
+        <span class="n">R_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">Ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span><span class="o">*</span><span class="p">(</span><span class="n">res1</span><span class="o">+</span><span class="n">res2</span><span class="o">+</span><span class="n">res3</span><span class="o">+</span><span class="n">res4</span><span class="o">+</span><span class="n">res5</span><span class="o">+</span><span class="n">res6</span><span class="o">+</span><span class="n">res7</span><span class="o">+</span><span class="n">res8</span><span class="o">+</span><span class="n">res9</span><span class="o">+</span><span class="n">res10</span><span class="o">+</span><span class="mi">11</span><span class="p">)</span>
+        <span class="n">elbow_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">res1</span><span class="o">+</span><span class="n">res2</span><span class="o">+</span><span class="n">res3</span><span class="o">+</span><span class="n">res4</span><span class="o">+</span><span class="n">res5</span><span class="o">+</span><span class="n">res6</span><span class="o">+</span><span class="n">res7</span><span class="o">+</span><span class="n">res8</span><span class="o">+</span><span class="n">res9</span><span class="o">+</span><span class="n">res10</span><span class="o">+</span><span class="mi">11</span><span class="p">)</span>
+        <span class="n">gripper_state</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">res1</span><span class="o">+</span><span class="n">res2</span><span class="o">+</span><span class="n">res3</span><span class="o">+</span><span class="n">res4</span><span class="o">+</span><span class="n">res5</span><span class="o">+</span><span class="n">res6</span><span class="o">+</span><span class="n">res7</span><span class="o">+</span><span class="n">res8</span><span class="o">+</span><span class="n">res9</span><span class="o">+</span><span class="n">res10</span><span class="o">+</span><span class="mi">11</span><span class="p">)</span>
+
+    <span class="k">elif</span><span class="p">(</span><span class="n">no</span> <span class="o">==</span> <span class="s2">&quot;cerchio&quot;</span><span class="p">):</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="mf">0.10</span>
+        <span class="k">for</span> <span class="n">kk</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">):</span>
+            <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">50</span><span class="o">*</span><span class="n">kk</span><span class="p">)</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="n">r</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">50</span><span class="o">*</span><span class="n">kk</span><span class="p">),</span> <span class="n">r</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">50</span><span class="o">*</span><span class="n">kk</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="mf">0.5</span><span class="p">]))</span>
+
+        <span class="n">c_all</span> <span class="o">=</span> <span class="n">X</span>
+        <span class="n">R_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">Ry</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">)]</span><span class="o">*</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+        <span class="n">elbow_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+        <span class="n">gripper_state</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+
+    <span class="k">elif</span><span class="p">(</span><span class="n">no</span> <span class="o">==</span> <span class="s2">&quot;ballo&quot;</span><span class="p">):</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">c_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.50</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">])]</span><span class="o">*</span><span class="mi">500</span>
+        <span class="n">R_all</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">kk</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">):</span>
+            <span class="n">R_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">50</span><span class="o">*</span><span class="n">kk</span><span class="p">))</span><span class="o">*</span><span class="n">Rx</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">50</span><span class="o">*</span><span class="n">kk</span><span class="p">)))</span>
+        <span class="n">elbow_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span><span class="o">*</span><span class="mi">500</span>
+        <span class="n">gripper_state</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span><span class="o">*</span><span class="mi">500</span>
+
+    <span class="k">elif</span><span class="p">(</span><span class="n">no</span> <span class="o">==</span> <span class="s2">&quot;vuoto&quot;</span><span class="p">):</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">start_pos</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">0.52229972</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.04163132</span><span class="p">,</span>  <span class="mf">0.06202141</span><span class="p">])</span>
+        <span class="n">end_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">0.57229972</span><span class="p">,</span> <span class="mf">0.04163132</span><span class="p">,</span>  <span class="mf">0.06202141</span><span class="p">])</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">end_pos</span><span class="o">-</span><span class="n">start_pos</span><span class="p">)</span>
+        <span class="n">resolution</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">distance</span><span class="o">/</span><span class="mf">0.005</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start_pos</span><span class="p">,</span> <span class="n">end_pos</span><span class="p">,</span> <span class="n">resolution</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X: &quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">c_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">row_stack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">0.52229972</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.04163132</span><span class="p">,</span>  <span class="mf">0.06202141</span><span class="p">]),</span><span class="n">X</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">0.57229972</span><span class="p">,</span> <span class="mf">0.04163132</span><span class="p">,</span>  <span class="mf">0.06202141</span><span class="p">])))</span>
+        <span class="n">R_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">Ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span><span class="o">*</span><span class="p">(</span><span class="n">resolution</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">elbow_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">resolution</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">gripper_state</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">resolution</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">elif</span><span class="p">(</span><span class="n">no</span> <span class="o">==</span> <span class="s2">&quot;vuoto2&quot;</span><span class="p">):</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">c_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.20</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.20</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.20</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">])]</span>
+        <span class="n">R_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">Ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span><span class="n">Ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span><span class="n">Ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)]</span>
+        <span class="n">elbow_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+        <span class="n">gripper_state</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Give as input pirulo or paletta or prova&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">era_traj_vel</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">starting_q</span><span class="p">,</span> <span class="n">c_all</span><span class="p">,</span> <span class="n">R_all</span><span class="p">,</span> <span class="n">elbow_all</span><span class="p">,</span> <span class="n">steps</span><span class="p">),</span> <span class="n">gripper_state</span></div>
+
+
+<div class="viewcode-block" id="era_traj_vel"><a class="viewcode-back" href="../traj_genv6.html#traj_genv6.era_traj_vel">[docs]</a><span class="k">def</span> <span class="nf">era_traj_vel</span><span class="p">(</span><span class="n">task</span><span class="p">:</span><span class="nb">bool</span><span class="p">,</span> <span class="n">present_joint_vals</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">position_all</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">rotation_all</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">,</span> <span class="n">elbow_all</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">steps</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">q_gripper</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function generates a trajectory for the robot arm usinng jtraj from rtb</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    task : bool True if the task is pirulation, False if the task is panel manipulation</span>
+<span class="sd">    present_joint_vals : np.array starting joint position of the robot arm</span>
+<span class="sd">    position_all : np.array list of cartesian positions</span>
+<span class="sd">    rotation_all : np.matrix list of rotations</span>
+<span class="sd">    elbow_all : np.array list of elbow states</span>
+<span class="sd">    steps : int number of steps</span>
+<span class="sd">    q_gripper : float, optional</span>
+<span class="sd">        DESCRIPTION. The default is 0.0.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    T_all : list of trajectories    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">q_obj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+    <span class="c1">#k_all = np.zeros(len(position_all))</span>
+    <span class="n">q_pres</span> <span class="o">=</span> <span class="n">present_joint_vals</span>
+    <span class="n">T_all</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">position_all</span><span class="p">)):</span>
+        <span class="n">position</span> <span class="o">=</span> <span class="n">position_all</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span>
+        <span class="n">rotation</span> <span class="o">=</span> <span class="n">rotation_all</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span>
+        <span class="n">elbow</span> <span class="o">=</span> <span class="n">elbow_all</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span>
+        <span class="n">q_obj</span> <span class="o">=</span> <span class="n">inv_kin_total_bis</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">rotation</span><span class="p">,</span> <span class="n">task</span><span class="p">,</span> <span class="n">elbow</span><span class="p">,</span> <span class="n">q_obj</span><span class="p">,</span> <span class="n">q_gripper</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pose: &quot;</span><span class="p">,</span><span class="n">q_obj</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cartesian position the real: &quot;</span><span class="p">,</span><span class="n">dir_kin_total</span><span class="p">(</span><span class="n">q_obj</span><span class="p">,</span><span class="n">task</span><span class="p">,</span> <span class="n">q_gripper</span><span class="p">))</span> 
+        <span class="n">q_const</span> <span class="o">=</span> <span class="p">(</span><span class="n">q_obj</span><span class="o">-</span><span class="n">q_pres</span><span class="p">)</span>
+        <span class="c1">########################################################################</span>
+        
+        <span class="k">if</span> <span class="n">cont</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">T1</span> <span class="o">=</span> <span class="n">rtb</span><span class="o">.</span><span class="n">jtraj</span><span class="p">(</span><span class="n">q_pres</span><span class="p">,</span> <span class="n">q_obj</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="n">q_const</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">cont</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">position_all</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">T1</span> <span class="o">=</span> <span class="n">rtb</span><span class="o">.</span><span class="n">jtraj</span><span class="p">(</span><span class="n">q_pres</span><span class="p">,</span> <span class="n">q_obj</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">q_const</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">T1</span> <span class="o">=</span> <span class="n">rtb</span><span class="o">.</span><span class="n">jtraj</span><span class="p">(</span><span class="n">q_pres</span><span class="p">,</span> <span class="n">q_obj</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">q_const</span><span class="p">,</span> <span class="n">q_const</span><span class="p">)</span>
+        <span class="n">q_pres</span> <span class="o">=</span> <span class="n">q_obj</span>
+        <span class="c1"># scale</span>
+        <span class="c1">#T1, k = scale_traj(T1, vel_lim)</span>
+        <span class="c1">#k = 1</span>
+        <span class="n">T_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
+        <span class="c1">#k_all[cont] = k</span>
+    <span class="k">return</span> <span class="n">T_all</span></div>
+
+
+<span class="c1">### OLD VERSION ###############################################################################################################</span>
+
+<div class="viewcode-block" id="era_traj"><a class="viewcode-back" href="../traj_genv6.html#traj_genv6.era_traj">[docs]</a><span class="k">def</span> <span class="nf">era_traj</span><span class="p">(</span><span class="n">task</span><span class="p">:</span><span class="nb">bool</span><span class="p">,</span> <span class="n">present_joint_vals</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">position_all</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">rotation_all</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">,</span> <span class="n">elbow_all</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">steps</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">q_gripper</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+    <span class="n">q_obj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+    <span class="c1">#k_all = np.zeros(len(position_all))</span>
+    <span class="n">q_pres</span> <span class="o">=</span> <span class="n">present_joint_vals</span>
+    <span class="n">T_all</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">position_all</span><span class="p">)):</span>
+        <span class="n">position</span> <span class="o">=</span> <span class="n">position_all</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span>
+        <span class="n">rotation</span> <span class="o">=</span> <span class="n">rotation_all</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span>
+        <span class="n">elbow</span> <span class="o">=</span> <span class="n">elbow_all</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span>
+        <span class="n">q_obj</span> <span class="o">=</span> <span class="n">inv_kin_total_bis</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">rotation</span><span class="p">,</span> <span class="n">task</span><span class="p">,</span> <span class="n">elbow</span><span class="p">,</span> <span class="n">q_obj</span><span class="p">,</span> <span class="n">q_gripper</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pose: &quot;</span><span class="p">,</span><span class="n">q_obj</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cartesian position the real: &quot;</span><span class="p">,</span><span class="n">dir_kin_total</span><span class="p">(</span><span class="n">q_obj</span><span class="p">,</span><span class="n">task</span><span class="p">,</span> <span class="n">q_gripper</span><span class="p">))</span> 
+        <span class="c1">########################################################################</span>
+        
+        <span class="n">T1</span> <span class="o">=</span> <span class="n">rtb</span><span class="o">.</span><span class="n">jtraj</span><span class="p">(</span><span class="n">q_pres</span><span class="p">,</span> <span class="n">q_obj</span><span class="p">,</span> <span class="n">steps</span><span class="p">)</span>
+        <span class="n">q_pres</span> <span class="o">=</span> <span class="n">q_obj</span>
+        <span class="c1"># scale</span>
+        <span class="c1">#T1, k = scale_traj(T1, vel_lim)</span>
+        <span class="c1">#k = 1</span>
+        <span class="n">T_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
+        <span class="c1">#k_all[cont] = k</span>
+    <span class="k">return</span> <span class="n">T_all</span></div>
+
+<div class="viewcode-block" id="era_traj_time"><a class="viewcode-back" href="../traj_genv6.html#traj_genv6.era_traj_time">[docs]</a><span class="k">def</span> <span class="nf">era_traj_time</span><span class="p">(</span><span class="n">task</span><span class="p">:</span><span class="nb">bool</span><span class="p">,</span> <span class="n">present_joint_vals</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">position_all</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">rotation_all</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">,</span> <span class="n">elbow_all</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">q_gripper</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+    <span class="n">q_obj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+    <span class="c1">#k_all = np.zeros(len(position_all))</span>
+    <span class="n">q_pres</span> <span class="o">=</span> <span class="n">present_joint_vals</span>
+    <span class="n">T_all</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">position_all</span><span class="p">)):</span>
+        <span class="n">position</span> <span class="o">=</span> <span class="n">position_all</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span>
+        <span class="n">rotation</span> <span class="o">=</span> <span class="n">rotation_all</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span>
+        <span class="n">elbow</span> <span class="o">=</span> <span class="n">elbow_all</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span>
+        <span class="n">q_obj</span> <span class="o">=</span> <span class="n">inv_kin_total_bis</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">rotation</span><span class="p">,</span> <span class="n">task</span><span class="p">,</span> <span class="n">elbow</span><span class="p">,</span> <span class="n">q_obj</span><span class="p">,</span> <span class="n">q_gripper</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pose: &quot;</span><span class="p">,</span><span class="n">q_obj</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cartesian position the real: &quot;</span><span class="p">,</span><span class="n">dir_kin_total</span><span class="p">(</span><span class="n">q_obj</span><span class="p">,</span><span class="n">task</span><span class="p">,</span> <span class="n">q_gripper</span><span class="p">))</span> 
+        <span class="c1">########################################################################</span>
+        
+        <span class="n">time_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">cont</span><span class="p">])))</span>
+        <span class="n">T1</span> <span class="o">=</span> <span class="n">rtb</span><span class="o">.</span><span class="n">jtraj</span><span class="p">(</span><span class="n">q_pres</span><span class="p">,</span> <span class="n">q_obj</span><span class="p">,</span> <span class="n">time_array</span><span class="p">)</span>
+        <span class="n">q_pres</span> <span class="o">=</span> <span class="n">q_obj</span>
+        <span class="c1">#T1.plot(True)</span>
+        <span class="c1"># scale</span>
+        <span class="c1">#T1, k = scale_traj(T1, vel_lim)</span>
+        <span class="c1">#k = 1</span>
+        <span class="n">T_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
+        <span class="c1">#k_all[cont] = k</span>
+    <span class="k">return</span> <span class="n">T_all</span></div>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">T_all = premade_traj(&quot;prova&quot;, 100, np.zeros(6))</span>
+<span class="sd">#print(T_all[2].q)</span>
+<span class="sd">q = T_all[0].q[99]</span>
+<span class="sd">print(q)</span>
+
+<span class="sd">print(dir_kin_total(np.array([q[0], q[1], q[2], q[3], q[4], q[5]]), True))</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Antonio Bozza.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+    /* Sidebar header (and topbar for mobile) */
+    .wy-side-nav-search, .wy-nav-top {
+      background: #F1C232;
+    }
+    /* Sidebar
+    .wy-nav-side {
+      background: #ff0000;
+    } */
+  </style>
+
+
+</body>
+</html>

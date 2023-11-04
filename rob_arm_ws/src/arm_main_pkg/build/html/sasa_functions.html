@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sasa_functions module &mdash; arm_2023 v1 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="traj_genv6 module" href="traj_genv6.html" />
+    <link rel="prev" title="Main Functions" href="main_functions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            arm_2023
+              <img src="_static/STT_Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="main_functions.html">Main Functions</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">sasa_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traj_genv6.html">traj_genv6 module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docker_setup.html">Docker Setup</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">arm_2023</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="main_functions.html">Main Functions</a></li>
+      <li class="breadcrumb-item active">sasa_functions module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/sasa_functions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="module-sasa_functions">
+<span id="sasa-functions-module"></span><h1>sasa_functions module<a class="headerlink" href="#module-sasa_functions" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="sasa_functions.DH_universal_sym">
+<code class="descclassname">sasa_functions.</code><code class="descname">DH_universal_sym</code><span class="sig-paren">(</span><em>DH: numpy.array</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sasa_functions.html#DH_universal_sym"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.DH_universal_sym" title="Permalink to this definition">¶</a></dt>
+<dd><p>DH_universal_sym si occupa di calcolare la matrice di roto-traslazione, attraverso il formalismo
+di Denavith-Hartemberg, a partire dalla tabella DH.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>DH</strong> (<em>np.array tabella DH</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>A</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.array matrice di roto-traslazione</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.Rx">
+<code class="descclassname">sasa_functions.</code><code class="descname">Rx</code><span class="sig-paren">(</span><em>theta</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sasa_functions.html#Rx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.Rx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.Ry">
+<code class="descclassname">sasa_functions.</code><code class="descname">Ry</code><span class="sig-paren">(</span><em>theta</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sasa_functions.html#Ry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.Ry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.Rz">
+<code class="descclassname">sasa_functions.</code><code class="descname">Rz</code><span class="sig-paren">(</span><em>theta</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sasa_functions.html#Rz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.Rz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.best_qp">
+<code class="descclassname">sasa_functions.</code><code class="descname">best_qp</code><span class="sig-paren">(</span><em>all_q: numpy.array</em>, <em>elbow: bool</em>, <em>coord: numpy.array</em>, <em>prec_qin: numpy.array</em><span class="sig-paren">)</span> &#x2192; numpy.array<a class="reference internal" href="_modules/sasa_functions.html#best_qp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.best_qp" title="Permalink to this definition">¶</a></dt>
+<dd><p>best_qp trova la soluzione di giunto che minimizza la distanza tra la posizione desiderata
+e quella calcolata nello spazio dei giunti</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>all_q</strong> (<em>np.array matrice 3x8 con tutte le soluzioni di giunto</em>) – </li>
+<li><strong>elbow</strong> (<em>bool True se UP</em><em>, </em><em>False se DOWN</em>) – </li>
+<li><strong>coord</strong> (<em>np.array posizione desiderata</em>) – </li>
+<li><strong>prec_qin</strong> (<em>np.array sei valori di giunto correnti</em><em> (</em><em>precedenti</em><em>)</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>best</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.array tre migliori valori di giunto calcolati</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.calibration">
+<code class="descclassname">sasa_functions.</code><code class="descname">calibration</code><span class="sig-paren">(</span><em>psi: numpy.array</em>, <em>meas: numpy.array</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sasa_functions.html#calibration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.calibration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.change_angle_for_j0">
+<code class="descclassname">sasa_functions.</code><code class="descname">change_angle_for_j0</code><span class="sig-paren">(</span><em>angle</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sasa_functions.html#change_angle_for_j0"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.change_angle_for_j0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.dir_kin">
+<code class="descclassname">sasa_functions.</code><code class="descname">dir_kin</code><span class="sig-paren">(</span><em>q: numpy.array</em><span class="sig-paren">)</span> &#x2192; numpy.array<a class="reference internal" href="_modules/sasa_functions.html#dir_kin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.dir_kin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Funzione ausiliaria per avere una direct kin intermedia, a valle dei primi tre giunti</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>q</strong> (<em>np.array valori di q1 q2 q3 correnti</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>coord</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.array posizione intermedia</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.dir_kin_total">
+<code class="descclassname">sasa_functions.</code><code class="descname">dir_kin_total</code><span class="sig-paren">(</span><em>q: numpy.array</em>, <em>phase</em>, <em>q_gripper</em><span class="sig-paren">)</span> &#x2192; numpy.array<a class="reference internal" href="_modules/sasa_functions.html#dir_kin_total"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.dir_kin_total" title="Permalink to this definition">¶</a></dt>
+<dd><p>dir_kin_total si occupa della direct kinemaics, attraverso il formalismo di Denavith-Hartemberg.
+Attraveso DH_universal_sim viene generata la matrice di roto-traslazione, per passare dal frame
+dell’end effector, a quello del base link, e viene dato in output la posizione in x y z nel base link.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q</strong> (<em>np.array valori di giunto correnti</em>) – </li>
+<li><strong>phase</strong> (<em>bool True se pirulazione</em><em>, </em><em>False se maintenance</em>) – </li>
+<li><strong>q_gripper</strong> (<em>float larghezza corrente della pinza</em><em> (</em><em>se c'è una pinza</em><em>)</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>coord</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.array posizione in x y z nel base link</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.dir_kin_total_with_rot">
+<code class="descclassname">sasa_functions.</code><code class="descname">dir_kin_total_with_rot</code><span class="sig-paren">(</span><em>q: numpy.array</em>, <em>phase</em>, <em>q_gripper</em><span class="sig-paren">)</span> &#x2192; numpy.array<a class="reference internal" href="_modules/sasa_functions.html#dir_kin_total_with_rot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.dir_kin_total_with_rot" title="Permalink to this definition">¶</a></dt>
+<dd><p>dir_kin_total_with_rot si occupa della direct kinemaics, attraverso il formalismo di Denavith-Hartemberg.
+Attraveso DH_universal_sim viene generata la matrice di roto-traslazione, per passare dal frame
+dell’end effector, a quello del base link, e viene dato in output la posizione in x y z nel base link
+e la matrice di rotazione.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q</strong> (<em>np.array valori di giunto correnti</em>) – </li>
+<li><strong>phase</strong> (<em>bool True se pirulazione</em><em>, </em><em>False se maintenance</em>) – </li>
+<li><strong>q_gripper</strong> (<em>float larghezza corrente della pinza</em><em> (</em><em>se c'è una pinza</em><em>)</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>rot</strong> (<em>np.array matrice di rotazione</em>)</li>
+<li><strong>coord</strong> (<em>np.array posizione in x y z nel base link</em>)</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.eval_phi">
+<code class="descclassname">sasa_functions.</code><code class="descname">eval_phi</code><span class="sig-paren">(</span><em>psi: numpy.array</em>, <em>q: numpy.array</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sasa_functions.html#eval_phi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.eval_phi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.eval_pos">
+<code class="descclassname">sasa_functions.</code><code class="descname">eval_pos</code><span class="sig-paren">(</span><em>psi: numpy.array</em>, <em>q: numpy.array</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sasa_functions.html#eval_pos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.eval_pos" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.go_straight">
+<code class="descclassname">sasa_functions.</code><code class="descname">go_straight</code><span class="sig-paren">(</span><em>task: bool</em>, <em>elbow: bool</em>, <em>q_pres: numpy.array</em>, <em>direct: &lt;module 'string' from '/usr/lib/python3.8/string.py'&gt;</em>, <em>steps: int</em>, <em>distance</em>, <em>q_gripper</em>, <em>in_final_frame: bool = False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sasa_functions.html#go_straight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.go_straight" title="Permalink to this definition">¶</a></dt>
+<dd><p>go_straight si occupa di calcolare la cinematica inversa per andare dritti, in una direzione
+specificata, per una certa distanza, in un certo numero di passi.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>task</strong> (<em>bool True se pirulazione</em><em>, </em><em>False se maintenance</em>) – </li>
+<li><strong>elbow</strong> (<em>bool True se UP</em><em>, </em><em>False se DOWN</em>) – </li>
+<li><strong>q_pres</strong> (<em>np.array sei valori di giunto correnti</em>) – </li>
+<li><strong>direct</strong> (<em>string direzione in cui andare</em><em> (</em><em>l</em><em>, </em><em>r</em><em>, </em><em>u</em><em>, </em><em>d</em><em>, </em><em>f</em><em>, </em><em>b</em><em>)</em>) – </li>
+<li><strong>steps</strong> (<em>int numero di passi</em>) – </li>
+<li><strong>distance</strong> (<em>float distanza da percorrere</em>) – </li>
+<li><strong>q_gripper</strong> (<em>float larghezza corrente della pinza</em><em> (</em><em>se c'è una pinza</em><em>)</em>) – </li>
+<li><strong>in_final_frame</strong> (<em>bool False se si vuole andare dritti nello spazio del base link</em><em>, </em><em>True se si vuole andare dritti nello spazio dell'end effector</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>q_des</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.array sei valori di giunto calcolati</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.inv_kin">
+<code class="descclassname">sasa_functions.</code><code class="descname">inv_kin</code><span class="sig-paren">(</span><em>coord: numpy.array</em><span class="sig-paren">)</span> &#x2192; numpy.array<a class="reference internal" href="_modules/sasa_functions.html#inv_kin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.inv_kin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.inv_kin_bis">
+<code class="descclassname">sasa_functions.</code><code class="descname">inv_kin_bis</code><span class="sig-paren">(</span><em>coord: numpy.array</em>, <em>elbow: bool</em>, <em>prec_qin: numpy.array</em><span class="sig-paren">)</span> &#x2192; numpy.array<a class="reference internal" href="_modules/sasa_functions.html#inv_kin_bis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.inv_kin_bis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Funzione ausiliaria di inv_kin_total_bis
+Fa la inverse_kin per una posizione intermedia,
+calcolando solo i valori dei primi tre giunti q1 q2 q3</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>coord</strong> (<em>np.array posizione desiderata</em>) – </li>
+<li><strong>elbow</strong> (<em>bool True se UP</em><em>, </em><em>False se DOWN</em>) – </li>
+<li><strong>prec_qin</strong> (<em>np.array valori di giunto correnti</em><em> (</em><em>precedenti</em><em>) </em><em>q1 q2 q3</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>q</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.array valori di giunto calcolati q1 q2 q3</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.inv_kin_total">
+<code class="descclassname">sasa_functions.</code><code class="descname">inv_kin_total</code><span class="sig-paren">(</span><em>position: numpy.array</em>, <em>Rtarg: numpy.matrix</em>, <em>phase</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sasa_functions.html#inv_kin_total"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.inv_kin_total" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.inv_kin_total_bis">
+<code class="descclassname">sasa_functions.</code><code class="descname">inv_kin_total_bis</code><span class="sig-paren">(</span><em>position: numpy.array</em>, <em>Rtarg: numpy.matrix</em>, <em>phase</em>, <em>elbow: bool</em>, <em>prec_q: numpy.array</em>, <em>g_offset: float</em><span class="sig-paren">)</span> &#x2192; numpy.array<a class="reference internal" href="_modules/sasa_functions.html#inv_kin_total_bis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.inv_kin_total_bis" title="Permalink to this definition">¶</a></dt>
+<dd><p>inv_kin_total_bis è la funzione principale della inverse,
+la inverse si compone di due fasi, una di posizionamento e una di orientamento:</p>
+<blockquote>
+<div><ul class="simple">
+<li>il posizionamento viene fatto trovando i valori di q1 q2 q3, posizionando
+il centro del giunto sferico finale, a monte della rotazione del quarto giunto.
+La posizione per questa fase viene trovata spostando il punto di arrivo finale
+di un vettore [0,0,-ee] visto nel frame finale desiderato.</li>
+<li>l’orientamento viene realizzato grazie a q4 q5 q6, facendo si che la rotazione
+generata dagli ultimi quattro giunti, post-moltiplicata per la rotazione generata
+dai primi tre giunti (sempre a monte di q4), sia uguale alla rotazione desiderata</li>
+</ul>
+</div></blockquote>
+<p>La prima fase viene fatta da inv_kin_bis, chiamata da inv_kin_bis_total.
+Inoltre ci sono check matematici sulla realizzabilità della inverse
+(che dipende dalla presenza della posa desidetata nel workspace del braccio) e check sui limiti
+dei giunti, imposti a piacere rispetto ai limiti meccanici in range_check</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>position</strong> (<em>np.array posizione desiderata</em>) – </li>
+<li><strong>Rtarg</strong> (<em>np.matrix matrice di rotazione desiderata</em>) – </li>
+<li><strong>phase</strong> (<em>bool True se pirulazione</em><em>, </em><em>False se maintenance</em>) – </li>
+<li><strong>elbow</strong> (<em>bool True se UP</em><em>, </em><em>False se DOWN</em>) – </li>
+<li><strong>prec_q</strong> (<em>np.array sei valori di giunto correnti</em><em> (</em><em>precedenti</em><em>)</em>) – </li>
+<li><strong>g_offset</strong> (<em>float larghezza corrente della pinza</em><em> (</em><em>se c'è una pinza</em><em>)</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>q</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.array sei valori di giunto calcolati</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="sasa_functions.low_limits">
+<code class="descclassname">sasa_functions.</code><code class="descname">low_limits</code><em class="property"> = array([-3.14159265, -0.26179939, -2.96705973])</em><a class="headerlink" href="#sasa_functions.low_limits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Funzioni principali</p>
+<p>INVERSE KINEMATICS
+inv_kin_total_bis è la funzione principale della inverse,
+la inverse si compone di due fasi, una di posizionamento e una di orientamento:</p>
+<blockquote>
+<div><ul class="simple">
+<li>il posizionamento viene fatto trovando i valori di q1 q2 q3, posizionando
+il centro del giunto sferico finale, a monte della rotazione del quarto giunto.
+La posizione per questa fase viene trovata spostando il punto di arrivo finale
+di un vettore [0,0,-ee] visto nel frame finale desiderato.</li>
+<li>l’orientamento viene realizzato grazie a q4 q5 q6, facendo si che la rotazione
+generata dagli ultimi quattro giunti, post-moltiplicata per la rotazione generata
+dai primi tre giunti (sempre a monte di q4), sia uguale alla rotazione desiderata</li>
+</ul>
+</div></blockquote>
+<p>La prima fase viene fatta da inv_kin_bis, chiamata da inv_kin_bis_total.
+Inoltre ci sono check matematici sulla realizzabilità della inverse
+(che dipende dalla presenza della posa desidetata nel workspace del braccio) e check sui limiti
+dei giunti, imposti a piacere rispetto ai limiti meccanici in range_check</p>
+<p>DIRECT KINEMATICS
+dir_kin_total si occupa della direct kinemaics, attraverso il formalismo di Denavith-Hartemberg.
+Attraveso DH_universal_sim viene generata la matrice di roto-traslazione, per passare dal frame
+dell’end effector, a quello del base link, e viene dato in output la posizione in x y z nel base link.</p>
+<p>dir_kin_total_with_rot fa la stessa cosa, ma ritorna anche la matrice di rotazione.</p>
+<p>dir_kin ritorna la poszione intermedia determinata di primi tre giunti q1 q2 q3.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.move_from_rtag">
+<code class="descclassname">sasa_functions.</code><code class="descname">move_from_rtag</code><span class="sig-paren">(</span><em>cod</em>, <em>q_pres</em>, <em>steps</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sasa_functions.html#move_from_rtag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.move_from_rtag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.out_of_joint_range">
+<code class="descclassname">sasa_functions.</code><code class="descname">out_of_joint_range</code><span class="sig-paren">(</span><em>all_q: numpy.array</em>, <em>elbow: bool</em>, <em>coord: numpy.array</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sasa_functions.html#out_of_joint_range"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.out_of_joint_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>out_of_joint_range si occupa di trovare la soluzione di giunto che minimizza la distanza
+tra la posizione desiderata e quella calcolata nello spazio dei giunti, quando si è fuori
+dai limiti imposti dai limiti meccanici del braccio</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>all_q</strong> (<em>np.array matrice 3x8 con tutte le soluzioni di giunto</em>) – </li>
+<li><strong>elbow</strong> (<em>bool True se UP</em><em>, </em><em>False se DOWN</em>) – </li>
+<li><strong>coord</strong> (<em>np.array posizione desiderata</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>best</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.array tre migliori valori di giunto calcolati (e eventualmente limitati)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.out_of_range_exeption">
+<code class="descclassname">sasa_functions.</code><code class="descname">out_of_range_exeption</code><span class="sig-paren">(</span><em>coord: numpy.array</em><span class="sig-paren">)</span> &#x2192; numpy.array<a class="reference internal" href="_modules/sasa_functions.html#out_of_range_exeption"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.out_of_range_exeption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Funzione per il check di fattibilità della inverse
+Vecchia funzione non usarla</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.range_check">
+<code class="descclassname">sasa_functions.</code><code class="descname">range_check</code><span class="sig-paren">(</span><em>q: numpy.array</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sasa_functions.html#range_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.range_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>range_check controlla che i valori di giunto siano all’interno dei limiti imposti
+dai limiti meccanici del braccio</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>q</strong> (<em>np.array valori di giunto correnti</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<li><strong>res</strong> (<em>True se i valori di giunto sono all’interno dei limiti, False altrimenti</em>)</li>
+<li><strong>bool_vec</strong> (<em>np.array di 3 valori, 1 se il giunto è all’interno dei limiti, 0 altrimenti</em>)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.rotate">
+<code class="descclassname">sasa_functions.</code><code class="descname">rotate</code><span class="sig-paren">(</span><em>task: bool</em>, <em>elbow: bool</em>, <em>q_pres: numpy.array</em>, <em>direct: &lt;module 'string' from '/usr/lib/python3.8/string.py'&gt;</em>, <em>steps: int</em>, <em>distance</em>, <em>q_gripper: float</em>, <em>in_final_frame: bool = False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sasa_functions.html#rotate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>rotate si occupa di calcolare la cinematica inversa per ruotare, in una direzione
+specificata, per una certa distanza, in un certo numero di passi.
+NOTA: in_final_frame non è consigliato per la rotazione, infatti è commentato</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>task</strong> (<em>bool True se pirulazione</em><em>, </em><em>False se maintenance</em>) – </li>
+<li><strong>elbow</strong> (<em>bool True se UP</em><em>, </em><em>False se DOWN</em>) – </li>
+<li><strong>q_pres</strong> (<em>np.array sei valori di giunto correnti</em>) – </li>
+<li><strong>direct</strong> (<em>string direzione in cui andare</em><em> (</em><em>r_cw</em><em>, </em><em>r_ccw</em><em>, </em><em>p_cw</em><em>, </em><em>p_ccw</em><em>, </em><em>y_cw</em><em>, </em><em>y_ccw</em><em>)</em>) – </li>
+<li><strong>steps</strong> (<em>int numero di passi</em>) – </li>
+<li><strong>distance</strong> (<em>float distanza da percorrere</em>) – </li>
+<li><strong>q_gripper</strong> (<em>float larghezza corrente della pinza</em><em> (</em><em>se c'è una pinza</em><em>)</em>) – </li>
+<li><strong>in_final_frame</strong> (<em>bool False se si vuole andare dritti nello spazio del base link</em><em>, </em><em>True se si vuole andare dritti nello spazio dell'end effector</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>q_des</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.array sei valori di giunto calcolati</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.scale_traj">
+<code class="descclassname">sasa_functions.</code><code class="descname">scale_traj</code><span class="sig-paren">(</span><em>Ti</em>, <em>lim_vel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sasa_functions.html#scale_traj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.scale_traj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.tf_camera_from_base">
+<code class="descclassname">sasa_functions.</code><code class="descname">tf_camera_from_base</code><span class="sig-paren">(</span><em>q: numpy.array</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sasa_functions.html#tf_camera_from_base"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.tf_camera_from_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>tf_camera_from_base si occupa di calcolare la matrice di roto-traslazione, attraverso il formalismo
+di Denavith-Hartemberg, a partire dai valori di giunto, per passare dal frame del base link, a quello
+della camera.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>q</strong> (<em>np.array valori di giunto correnti</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>camera_final</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.array matrice di roto-traslazione da camera_frame a base_frame</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sasa_functions.weighted_norm">
+<code class="descclassname">sasa_functions.</code><code class="descname">weighted_norm</code><span class="sig-paren">(</span><em>x</em>, <em>w=array([1.</em>, <em>1.</em>, <em>1.</em>, <em>1.</em>, <em>1.</em>, <em>1.])</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sasa_functions.html#weighted_norm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sasa_functions.weighted_norm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="main_functions.html" class="btn btn-neutral float-left" title="Main Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="traj_genv6.html" class="btn btn-neutral float-right" title="traj_genv6 module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Antonio Bozza.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+    /* Sidebar header (and topbar for mobile) */
+    .wy-side-nav-search, .wy-nav-top {
+      background: #F1C232;
+    }
+    /* Sidebar
+    .wy-nav-side {
+      background: #ff0000;
+    } */
+  </style>
+
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+Usage
+=====
+
+Installation
+------------
+
+To use Lumache, first install it using pip:
+
+.. code-block:: console
+
+   $ pip install ...
+   
+Functions
+
+you can use the ``inv_kin_bis()`` function:
+
+.. autofunction:: ./sasa_functions.inv_kin_bis
