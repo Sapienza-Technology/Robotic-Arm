@@ -13,6 +13,7 @@
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -40,11 +41,13 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="math_expln.html">Mathematical Background</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="main_functions.html">Main Functions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Docker Setup</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#on-ubuntu">On Ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#on-windows">On Windows</a></li>
 </ul>
 </li>
 </ul>
@@ -75,11 +78,91 @@
              
   <div class="section" id="docker-setup">
 <h1>Docker Setup<a class="headerlink" href="#docker-setup" title="Permalink to this headline">¶</a></h1>
-<p>This is a simple docker setup for running a local development environment</p>
-<p>If on Ubuntu, you can install docker engine following the instructions here: <a class="reference external" href="https://docs.docker.com/engine/installation/linux/ubuntulinux/">https://docs.docker.com/engine/installation/linux/ubuntulinux/</a></p>
-<p>If on Windows you can install docker Desktop following the instructions here: <a class="reference external" href="https://docs.docker.com/desktop/install/windows-install/">https://docs.docker.com/desktop/install/windows-install/</a></p>
+<p>This is a simple docker setup for running a local development environment
+for the arm project.</p>
+<p>The docker image is based on Ubuntu 20.04 and ROS Noetic.</p>
 <div class="section" id="on-ubuntu">
 <h2>On Ubuntu<a class="headerlink" href="#on-ubuntu" title="Permalink to this headline">¶</a></h2>
+<p>Install docker engine following the instructions here: <a class="reference external" href="https://docs.docker.com/engine/installation/linux/ubuntulinux/">https://docs.docker.com/engine/installation/linux/ubuntulinux/</a></p>
+<p>After the installation is complete, download from the shared folder <a class="reference external" href="https://drive.google.com/drive/folders/1GU7_l9fJuTjuC4oRc309Y_ViFABsb78h?usp=sharing">https://drive.google.com/drive/folders/1GU7_l9fJuTjuC4oRc309Y_ViFABsb78h?usp=sharing</a>
+the Docker file Dockerfile.sasa_dock, and run the following line on terminal:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>sasa_dock<span class="w"> </span>.<span class="w"> </span>-f<span class="w"> </span>./Dockerfile.sasa_dock
+</pre></div>
+</div>
+<p>This command will build the image of the SASA docker, naming it sasa_dock.
+After completing the building operation, that will take a few minutes, the image will be in the
+Docker Desktop application and it will be available to run in a container.</p>
+<p>To create the container and open the docker bash, execute the following commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>create<span class="w"> </span>--net<span class="o">=</span>host<span class="w"> </span>--device<span class="o">=</span>/dev/dri<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span>/tmp/.X11-unix:/tmp/.X11-unix<span class="w"> </span>-e<span class="w"> </span>DISPLAY<span class="w"> </span>--name<span class="w"> </span>arm_cont<span class="w">  </span>sasa_dock
+<span class="gp">$ </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>arm_cont<span class="w"> </span>/bin/bash
+</pre></div>
+</div>
+<p>Moreover, it can be useful to download also the Docker extention for VSCode, to navigate the container, but
+the docker engine need the root permission to run, and VSCode does not have the root permission.</p>
+<p>To allow VSCode to see the images and the containers, it is necessary to add the user to the docker group:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span><span class="nv">$USER</span>
+</pre></div>
+</div>
+<p>After this, it is necessary to restart the computer to apply the changes.</p>
+<p>If this does not solve the VSCode problem and the user is still not able to see the images and the containers,
+it is necessary to change the docker deamon to run as non root user. n
+To change its permission follow the instructions here: <a class="reference external" href="https://docs.docker.com/engine/install/linux-postinstall/">https://docs.docker.com/engine/install/linux-postinstall/</a>
+and <a class="reference external" href="https://docs.docker.com/engine/security/rootless/">https://docs.docker.com/engine/security/rootless/</a> n
+After completing the procedure, the docker engine will run as non root user.</p>
+<p>If executing docker engine, the following error comes out:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+
+<span class="go">out: error getting credentials - err: docker-credential-desktop resolves to executable in current directory (./docker-credential-desktop) ...</span>
+</pre></div>
+</div>
+<p>try to run the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>rm<span class="w"> </span>-rf<span class="w"> </span>~/.docker
+</pre></div>
+</div>
+<p>it should solve it.</p>
+</div>
+<div class="section" id="on-windows">
+<h2>On Windows<a class="headerlink" href="#on-windows" title="Permalink to this headline">¶</a></h2>
+<p>A similar procedure can be done on Windows, but with some final differences. n
+Install Docker Desktop from <a class="reference external" href="https://docs.docker.com/desktop/install/windows-install/">https://docs.docker.com/desktop/install/windows-install/</a>
+Make sure to follow the procedure described in the site, considering that it is more simple
+to activate WSL 2 for the Docker Engine to work, as described at the beginning of the installation.</p>
+<p>After completing the installation procedure, download from the shared folder <a class="reference external" href="https://drive.google.com/drive/folders/1GU7_l9fJuTjuC4oRc309Y_ViFABsb78h?usp=sharing">https://drive.google.com/drive/folders/1GU7_l9fJuTjuC4oRc309Y_ViFABsb78h?usp=sharing</a>
+the Docker file Dockerfile.sasa_dock, and run the following line on Windows Terminal, running it as
+Administator:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>sasa_dock<span class="w"> </span>.<span class="w"> </span>-f<span class="w"> </span>.<span class="se">\D</span>ockerfile.sasa_dock
+</pre></div>
+</div>
+<p>This command will build the image of the SASA docker, naming it sasa_dock.
+After completing the building operation, that will take a few minutes, the image will be in the
+Docker Desktop application and it will be available to run in a container. n
+To create the container and open the docker bash, execute the following commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>create<span class="w"> </span>--net<span class="o">=</span>host<span class="w"> </span>--device<span class="o">=</span>/dev/dri<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span>/tmp/.X11-unix:/tmp/.X11-unix<span class="w"> </span>-e<span class="w"> </span>DISPLAY<span class="w"> </span>--name<span class="w"> </span>arm_cont<span class="w">  </span>sasa_dock
+<span class="gp">$ </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>arm_cont<span class="w"> </span>/bin/bash
+</pre></div>
+</div>
+<p>Moreover, it can be useful to download also the Docker extention for VSCode, to navigate the container
+in a fast way.</p>
+<p>It can happen that, executing the container, roscore does not run because the network is not configured
+as it should, resulting in ROS being uncapable of talking with the machine itself.
+To solve this problem it is necessary to change the file root/.bashrc:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apt<span class="w"> </span>install<span class="w"> </span>nano
+<span class="gp">$ </span>hostname<span class="w"> </span>-I
+
+<span class="go">out: 192.168.61.5 ... (example)</span>
+</pre></div>
+</div>
+<p>choose the first address and change the file:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nano<span class="w"> </span>root/.bashrc
+</pre></div>
+</div>
+<p>add at the end of the file the following lines:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export ROS_HOSTNAME=192.168.61.5</span>
+<span class="go">export ROS_MASTER_URI=http://192.168.61.5:11311</span>
+</pre></div>
+</div>
+<p>save the file, close the container bash and reopen it. n
+Now, the container is ready to run roscore and the other ROS nodes.</p>
 </div>
 </div>
 
