@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mathematical Background &mdash; arm_2023 v1 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="prev" title="Welcome to Tech Team 2023 Arm code documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            arm_2023
+              <img src="_static/STT_Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mathematical Background</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#direct-kinematics">Direct Kinematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inverse-kinematics">Inverse Kinematics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main_functions.html">Main Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker_setup.html">Docker Setup</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">arm_2023</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Mathematical Background</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/math_expln.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="mathematical-background">
+<h1>Mathematical Background<a class="headerlink" href="#mathematical-background" title="Permalink to this headline">¶</a></h1>
+<p>The following is a brief overview of the mathematical background of the
+kinematic control of the arm.</p>
+<p>The arm is a &amp;-DoF manipulator, this means that we can position and orient the end-effector as we wish.
+The scheme of the arm is shown in the figure below.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/arm_scheme.png"><img alt="_images/arm_scheme.png" src="_images/arm_scheme.png" style="width: 1029.0px; height: 528.0px;" /></a>
+</div>
+<p>The configuration shown in the slide is the zero (home) configuration of the arm.
+The Denavith-Hartenberg (DH) formalism is considered to find the kinematics equations of the arm.
+The DH parameters of the arm are shown in the table below.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="16%" />
+<col width="23%" />
+<col width="23%" />
+<col width="26%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Link</th>
+<th class="head"><span class="math notranslate nohighlight">\(a\)</span></th>
+<th class="head"><span class="math notranslate nohighlight">\(\alpha\)</span></th>
+<th class="head"><span class="math notranslate nohighlight">\(d\)</span></th>
+<th class="head"><span class="math notranslate nohighlight">\(\theta\)</span></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>0</td>
+<td><span class="math notranslate nohighlight">\(\pi/2\)</span></td>
+<td>0.0655</td>
+<td><span class="math notranslate nohighlight">\(q_1\)</span></td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>0.2950</td>
+<td>0</td>
+<td>0.0</td>
+<td><span class="math notranslate nohighlight">\(q_2\)</span></td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>0.0</td>
+<td><span class="math notranslate nohighlight">\(-\pi/2\)</span></td>
+<td>0.0</td>
+<td><span class="math notranslate nohighlight">\(q_3-\pi/2\)</span></td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>0.0</td>
+<td><span class="math notranslate nohighlight">\(\pi/2\)</span></td>
+<td>0.3610</td>
+<td><span class="math notranslate nohighlight">\(q_4\)</span></td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>0.0</td>
+<td><span class="math notranslate nohighlight">\(-\pi/2\)</span></td>
+<td>0.0</td>
+<td><span class="math notranslate nohighlight">\(q_5\)</span></td>
+</tr>
+<tr class="row-odd"><td>6</td>
+<td>0.0</td>
+<td>0</td>
+<td><span class="math notranslate nohighlight">\(l_{ee}\)</span></td>
+<td><span class="math notranslate nohighlight">\(q_6\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The joint angles are denoted by
+<span class="math notranslate nohighlight">\(q_1, q_2, q_3, q_4, q_5, q_6\)</span>.</p>
+<p>The link lenght are denoted by
+<span class="math notranslate nohighlight">\(l_1 = 0.2950, l_2 = 0.3610\)</span>.</p>
+<p>The end-effector lenght can differ from the task considered. The two main values are:
+<span class="math notranslate nohighlight">\(l_{ee} = 0.1400\)</span> for the maintenance, and <span class="math notranslate nohighlight">\(l_{ee} = 0.090\)</span> for the pirulation (science).</p>
+<p>From the formalism we can derive the direct and inverse kinematics equations of the arm.</p>
+<div class="section" id="direct-kinematics">
+<h2>Direct Kinematics<a class="headerlink" href="#direct-kinematics" title="Permalink to this headline">¶</a></h2>
+<p>The direct kinematics equations are given by the product of the homogeneous transformation matrices of each link.
+The homogeneous transformation matrix of the link <span class="math notranslate nohighlight">\(i\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}^{i-1}T_i = \begin{bmatrix}
+c_{\theta_i} &amp; -s_{\theta_i}c_{\alpha_i} &amp; s_{\theta_i}s_{\alpha_i} &amp; a_ic_{\theta_i} \\
+s_{\theta_i} &amp; c_{\theta_i}c_{\alpha_i} &amp; -c_{\theta_i}s_{\alpha_i} &amp; a_is_{\theta_i} \\
+0 &amp; s_{\alpha_i} &amp; c_{\alpha_i} &amp; d_i \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(c_{\theta_i} = \cos(\theta_i)\)</span> and <span class="math notranslate nohighlight">\(s_{\theta_i} = \sin(\theta_i)\)</span>.</p>
+<p>The direct kinematics equations are given by</p>
+<div class="math notranslate nohighlight">
+\[^0T_6 = ^0T_1 ^1T_2 ^2T_3 ^3T_4 ^4T_5 ^5T_6\]</div>
+<p>The direct kinematics equations are implemented in the function <code class="xref py py-func docutils literal notranslate"><span class="pre">dir_kin_total()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">dir_kin_total_with_rot()</span></code>
+with both of them returning the end-effector (ee) position, and the second also returning the rotation matrix.</p>
+</div>
+<div class="section" id="inverse-kinematics">
+<h2>Inverse Kinematics<a class="headerlink" href="#inverse-kinematics" title="Permalink to this headline">¶</a></h2>
+<p>The inverse kinematics is solved in two steps: n
+first the desired position of the wrist center is calculated from the desired position in the end-effector frame,
+The desired position of the wrist center is given by</p>
+<div class="math notranslate nohighlight">
+\[^0p_{wc} = ^0p_{ee} - d_6 ^0R_{target}\]</div>
+<p>where <span class="math notranslate nohighlight">\(^0p_{ee}\)</span> is the desired position of the end-effector in the base frame, <span class="math notranslate nohighlight">\(^0R_{target}\)</span> is the desired
+rotation matrix of the end-effector in the base frame, and <span class="math notranslate nohighlight">\(d_6\)</span> is the length of the last link of the arm (to reach the wrist center).</p>
+<p>The inverse kinematics equations of this first step are given by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}q_1 &amp;= \arctan\left(\frac{y}{x}\right) \\
+\\
+c_3 &amp;= \frac{^0p_{wc,x}^2 + ^0p_{wc,y}^2 + (^0p_{wc,z}-d_0)^2 - l_1^2 - l_2^2}{2l_1l_2} \\
+s_3 &amp;= \pm\sqrt{1-c_2^2} \\
+q_3 &amp;= \arctan2(s_2, c_2) \\
+\\
+\begin{bmatrix}
+c_1 \\
+s_1
+\end{bmatrix} &amp;= \begin{bmatrix}
+l_1+l_2c_3 &amp; -l_2s_3 \\
+l_2s_3, l_1+l_2c_3
+\end{bmatrix}^{-1}
+\begin{bmatrix}
+c_1 ^0p_{wc,x} + s_1 ^0p_{wc,y} \\
+^0p_{wc,z} - d_0
+\end{bmatrix} \\
+q_2 &amp;= \arctan2(s_1, c_1) \\\end{split}\]</div>
+<p>The second component of the inverse kinematics is finding <span class="math notranslate nohighlight">\(q_4, q_5, q_6\)</span> by making the orientation of
+the end-effector coincide with the desired one.
+The inverse kinematics equations of this second step are given by imposing the following equality</p>
+<div class="math notranslate nohighlight">
+\[^0R_{ee} = ^0R_{wc}(q_1, q_2, q_3) ^{wc}R_{ee}(q_4, q_5, q_6) = ^0R_{target}\]</div>
+<p>where <span class="math notranslate nohighlight">\(^0R_{ee}\)</span> is the rotation matrix of the end-effector in the base frame, and <span class="math notranslate nohighlight">\(^0R_{target}\)</span> is the desired
+rotation matrix of the end-effector in the base frame, <span class="math notranslate nohighlight">\(^0R_{wc}\)</span> is the rotation matrix of the wrist center in the base frame,
+already decided by the found value of the first three joints, and <span class="math notranslate nohighlight">\(^{wc}R_{ee}\)</span> is the rotation matrix of the ee in the wc frame,
+which is dependent only by the three last joints.</p>
+<p>By finding the analytic expression of <span class="math notranslate nohighlight">\(^{wc}R_{ee}\)</span>, the values of the last three joints can be found inverting the equation above.</p>
+<p>The analytic expression of <span class="math notranslate nohighlight">\(^{wc}R_{ee}\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}^{wc}R_{ee} = \begin{bmatrix}
+c_4c_5c_6 - s_4s_6 &amp; -c_4c_5s_6 - s_4c_6 &amp; c_4s_5 \\
+s_4c_5c_6 + c_4s_6 &amp; -s_4c_5s_6 + c_4c_6 &amp; s_4s_5 \\
+-s_5c_6 &amp; s_5s_6 &amp; c_5
+\end{bmatrix}\end{split}\]</div>
+<p>So the inverse kinematics equations of the second step are given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}q_4 &amp;= \arctan\left(\frac{-R_{sol,23}}{-R_{sol,13}}\right) \\
+q_5 &amp;= \arctan\left(\frac{1-R_{sol,33}^2}{R_{sol,33}}\right) \\
+q_6 &amp;= \arctan\left(\frac{-R_{sol,32}}{-R_{sol,31}}\right) \\\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(R_{sol,ij}\)</span> is the element of the rotation matrix <span class="math notranslate nohighlight">\(R_{sol} = ^0R_{wc}(q_1, q_2, q_3)'\)</span> <span class="math notranslate nohighlight">\(^0R_{target}\)</span>.</p>
+<p>The inverse kinematics equations are implemented in the function <code class="xref py py-func docutils literal notranslate"><span class="pre">inv_kin_total_bis()</span></code>.</p>
+<p>The inverse kinematics equations are not unique:
+there are 8 possible solutions that are generated by the different possible signs of the <span class="math notranslate nohighlight">\(sqrt\)</span>,
+and the solution of the inverse kinematics equations is not always possible, given the workspace and the joint limits.
+This cases are accounted by the function <code class="xref py py-func docutils literal notranslate"><span class="pre">best_qp()</span></code></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Tech Team 2023 Arm code documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Antonio Bozza.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+    /* Sidebar header (and topbar for mobile) */
+    .wy-side-nav-search, .wy-nav-top {
+      background: #F1C232;
+    }
+    /* Sidebar
+    .wy-nav-side {
+      background: #ff0000;
+    } */
+  </style>
+
+
+</body>
+</html>

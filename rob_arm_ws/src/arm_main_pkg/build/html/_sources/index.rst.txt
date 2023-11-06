@@ -4,12 +4,13 @@
    contain the root `toctree` directive.
 
 Welcome to Tech Team 2023 Arm code documentation!
-====================================
+=================================================
 
 Contents
 --------
 
 .. toctree::
+   math_expln
    installation
    usage
    main_functions

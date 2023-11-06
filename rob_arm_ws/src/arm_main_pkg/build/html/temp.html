@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Python Module Index &mdash; arm_2023 v1 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>&lt;no title&gt; &mdash; arm_2023 v1 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -16,14 +16,7 @@
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
- 
-
-    <script type="text/javascript">
-      DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true;
-    </script>
-
-
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -68,8 +61,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Python Module Index</li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
       <li class="wy-breadcrumbs-aside">
+            <a href="_sources/temp.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -77,50 +71,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-
-   <h1>Python Module Index</h1>
-
-   <div class="modindex-jumpbox">
-   <a href="#cap-c"><strong>c</strong></a> | 
-   <a href="#cap-g"><strong>g</strong></a> | 
-   <a href="#cap-s"><strong>s</strong></a> | 
-   <a href="#cap-t"><strong>t</strong></a>
-   </div>
-
-   <table class="indextable modindextable">
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-c"><td></td><td>
-       <strong>c</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="conf.html#module-conf"><code class="xref">conf</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-g"><td></td><td>
-       <strong>g</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="getch.html#module-getch"><code class="xref">getch</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-s"><td></td><td>
-       <strong>s</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="sasa_functions.html#module-sasa_functions"><code class="xref">sasa_functions</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-t"><td></td><td>
-       <strong>t</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="traj_genv6.html#module-traj_genv6"><code class="xref">traj_genv6</code></a></td><td>
-       <em></em></td></tr>
-   </table>
+  <p>The Jacobian matrix is given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}J = \begin{bmatrix}
+\frac{\partial x}{\partial q_1} &amp; \frac{\partial x}{\partial q_2} &amp; \frac{\partial x}{\partial q_3} &amp; \frac{\partial x}{\partial q_4} &amp; \frac{\partial x}{\partial q_5} &amp; \frac{\partial x}{\partial q_6} \\
+\frac{\partial y}{\partial q_1} &amp; \frac{\partial y}{\partial q_2} &amp; \frac{\partial y}{\partial q_3} &amp; \frac{\partial y}{\partial q_4} &amp; \frac{\partial y}{\partial q_5} &amp; \frac{\partial y}{\partial q_6} \\
+\frac{\partial z}{\partial q_1} &amp; \frac{\partial z}{\partial q_2} &amp; \frac{\partial z}{\partial q_3} &amp; \frac{\partial z}{\partial q_4} &amp; \frac{\partial z}{\partial q_5} &amp; \frac{\partial z}{\partial q_6} \\
+\end{bmatrix}\end{split}\]</div>
+<p>The Jacobian matrix is implemented in the function <code class="xref py py-func docutils literal notranslate"><span class="pre">jacobian_bis()</span></code>.</p>
+<p>The pseudo-inverse of the Jacobian matrix is given by</p>
+<div class="math notranslate nohighlight">
+\[J^+ = (J^TJ)^{-1}J^T\]</div>
+<p>The pseudo-inverse of the Jacobian matrix is implemented in the function <code class="xref py py-func docutils literal notranslate"><span class="pre">jacobian_pinv_bis()</span></code>.</p>
 
 
            </div>
