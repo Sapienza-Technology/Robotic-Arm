@@ -13,11 +13,12 @@
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Usage" href="usage.html" />
-    <link rel="prev" title="Welcome to Tech Team 2023 Arm code documentation!" href="index.html" /> 
+    <link rel="prev" title="Mathematical Background" href="math_expln.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,6 +42,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="math_expln.html">Mathematical Background</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="main_functions.html">Main Functions</a></li>
@@ -73,6 +75,8 @@
              
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>The installation can be done on a virtual machine or on a real machine.
+The installation on a virtual machine is recommended on VMware, because the Oracle VM gives problems with the terminal in Ubuntu.m\</p>
 <p>To use the 2023 Tech Arm code it is essential to install some packages.
 Firts make sure to have installed python3.6 or higher.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>--version
@@ -84,46 +88,58 @@ Firts make sure to have installed python3.6 or higher.</p>
 </div>
 <p>To run the majority of the code and to comunicate with the arm motors, ROS Noetic is needed.
 To install ROS Noetic follow the instructions on the official ROS website: <a class="reference external" href="http://wiki.ros.org/noetic/Installation/Ubuntu">http://wiki.ros.org/noetic/Installation/Ubuntu</a>
-Make sure to install the full desktop version of ROS Noetic:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-noetic-desktop-full
-</pre></div>
-</div>
+Make sure to install the full desktop version of ROS Noetic. n</p>
 <p>Another important package is MoveIt. To install it follow the instructions on the official MoveIt website: <a class="reference external" href="https://moveit.ros.org/install/">https://moveit.ros.org/install/</a>
 Make sure to install the version of MoveIt for ROS Noetic:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ros-noetic-moveit
 </pre></div>
 </div>
-<p>An essential package to run the code is roboticstoolbox-python. To install it run the following command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>roboticstoolbox-python
+<p>To install the python packages, first installo the pip package manager:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-pip
 </pre></div>
 </div>
-<p>Morover, make sure to have some relevant python packages installed, if not use pip to install them:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>numpy
-<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>scipy
-<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>matplotlib
-<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>sympy
-<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>spatialmath-python
-<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>rospkg
-<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>catkin_pkg
-<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>opencv-python
-<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>swift-sim
+<p>Make sure to install some relevant python packages, use pip to install them:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip3<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>roboticstoolbox-python<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>sympy<span class="w"> </span>qpsolvers<span class="w"> </span>matplotlib<span class="w"> </span>spatialmath-python<span class="w"> </span>rospkg<span class="w"> </span>catkin_pkg<span class="w"> </span>catkin-tools<span class="w"> </span>opencv-python<span class="w"> </span>swift-sim
 </pre></div>
 </div>
-<p>To install the 2023 Tech Arm code, first clone the repository:</p>
+<p>Then you need to clone a GitHub repository on your PC, containing 2023 Tech Arm code.</p>
+<p>First install git:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git
+</pre></div>
+</div>
+<p>Then clone the repository:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Sapienza-Technology/Robotic-Arm.git
+</pre></div>
+</div>
+<p>To build the project you need to install catkin build:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-catkin-tools
 </pre></div>
 </div>
 <p>Then, move to the rob_arm_ws folder and build the workspace:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>Robotic-Arm/rob_arm_ws
+<span class="gp">$ </span>catkin<span class="w"> </span>clean<span class="w"> </span>-y
 <span class="gp">$ </span>catkin<span class="w"> </span>build
 </pre></div>
 </div>
-<p>Finally, source the workspace:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>devel/setup.bash
+<p>If the catkin does not build correctly giving the error:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>The<span class="w"> </span>catkin<span class="w"> </span>Cmake<span class="w"> </span>module<span class="w"> </span>was<span class="w"> </span>not<span class="w"> </span>found<span class="w"> </span>....
 </pre></div>
 </div>
-<p>To test the installation, run the following command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>rosrun<span class="w"> </span>arm_main_pkg<span class="w"> </span>interactive_stupid_trajectory.launch
+<p>probably you have not sourced the ROS noetic setup.bash file. To do so, run the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>/opt/ros/noetic/setup.bash
+</pre></div>
+</div>
+<p>or add the same line at the end of the file ~/.bashrc, opening it with nano:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nano<span class="w"> </span>~/.bashrc
+</pre></div>
+</div>
+<p>To test the installation, first open a terminal and run roscore</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roscore
+</pre></div>
+</div>
+<p>Then run the following commands in a second window:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>devel/setup.bash
+<span class="gp">$ </span>rosrun<span class="w"> </span>arm_main_pkg<span class="w"> </span>interactive_stupid_trajectory.py
 </pre></div>
 </div>
 <p>If everything is installed correctly, instructions on how to move the arm should appear in the terminal.</p>
@@ -133,7 +149,7 @@ Make sure to install the version of MoveIt for ROS Noetic:</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Tech Team 2023 Arm code documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="math_expln.html" class="btn btn-neutral float-left" title="Mathematical Background" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
