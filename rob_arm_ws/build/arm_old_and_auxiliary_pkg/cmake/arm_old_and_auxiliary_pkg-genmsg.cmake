@@ -2,7 +2,7 @@
 
 message(STATUS "arm_old_and_auxiliary_pkg: 1 messages, 0 services")
 
-set(MSG_I_FLAGS "-Iarm_old_and_auxiliary_pkg:/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Iarm_old_and_auxiliary_pkg:/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -17,9 +17,9 @@ add_custom_target(arm_old_and_auxiliary_pkg_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg" NAME_WE)
+get_filename_component(_filename "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg" NAME_WE)
 add_custom_target(_arm_old_and_auxiliary_pkg_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "arm_old_and_auxiliary_pkg" "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "arm_old_and_auxiliary_pkg" "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg" ""
 )
 
 #
@@ -29,7 +29,7 @@ add_custom_target(_arm_old_and_auxiliary_pkg_generate_messages_check_deps_${_fil
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(arm_old_and_auxiliary_pkg
-  "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg"
+  "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/arm_old_and_auxiliary_pkg
@@ -49,7 +49,7 @@ add_custom_target(arm_old_and_auxiliary_pkg_generate_messages_cpp
 add_dependencies(arm_old_and_auxiliary_pkg_generate_messages arm_old_and_auxiliary_pkg_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg" NAME_WE)
+get_filename_component(_filename "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg" NAME_WE)
 add_dependencies(arm_old_and_auxiliary_pkg_generate_messages_cpp _arm_old_and_auxiliary_pkg_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -62,7 +62,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS arm_old_and_auxiliary_pkg_generate_
 ### Section generating for lang: geneus
 ### Generating Messages
 _generate_msg_eus(arm_old_and_auxiliary_pkg
-  "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg"
+  "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/arm_old_and_auxiliary_pkg
@@ -82,7 +82,7 @@ add_custom_target(arm_old_and_auxiliary_pkg_generate_messages_eus
 add_dependencies(arm_old_and_auxiliary_pkg_generate_messages arm_old_and_auxiliary_pkg_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg" NAME_WE)
+get_filename_component(_filename "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg" NAME_WE)
 add_dependencies(arm_old_and_auxiliary_pkg_generate_messages_eus _arm_old_and_auxiliary_pkg_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -95,7 +95,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS arm_old_and_auxiliary_pkg_generate_
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(arm_old_and_auxiliary_pkg
-  "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg"
+  "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/arm_old_and_auxiliary_pkg
@@ -115,7 +115,7 @@ add_custom_target(arm_old_and_auxiliary_pkg_generate_messages_lisp
 add_dependencies(arm_old_and_auxiliary_pkg_generate_messages arm_old_and_auxiliary_pkg_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg" NAME_WE)
+get_filename_component(_filename "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg" NAME_WE)
 add_dependencies(arm_old_and_auxiliary_pkg_generate_messages_lisp _arm_old_and_auxiliary_pkg_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -128,7 +128,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS arm_old_and_auxiliary_pkg_generate_
 ### Section generating for lang: gennodejs
 ### Generating Messages
 _generate_msg_nodejs(arm_old_and_auxiliary_pkg
-  "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg"
+  "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/arm_old_and_auxiliary_pkg
@@ -148,7 +148,7 @@ add_custom_target(arm_old_and_auxiliary_pkg_generate_messages_nodejs
 add_dependencies(arm_old_and_auxiliary_pkg_generate_messages arm_old_and_auxiliary_pkg_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg" NAME_WE)
+get_filename_component(_filename "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg" NAME_WE)
 add_dependencies(arm_old_and_auxiliary_pkg_generate_messages_nodejs _arm_old_and_auxiliary_pkg_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -161,7 +161,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS arm_old_and_auxiliary_pkg_generate_
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(arm_old_and_auxiliary_pkg
-  "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg"
+  "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/arm_old_and_auxiliary_pkg
@@ -181,7 +181,7 @@ add_custom_target(arm_old_and_auxiliary_pkg_generate_messages_py
 add_dependencies(arm_old_and_auxiliary_pkg_generate_messages arm_old_and_auxiliary_pkg_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg" NAME_WE)
+get_filename_component(_filename "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg" NAME_WE)
 add_dependencies(arm_old_and_auxiliary_pkg_generate_messages_py _arm_old_and_auxiliary_pkg_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

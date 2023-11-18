@@ -1,3 +1,3 @@
-Symlinking /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib/pkgconfig/arm_main_pkg.pc
-Symlinking /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/share/arm_main_pkg/cmake/arm_main_pkgConfig.cmake
-Symlinking /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/share/arm_main_pkg/cmake/arm_main_pkgConfig-version.cmake
+Symlinking /home/techsapienza/Robotic-Arm/rob_arm_ws/devel/lib/pkgconfig/arm_main_pkg.pc
+Symlinking /home/techsapienza/Robotic-Arm/rob_arm_ws/devel/share/arm_main_pkg/cmake/arm_main_pkgConfig-version.cmake
+Symlinking /home/techsapienza/Robotic-Arm/rob_arm_ws/devel/share/arm_main_pkg/cmake/arm_main_pkgConfig.cmake

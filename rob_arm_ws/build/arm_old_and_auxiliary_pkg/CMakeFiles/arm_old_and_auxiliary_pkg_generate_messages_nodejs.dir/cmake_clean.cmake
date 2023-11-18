@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/arm_old_and_auxiliary_pkg/share/gennodejs/ros/arm_old_and_auxiliary_pkg/msg/Float6Array.js"
+  "/home/techsapienza/Robotic-Arm/rob_arm_ws/devel/.private/arm_old_and_auxiliary_pkg/share/gennodejs/ros/arm_old_and_auxiliary_pkg/msg/Float6Array.js"
   "CMakeFiles/arm_old_and_auxiliary_pkg_generate_messages_nodejs"
 )
 

@@ -1,3 +1,0 @@
-[ 50%] [32mBuilding CXX object CMakeFiles/get_compressed_image_exe.dir/scripts/get_compressed_images.cpp.o[0m
-[100%] [32m[1mLinking CXX executable /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tasks_utils/lib/tasks_utils/get_compressed_image_exe[0m
-[100%] Built target get_compressed_image_exe

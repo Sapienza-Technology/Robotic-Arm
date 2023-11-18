@@ -67,14 +67,14 @@ set(arm_old_and_auxiliary_pkg_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(arm_old_and_auxiliary_pkg_SOURCE_PREFIX /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg)
-  set(arm_old_and_auxiliary_pkg_DEVEL_PREFIX /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/arm_old_and_auxiliary_pkg)
+  set(arm_old_and_auxiliary_pkg_SOURCE_PREFIX /home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg)
+  set(arm_old_and_auxiliary_pkg_DEVEL_PREFIX /home/techsapienza/Robotic-Arm/rob_arm_ws/devel/.private/arm_old_and_auxiliary_pkg)
   set(arm_old_and_auxiliary_pkg_INSTALL_PREFIX "")
   set(arm_old_and_auxiliary_pkg_PREFIX ${arm_old_and_auxiliary_pkg_DEVEL_PREFIX})
 else()
   set(arm_old_and_auxiliary_pkg_SOURCE_PREFIX "")
   set(arm_old_and_auxiliary_pkg_DEVEL_PREFIX "")
-  set(arm_old_and_auxiliary_pkg_INSTALL_PREFIX /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install)
+  set(arm_old_and_auxiliary_pkg_INSTALL_PREFIX /home/techsapienza/Robotic-Arm/rob_arm_ws/install)
   set(arm_old_and_auxiliary_pkg_PREFIX ${arm_old_and_auxiliary_pkg_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/lib;/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/techsapienza/Robotic-Arm/rob_arm_ws/install/lib;/home/techsapienza/Robotic-Arm/rob_arm_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

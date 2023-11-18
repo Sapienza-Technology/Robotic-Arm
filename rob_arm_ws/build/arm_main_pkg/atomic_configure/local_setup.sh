@@ -3,7 +3,7 @@
 
 # since this file is sourced either use the provided _CATKIN_SETUP_DIR
 # or fall back to the destination set at configure time
-: ${_CATKIN_SETUP_DIR:=/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/arm_main_pkg}
+: ${_CATKIN_SETUP_DIR:=/home/techsapienza/Robotic-Arm/rob_arm_ws/devel/.private/arm_main_pkg}
 CATKIN_SETUP_UTIL_ARGS="--extend --local"
 . "$_CATKIN_SETUP_DIR/setup.sh"
 unset CATKIN_SETUP_UTIL_ARGS

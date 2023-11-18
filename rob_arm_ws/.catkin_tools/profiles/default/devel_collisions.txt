@@ -34,3 +34,4 @@
 /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/share/gennodejs/ros/braccio_urdf_description/_index.js 2
 /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/share/gennodejs/ros/braccio_urdf_description/msg/_index.js 2
 /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/share/gennodejs/ros/braccio_urdf_description/msg/Float6Array.js 2
+/home/techsapienza/Robotic-Arm/rob_arm_ws/devel/./cmake.lock 3

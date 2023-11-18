@@ -1,8 +1,8 @@
-# Install script for directory: /home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg
+# Install script for directory: /home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/techsapienza/Robotic-Arm/rob_arm_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -37,12 +37,7 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-# Set default install directory permissions.
-if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
-endif()
-
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   
       if (NOT EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}")
         file(MAKE_DIRECTORY "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}")
@@ -52,165 +47,165 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
       endif()
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/_setup_util.py")
+   "/home/techsapienza/Robotic-Arm/rob_arm_ws/install/_setup_util.py")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install" TYPE PROGRAM FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/_setup_util.py")
+file(INSTALL DESTINATION "/home/techsapienza/Robotic-Arm/rob_arm_ws/install" TYPE PROGRAM FILES "/home/techsapienza/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/_setup_util.py")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/env.sh")
+   "/home/techsapienza/Robotic-Arm/rob_arm_ws/install/env.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install" TYPE PROGRAM FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/env.sh")
+file(INSTALL DESTINATION "/home/techsapienza/Robotic-Arm/rob_arm_ws/install" TYPE PROGRAM FILES "/home/techsapienza/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/env.sh")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/setup.bash;/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/local_setup.bash")
+   "/home/techsapienza/Robotic-Arm/rob_arm_ws/install/setup.bash;/home/techsapienza/Robotic-Arm/rob_arm_ws/install/local_setup.bash")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install" TYPE FILE FILES
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/setup.bash"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/local_setup.bash"
+file(INSTALL DESTINATION "/home/techsapienza/Robotic-Arm/rob_arm_ws/install" TYPE FILE FILES
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/setup.bash"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/local_setup.bash"
     )
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/setup.sh;/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/local_setup.sh")
+   "/home/techsapienza/Robotic-Arm/rob_arm_ws/install/setup.sh;/home/techsapienza/Robotic-Arm/rob_arm_ws/install/local_setup.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install" TYPE FILE FILES
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/setup.sh"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/local_setup.sh"
+file(INSTALL DESTINATION "/home/techsapienza/Robotic-Arm/rob_arm_ws/install" TYPE FILE FILES
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/setup.sh"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/local_setup.sh"
     )
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/setup.zsh;/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/local_setup.zsh")
+   "/home/techsapienza/Robotic-Arm/rob_arm_ws/install/setup.zsh;/home/techsapienza/Robotic-Arm/rob_arm_ws/install/local_setup.zsh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install" TYPE FILE FILES
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/setup.zsh"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/local_setup.zsh"
+file(INSTALL DESTINATION "/home/techsapienza/Robotic-Arm/rob_arm_ws/install" TYPE FILE FILES
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/setup.zsh"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/local_setup.zsh"
     )
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install/.rosinstall")
+   "/home/techsapienza/Robotic-Arm/rob_arm_ws/install/.rosinstall")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install" TYPE FILE FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/.rosinstall")
+file(INSTALL DESTINATION "/home/techsapienza/Robotic-Arm/rob_arm_ws/install" TYPE FILE FILES "/home/techsapienza/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/.rosinstall")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/arm_old_and_auxiliary_pkg/msg" TYPE FILE FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/arm_old_and_auxiliary_pkg/msg" TYPE FILE FILES "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/msg/Float6Array.msg")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/arm_old_and_auxiliary_pkg/cmake" TYPE FILE FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/arm_old_and_auxiliary_pkg-msg-paths.cmake")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/arm_old_and_auxiliary_pkg/cmake" TYPE FILE FILES "/home/techsapienza/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/arm_old_and_auxiliary_pkg-msg-paths.cmake")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/arm_old_and_auxiliary_pkg/include/arm_old_and_auxiliary_pkg")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/techsapienza/Robotic-Arm/rob_arm_ws/devel/.private/arm_old_and_auxiliary_pkg/include/arm_old_and_auxiliary_pkg")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/arm_old_and_auxiliary_pkg/share/roseus/ros/arm_old_and_auxiliary_pkg")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/techsapienza/Robotic-Arm/rob_arm_ws/devel/.private/arm_old_and_auxiliary_pkg/share/roseus/ros/arm_old_and_auxiliary_pkg")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/arm_old_and_auxiliary_pkg/share/common-lisp/ros/arm_old_and_auxiliary_pkg")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/techsapienza/Robotic-Arm/rob_arm_ws/devel/.private/arm_old_and_auxiliary_pkg/share/common-lisp/ros/arm_old_and_auxiliary_pkg")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/arm_old_and_auxiliary_pkg/share/gennodejs/ros/arm_old_and_auxiliary_pkg")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/techsapienza/Robotic-Arm/rob_arm_ws/devel/.private/arm_old_and_auxiliary_pkg/share/gennodejs/ros/arm_old_and_auxiliary_pkg")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/arm_old_and_auxiliary_pkg/lib/python3/dist-packages/arm_old_and_auxiliary_pkg")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/techsapienza/Robotic-Arm/rob_arm_ws/devel/.private/arm_old_and_auxiliary_pkg/lib/python3/dist-packages/arm_old_and_auxiliary_pkg")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/arm_old_and_auxiliary_pkg/lib/python3/dist-packages/arm_old_and_auxiliary_pkg")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/techsapienza/Robotic-Arm/rob_arm_ws/devel/.private/arm_old_and_auxiliary_pkg/lib/python3/dist-packages/arm_old_and_auxiliary_pkg")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/arm_old_and_auxiliary_pkg.pc")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/techsapienza/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/arm_old_and_auxiliary_pkg.pc")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/arm_old_and_auxiliary_pkg/cmake" TYPE FILE FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/arm_old_and_auxiliary_pkg-msg-extras.cmake")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/arm_old_and_auxiliary_pkg/cmake" TYPE FILE FILES "/home/techsapienza/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/arm_old_and_auxiliary_pkg-msg-extras.cmake")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/arm_old_and_auxiliary_pkg/cmake" TYPE FILE FILES
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/arm_old_and_auxiliary_pkgConfig.cmake"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/arm_old_and_auxiliary_pkgConfig-version.cmake"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/arm_old_and_auxiliary_pkgConfig.cmake"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/catkin_generated/installspace/arm_old_and_auxiliary_pkgConfig-version.cmake"
     )
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/arm_old_and_auxiliary_pkg" TYPE FILE FILES "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/package.xml")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/arm_old_and_auxiliary_pkg" TYPE FILE FILES "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/package.xml")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/arm_old_and_auxiliary_pkg" TYPE PROGRAM FILES
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/robot_arm_script.py"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/PID.py"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/target_sender.py"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/arm_functions.py"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/getch.py"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/ikine.py"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/interactive_send_goal.py"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/pid_test.py"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/ramp.py"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/robot_arm_script.py"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/send_goal.py"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/image_sender.py"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/send_trajectory_final.py"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/sasa_functions.py"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/traj_genv6.py"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/trajectory.py"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/stupid_trajectory.py"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/interactive_stupid_trajectory.py"
-    "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/prova_movit_dock.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/robot_arm_script.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/PID.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/target_sender.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/arm_functions.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/getch.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/ikine.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/interactive_send_goal.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/pid_test.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/ramp.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/robot_arm_script.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/send_goal.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/image_sender.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/send_trajectory_final.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/sasa_functions.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/traj_genv6.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/trajectory.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/stupid_trajectory.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/interactive_stupid_trajectory.py"
+    "/home/techsapienza/Robotic-Arm/rob_arm_ws/src/arm_old_and_auxiliary_pkg/scripts/prova_movit_dock.py"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/gtest/cmake_install.cmake")
+  include("/home/techsapienza/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/gtest/cmake_install.cmake")
 
 endif()
 
@@ -222,5 +217,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/techsapienza/Robotic-Arm/rob_arm_ws/build/arm_old_and_auxiliary_pkg/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

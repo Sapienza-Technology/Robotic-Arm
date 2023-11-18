@@ -1,4 +1,4 @@
-prefix=/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/install
+prefix=/home/techsapienza/Robotic-Arm/rob_arm_ws/install
 
 Name: arm_main_pkg
 Description: Description of arm_main_pkg

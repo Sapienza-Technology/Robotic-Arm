@@ -1,8 +1,0 @@
-prefix=/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tasks_utils
-
-Name: tasks_utils
-Description: Description of tasks_utils
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

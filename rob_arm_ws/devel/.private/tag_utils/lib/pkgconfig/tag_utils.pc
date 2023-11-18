@@ -1,8 +1,0 @@
-prefix=/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils
-
-Name: tag_utils
-Description: Description of tag_utils
-Version: 0.0.0
-Cflags: -I/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/tag_utils/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime

@@ -13,23 +13,41 @@ def degToRad(angle):
 def main():
     ### Initialization ROS Node ###
     rospy.init_node("stupid_trajectory")
+    offsets = np.array([0, degToRad(90), degToRad(-90), 0, 0, 0])
+
+    steps = 50
 
     ### Initialization ROS Publishers ###
     pub_command = rospy.Publisher("/firmware_arm_pos", Float32MultiArray, queue_size=1)
     pub_command_vel = rospy.Publisher("/firmware_arm_vel", Float32MultiArray, queue_size=1)
     pub_ee = rospy.Publisher("/firmware_EEP_pos", Float32, queue_size=100)
 
-    # change offsets to change starting position
-    offsets = np.array([0, degToRad(90), degToRad(-90), 0, 0, 0])
+    trovato=False
+    traiettorie = ["paletta", "pirulo", "inPose", "prova", "cubo", "cerchio", "ballo", "vuoto", "vuoto2", "miatraiettoria"]
+    while(True):
+        print("Scegliere una traiettoria: paletta, pirulo, inPose, prova, cubo, cerchio, ballo, vuoto, vuoto2, miatraiettoria")
+        stringa=input()
+        print(stringa)
+        for i in range(len(traiettorie)):
+            if stringa==traiettorie[i]:
+                premade_traj(traiettorie[i], steps, offsets)
+                trovato=True
+                break
+        if trovato==False:
+            print("Traiettoria non valida")
+        if trovato==True:
+            break
+    
 
-    steps = 50
+    # change offsets to change starting position
+    
 
 
     print("Generando traiettoria...")
 
-    time.sleep(5)
-    T, gripper_state = premade_traj("cubo", steps, offsets) #array of trajectories between points
-    print(T)
+    #time.sleep(5)
+    #T, gripper_state = premade_traj("miatraiettoria", steps, offsets) #array of trajectories between points
+    #print(T)
 
     print("Traiettoria generata: eseguendo...")
 

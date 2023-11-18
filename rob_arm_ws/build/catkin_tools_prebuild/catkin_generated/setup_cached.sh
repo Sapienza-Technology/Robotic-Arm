@@ -7,7 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/catkin_tools_prebuild:$CMAKE_PREFIX_PATH"
-export PWD='/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/catkin_tools_prebuild'
-export ROSLISP_PACKAGE_DIRECTORIES='/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/devel/.private/catkin_tools_prebuild/share/common-lisp'
-export ROS_PACKAGE_PATH="/home/toto/Documents/SASA/SASA/Robotic-Arm/rob_arm_ws/build/catkin_tools_prebuild:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/techsapienza/Robotic-Arm/rob_arm_ws/devel/.private/catkin_tools_prebuild:$CMAKE_PREFIX_PATH"
+export PWD='/home/techsapienza/Robotic-Arm/rob_arm_ws/build/catkin_tools_prebuild'
+export ROSLISP_PACKAGE_DIRECTORIES='/home/techsapienza/Robotic-Arm/rob_arm_ws/devel/.private/catkin_tools_prebuild/share/common-lisp'
+export ROS_PACKAGE_PATH="/home/techsapienza/Robotic-Arm/rob_arm_ws/build/catkin_tools_prebuild:$ROS_PACKAGE_PATH"

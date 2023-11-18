@@ -151,6 +151,13 @@ def premade_traj(no, steps, starting_q:np.array):
         elbow_all = [True, True, True]
         gripper_state = [0.0, 0.0, 0.0]
 
+    elif(no == "miatraiettoria"):
+        task = False
+        c_all = [np.array([0.2, 0.2, 0.4]), np.array([0.2, 0.5, 0.0]), np.array([0.0, 0.4, 0.2]), np.array([0.4, 0.0, 0.3])]
+        R_all = [Ry(pi/2), Ry(0), Ry(pi/2), Ry(0)]
+        elbow_all = [True, True, True, True]
+        gripper_state = [0.0, 0.0, 0.0, 0.0]
+
     else:
         print("Give as input pirulo or paletta or prova")
     return era_traj_vel(task, starting_q, c_all, R_all, elbow_all, steps), gripper_state
