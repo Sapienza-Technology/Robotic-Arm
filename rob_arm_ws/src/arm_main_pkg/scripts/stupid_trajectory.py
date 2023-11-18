@@ -30,7 +30,7 @@ def main():
         print(stringa)
         for i in range(len(traiettorie)):
             if stringa==traiettorie[i]:
-                premade_traj(traiettorie[i], steps, offsets)
+                T, gripper_state = premade_traj(traiettorie[i], steps, offsets)
                 trovato=True
                 break
         if trovato==False:
